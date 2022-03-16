@@ -57,26 +57,26 @@ client.on("messageCreate", async message => {
 		}
 
 		case "sula": {
-			const sulaEmbed = new MessageEmbed()
+			const embed = new MessageEmbed()
 				.setTitle(`Bitkiyi suladın! 🌱`)
 				.setColor('GREEN')
 				.addField('Toprak nemi', `${getHumidity()}%`)
 				.setFooter({ text: message.member.displayName, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
 				.setTimestamp();
 
-			message.channel.send({ embeds: [sulaEmbed] });
+			message.channel.send({ embeds: [embed] });
 			break;
 		}
 
 		case "fotoğraf": {
-			const fotografEmbed = new MessageEmbed()
+			const embed = new MessageEmbed()
 				.setTitle(`Bitkinin şuanki fotoğrafı 📷`)
 				.setColor('DARK_BUT_NOT_BLACK')
 				.setImage('http://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-g-graptosedum-species-succulent-plant.jpg?v=1634220770s')
 				.setFooter({ text: message.member.displayName, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
 				.setTimestamp();
 
-			message.channel.send({ embeds: [fotografEmbed] });
+			message.channel.send({ embeds: [embed] });
 			break;
 		}
 
