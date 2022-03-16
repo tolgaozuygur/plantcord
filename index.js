@@ -1,37 +1,86 @@
-require('dotenv').config(); //initialize dotenv
-const fetch = require('node-fetch');
+require('dotenv').config();
 const { Client, Intents, MessageEmbed } = require('discord.js');
-const mysql2 = require('mysql2');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_PRESENCES] });
 
-function getHumidity(){
-    ///getting humidity...
-    humidity = Math.random().toFixed(2);
-    console.log(humidity);
-    return humidity;
+const token = process.env.TOKEN;
+const prefix = '!';
+
+function getHumidity() {
+	///getting humidity...
+	humidity = Math.random().toFixed(2);
+	console.log(humidity);
+	return humidity;
 }
 
-function water_flower(){
-    return 1;
+function waterTheFlower() {
+	return 1;
 }
-client.on('ready', async () => {
-    const guild = client.guilds.cache.get(process.env.GUILD_ID)
-    let channel = guild.channels.cache.get(process.env.CHANNEL_ID)
+
+client.on('ready', () => {
+	console.log(`Logged in as ${client.user.tag}!`);
+	client.user.setActivity(`${prefix}help`);
 });
 
-client.on('message', function(message) {
-    if (message.content === '!watered') {
-        ///watering....
-        water_flower();
-        message.reply('I gave our flower a drop of water.');
-    }
-    if (message.content === '!humidity') {
-        ///getting humidity....
-        message.reply('Humidity : %'+getHumidity());
-    }
+client.on("messageCreate", async message => {
+	if (message.author.bot) return;
+	if (!message.content.startsWith(prefix)) return;
+
+	let commandBody = message.content.slice(prefix.length);
+	let args = commandBody.split(" ");
+	let command = args.shift().toLowerCase();
+
+	switch (command) {
+		case "ping": {
+			const apiLatency = Math.round(message.client.ws.ping);
+			const pingEmbed = new MessageEmbed()
+				.setTitle(`Pong! 🏓`)
+				.setColor('RED')
+				.addField('API Latency', `${apiLatency}ms`)
+				.setFooter({ text: message.member.displayName, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+				.setTimestamp();
+
+			message.channel.send({ embeds: [pingEmbed] });
+			break;
+		}
+
+		case "uptime": {
+			// client.uptime is in millseconds
+			let days = Math.floor(client.uptime / 86400000);
+			let hours = Math.floor(client.uptime / 3600000) % 24;
+			let minutes = Math.floor(client.uptime / 60000) % 60;
+			let seconds = Math.floor(client.uptime / 1000) % 60;
+
+			message.channel.send(
+				`Uptime: ${days}d ${hours}h ${minutes}m ${seconds}s`
+			);
+			break;
+		}
+
+		case "sula": {
+			const sulaEmbed = new MessageEmbed()
+				.setTitle(`Bitkiyi suladın! 🌱`)
+				.setColor('GREEN')
+				.addField('Toprak nemi', `${getHumidity()}%`)
+				.setFooter({ text: message.member.displayName, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+				.setTimestamp();
+
+			message.channel.send({ embeds: [sulaEmbed] });
+			break;
+		}
+
+		case "fotoğraf": {
+			const fotografEmbed = new MessageEmbed()
+				.setTitle(`Bitkinin şuanki fotoğrafı 📷`)
+				.setColor('DARK_BUT_NOT_BLACK')
+				.setImage('http://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-g-graptosedum-species-succulent-plant.jpg?v=1634220770s')
+				.setFooter({ text: message.member.displayName, iconURL: message.author.displayAvatarURL({ dynamic: true }) })
+				.setTimestamp();
+
+			message.channel.send({ embeds: [fotografEmbed] });
+			break;
+		}
+
+	}
 });
 
-client.login(process.env.CLIENT_TOKEN);
-
-
-
+client.login(token);
