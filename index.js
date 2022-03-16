@@ -11,11 +11,11 @@ const client = new Client({
 const config = require('./config.json');
 const prefix = config.prefix;
 
-function getHumidity() {
-  ///getting humidity...
-  humidity = Math.random().toFixed(2);
-  console.log(humidity);
-  return humidity;
+function getMoisture() {
+  ///getting moisture...
+  moisture = Math.random().toFixed(2);
+  console.log(moisture);
+  return moisture;
 }
 
 function waterTheFlower() {
@@ -69,7 +69,7 @@ client.on('messageCreate', async (message) => {
       const embed = new MessageEmbed()
         .setTitle(`Bitkiyi suladın! 🌱`)
         .setColor('GREEN')
-        .addField('Toprak nemi', `${getHumidity()}%`)
+        .addField('Toprak nemi', `${getMoisture()}%`)
         .setFooter({
           text: message.member.displayName,
           iconURL: message.author.displayAvatarURL({ dynamic: true }),
