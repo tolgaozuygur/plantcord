@@ -5,7 +5,6 @@ Project is currently being developed as a collab on the server: discord.gg/halle
 
 # To deploy and run
 
-- install 
-- change .env.example to .env
-- edit .env file
+- npm install 
+- edit config.json file
 - run node index.js
