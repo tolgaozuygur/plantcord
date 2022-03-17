@@ -1,4 +1,3 @@
-require('dotenv').config();
 const { Client, Intents, MessageEmbed } = require('discord.js');
 const client = new Client({
   intents: [
@@ -22,6 +21,15 @@ function waterTheFlower() {
   return 1;
 }
 
+function getAllCommands(){
+  let commands= Object.values(config.commands);
+  let commandList  = [];
+  commands.forEach(com=>{
+    commandList.push({name : com , value : config.answers[com].desc})
+  })
+  return commandList;
+}
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   client.user.setActivity(`${prefix}help`);
@@ -36,40 +44,12 @@ client.on('messageCreate', async (message) => {
   let command = args.shift().toLowerCase();
 
   switch (command) {
-    case 'ping': {
+    case config.commands.ping: {
       const apiLatency = Math.round(message.client.ws.ping);
-      const pingEmbed = new MessageEmbed()
-        .setTitle(`Pong! 🏓`)
-        .setColor('RED')
-        .addField('API Latency', `${apiLatency}ms`)
-        .setFooter({
-          text: message.member.displayName,
-          iconURL: message.author.displayAvatarURL({ dynamic: true }),
-        })
-        .setTimestamp();
-
-      message.channel.send({ embeds: [pingEmbed] });
-      break;
-    }
-
-    case 'uptime': {
-      // client.uptime is in millseconds
-      let days = Math.floor(client.uptime / 86400000);
-      let hours = Math.floor(client.uptime / 3600000) % 24;
-      let minutes = Math.floor(client.uptime / 60000) % 60;
-      let seconds = Math.floor(client.uptime / 1000) % 60;
-
-      message.channel.send(
-        `Uptime: ${days}d ${hours}h ${minutes}m ${seconds}s`
-      );
-      break;
-    }
-
-    case 'sula': {
       const embed = new MessageEmbed()
-        .setTitle(`Bitkiyi suladın! 🌱`)
-        .setColor('GREEN')
-        .addField('Toprak nemi', `${getMoisture()}%`)
+        .setTitle(config.answers.ping.title)
+        .setColor(config.answers.ping.color)
+        .addField(config.answers.ping.field,`${apiLatency}ms`)
         .setFooter({
           text: message.member.displayName,
           iconURL: message.author.displayAvatarURL({ dynamic: true }),
@@ -80,12 +60,67 @@ client.on('messageCreate', async (message) => {
       break;
     }
 
-    case 'fotoğraf': {
+    case config.commands.uptime: {
+      // client.uptime is in millseconds
+      let days = Math.floor(client.uptime / 86400000);
+      let hours = Math.floor(client.uptime / 3600000) % 24;
+      let minutes = Math.floor(client.uptime / 60000) % 60;
+      let seconds = Math.floor(client.uptime / 1000) % 60;
+
       const embed = new MessageEmbed()
-        .setTitle(`Bitkinin şuanki fotoğrafı 📷`)
-        .setColor('DARK_BUT_NOT_BLACK')
+        .setTitle(config.answers.uptime.title)
+        .setColor(config.answers.uptime.color)
+        .addField(config.answers.uptime.field,`${days}d ${hours}h ${minutes}m ${seconds}s`)
+        .setFooter({
+          text: message.member.displayName,
+          iconURL: message.author.displayAvatarURL({ dynamic: true }),
+        })
+        .setTimestamp();
+
+      message.channel.send({ embeds: [embed] });
+      break;
+    }
+
+    case config.commands.water: {
+      const embed = new MessageEmbed()
+        .setTitle(config.answers.water.title)
+        .setColor(config.answers.water.color)
+        .setFooter({
+          text: message.member.displayName,
+          iconURL: message.author.displayAvatarURL({ dynamic: true }),
+        })
+        .setTimestamp();
+      if(config.answers.water.field){
+        embed.addField(config.answers.water.field, `${getMoisture()}%`)
+      }
+
+      message.channel.send({ embeds: [embed] });
+      break;
+    }
+
+    case config.commands.photo: {
+      const embed = new MessageEmbed()
+        .setTitle(config.answers.photo.title)
+        .setColor(config.answers.photo.color)
         .setImage(
-          'http://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-g-graptosedum-species-succulent-plant.jpg?v=1634220770s'
+          'attachment://example.png',
+        )
+        .setFooter({
+          text: message.member.displayName,
+          iconURL: message.author.displayAvatarURL({ dynamic: true }),
+        })
+        .setTimestamp();
+
+      message.channel.send({ embeds: [embed], files: [config.answers.photo.photo_path]  });
+      break;
+    }
+
+    default : {
+      const embed = new MessageEmbed()
+        .setTitle(config.answers.default.title)
+        .setColor(config.answers.default.color)
+        .addFields(
+          getAllCommands()
         )
         .setFooter({
           text: message.member.displayName,
