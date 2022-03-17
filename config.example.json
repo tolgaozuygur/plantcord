@@ -3,7 +3,7 @@
   "plant_name": "",
   "moisture": "",
   "prefix": "!",
-  "bot_token": "OTUzNjMwNzg0MTc3MjA5Mzc0.YjHX4A.aENft5F-9LdsB2zsL31fcPClELw",
+  "bot_token": "",
   "plant_camera_path": "",
   "commands" : {
     "ping" : "ping",
