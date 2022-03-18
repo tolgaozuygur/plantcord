@@ -1,6 +1,6 @@
 # Plantcord
 
-![Plantcord](https://media.discordapp.net/attachments/952649255456211024/954143214141579274/discord-plant.png)
+![Plantcord](https://raw.githubusercontent.com/tolgaozuygur/plantcord/main/plantcord.png)
 
 ### Plant caring system for Discord communities
 
