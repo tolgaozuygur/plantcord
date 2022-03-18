@@ -24,7 +24,8 @@ $ node index.js
 ```
 ## Contributors
 
-- [Tolga Özuygur (@tolgaozuygur)](https://github.com/tolgaozuygur)
-- [Nazım Sarp Tekbaş (@sarptekbas)](https://github.com/sarptekbas)
 - [Asım Murat Yılmaz (@asiminnesli)](https://github.com/asiminnesli)
+- [Hurby](https://dribbble.com/hurby24)
+- [Nazım Sarp Tekbaş (@sarptekbas)](https://github.com/sarptekbas)
 - [Robot. (@Robotsi)](https://github.com/Robotsi)
+- [Tolga Özuygur (@tolgaozuygur)](https://github.com/tolgaozuygur)
