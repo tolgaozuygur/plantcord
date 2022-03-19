@@ -38,8 +38,8 @@ for (const file of commandFiles) {
 
 client.on('messageCreate', async (message) => {
   if (message.author.bot) return;
-  if (!message.content.startsWith(prefix)) return;
-  const commandBody = message.content.slice(prefix.length);
+  if (!message.content.startsWith(client.config.prefix)) return;
+  const commandBody = message.content.slice(client.config.prefix.length);
   const args = commandBody.split(' ');
   const commandName = args.shift().toLowerCase();
   const command = client.commands.get(commandName);
