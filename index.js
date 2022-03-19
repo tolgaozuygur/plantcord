@@ -8,9 +8,13 @@ const client = new Client({
   ],
 });
 client.config = require('./config.json');
-const prefix = client.config.prefix;
 client.commands = new Collection();
 client.helpers = {};
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+  client.user.setActivity(`${client.config.prefix}help`);
+});
 
 // Defining helper functions under client.
 const helperFiles = fs.readdirSync('./helpers').filter(file => file.endsWith('.js'));
@@ -21,11 +25,6 @@ for (const file of helperFiles) {
   client.helpers[helperName] = helper;
   console.log(`${helperName} - Helper loaded!`);
 }
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity(`${prefix}help`);
-});
 
 // COMMAND HANDLER
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
