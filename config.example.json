@@ -4,41 +4,5 @@
   "moisture": "",
   "prefix": "!",
   "bot_token": "",
-  "plant_camera_path": "",
-  "commands" : {
-    "ping" : "ping",
-    "uptime" : "uptime",
-    "water" : "water",
-    "photo" : "photo"
-  },
-  "answers" : {
-    "ping" : {
-      "title" : "Pong! 🏓",
-      "desc" : "Ping-pong",
-      "color" : "YELLOW",
-      "field" : "API Latency"
-    },
-    "uptime" : {
-      "title" : "Uptime",
-      "desc" : "Getting Uptime",
-      "color" : "RED",
-      "field" : "Uptime : "
-    },
-    "water" : {
-      "title" : "Bitkiyi suladın! 🌱",
-      "desc" : "Bitki sulamak için",
-      "color" : "BLUE",
-      "field" : "Toprak Nemi "
-    },
-    "photo" : {
-      "title" : "Bitkinin şuanki fotoğrafı 📷",
-      "desc" : "Bitkinin anlık fotoğrafı için",
-      "color" : "GREY",
-      "photo_path" : "plant_photo.webp"
-    },
-    "default" : {
-      "title" : "Kullanılabilecek Komutlar",
-      "field" : "Liste : "
-    }
-  }
+  "plant_camera_path": ""
 }
