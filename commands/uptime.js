@@ -1,11 +1,12 @@
 const {MessageEmbed} = require("discord.js");
+const localization = require('../localization.json');
 
 module.exports.info = {
-  "title" : "Uptime",
-  "name" : "uptime",
-  "desc" : "Getting Uptime",
-  "color" : "RED",
-  "field" : "Uptime : "
+  "title" : localization.commands.uptime.title,
+  "name" : localization.commands.uptime.name,
+  "desc" : localization.commands.uptime.desc,
+  "color" : localization.commands.uptime.color,
+  "field" : localization.commands.uptime.field,
 }
 
 module.exports.execute = (client, message) => {
