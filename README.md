@@ -25,6 +25,7 @@ $ node index.js
 ## Contributors
 
 - [Asım Murat Yılmaz (@asiminnesli)](https://github.com/asiminnesli)
+- [h3xexe (@h3xexe)](https://github.com/h3xexe)
 - [Hurby](https://dribbble.com/hurby24)
 - [Nazım Sarp Tekbaş (@sarptekbas)](https://github.com/sarptekbas)
 - [Robot. (@Robotsi)](https://github.com/Robotsi)
