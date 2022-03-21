@@ -28,5 +28,6 @@ $ node index.js
 - [h3xexe (@h3xexe)](https://github.com/h3xexe)
 - [Hurby](https://dribbble.com/hurby24)
 - [Nazım Sarp Tekbaş (@sarptekbas)](https://github.com/sarptekbas)
+- [Ozan Efe Akpınar (@ozefear)](https://ozefear.me)
 - [Robot. (@Robotsi)](https://github.com/Robotsi)
 - [Tolga Özuygur (@tolgaozuygur)](https://github.com/tolgaozuygur)
