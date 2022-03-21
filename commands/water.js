@@ -1,4 +1,4 @@
-const {MessageEmbed} = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const localization = require('../localization.json');
 
 module.exports.info = {
@@ -8,19 +8,21 @@ module.exports.info = {
   "color" : localization.commands.water.color,
   "field" : localization.commands.water.field
 }
+module.exports = {
+	name: "water",
+	description: "Water stuff",
+	async execute(client, interaction) {
 
-module.exports.execute = (client, message) => {
-  const embed = new MessageEmbed()
-    .setTitle(this.info.title)
-    .setColor(this.info.color)
-    .setFooter({
-      text: message.member.displayName,
-      iconURL: message.author.displayAvatarURL({ dynamic: true }),
-    })
-    .setTimestamp();
-  if(this.info.field){
-    embed.addField(this.info.field, `${client.helpers.getMoisture()}%`)
-  }
-
-  message.channel.send({ embeds: [embed] });
-}
+    try {
+      const moisture = Math.random().toFixed(2);
+      const wembed = new MessageEmbed()
+				.setColor(this.info.color)
+				.setTitle(this.info.title)
+      if(this.info.field) embed.addField(this.info.field, `${moisture}%`)
+      console.log(moisture)
+			interaction.reply({ embeds: [wembed] });	
+    } catch (error) {
+      interaction.reply({content:"Ewwow"});
+    }
+	},
+};

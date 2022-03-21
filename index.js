@@ -1,5 +1,4 @@
-const { Client, Intents, Collection } = require('discord.js');
-const fs = require("fs");
+const { Client, Intents } = require('discord.js');
 const client = new Client({
   intents: [
     Intents.FLAGS.GUILDS,
@@ -7,16 +6,18 @@ const client = new Client({
     Intents.FLAGS.GUILD_PRESENCES,
   ],
 });
-client.config = require('./config.json');
-client.commands = new Collection();
-client.helpers = {};
+const { token } = require('./config.json');
+const { nya } = require(`./uwu`);
+const path = resolve(__dirname, "commands");
+client.commands = nya(path);
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity(`${client.config.prefix}help`);
+  client.user.setActivity(`Slash Command smh`);
 });
 
-// Defining helper functions under client.
+/* Defining helper functions under client.
+client.helpers = {};
 const helperFiles = fs.readdirSync('./helpers').filter(file => file.endsWith('.js'));
 
 for (const file of helperFiles) {
@@ -25,29 +26,19 @@ for (const file of helperFiles) {
   client.helpers[helperName] = helper;
   console.log(`${helperName} - Helper loaded!`);
 }
+idk whats this 
+*/
 
-// COMMAND HANDLER
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-
-// Reading each command file and defining under client.
-for (const file of commandFiles) {
-  const command = require(`./commands/${file}`);
-  client.commands.set(command.info.name, command);
-  console.log(`${command.info.name} - Command loaded!`);
-}
-
-client.on('messageCreate', async (message) => {
-  if (message.author.bot) return;
-  if (!message.content.startsWith(client.config.prefix)) return;
-  const commandBody = message.content.slice(client.config.prefix.length);
-  const args = commandBody.split(' ');
-  const commandName = args.shift().toLowerCase();
-  const command = client.commands.get(commandName);
-  if (!command){
-    return await message.reply({content:'This command does not exists.'})
-  }
-
-  await command.execute(client, message, args);
+//Slash Go brr
+client.on('interactionCreate', async interaction => {
+	const command = client.commands.get(interaction.commandName);
+	try {
+		command.execute(client, interaction);
+	}
+	catch (err){
+		console.log(err);
+	}
 });
 
-client.login(client.config.bot_token);
+
+client.login(token);

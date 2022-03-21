@@ -1,3 +1,4 @@
+const wait = require('util').promisify(setTimeout);
 const {MessageEmbed} = require("discord.js");
 const localization = require('../localization.json');
 
@@ -9,17 +10,48 @@ module.exports.info = {
   "field" : localization.commands.ping.field,
 }
 
-module.exports.execute = (client, message) => {
-  const apiLatency = Math.round(message.client.ws.ping);
-  const embed = new MessageEmbed()
-    .setTitle(this.info.title)
-    .setColor(this.info.color)
-    .addField(this.info.field,`${apiLatency}ms`)
-    .setFooter({
-      text: message.member.displayName,
-      iconURL: message.author.displayAvatarURL({ dynamic: true }),
-    })
-    .setTimestamp();
 
-  message.channel.send({ embeds: [embed] });
-}
+module.exports = {
+	name: "ping",
+	description: "Ping stuff",
+	async execute(client, interaction) {
+		try {
+      let pcMsg = new Date();
+		
+      function msToTime(ms) {
+			  let days = Math.floor(ms / 86400000);
+			  let daysms = ms % 86400000;
+			  let hours = Math.floor(daysms / 3600000);
+			  let hoursms = ms % 3600000;
+			  let minutes = Math.floor(hoursms / 60000);
+			  let minutesms = ms % 60000;
+			  let sec = Math.floor(minutesms / 1000);
+		
+			  let str = "";
+			  if (days) str = str + days + "d ";
+			  if (hours) str = str + hours + "h ";
+			  if (minutes) str = str + minutes + "m ";
+			  if (sec) str = str + sec + "s";
+		
+			  return str;
+		  }
+
+		  interaction.reply("Pinging");
+		  await wait(1000)
+
+		  const Embed = new MessageEmbed()
+        .setColor(this.info.color)
+        .setTitle("Ping")
+			  .addFields(
+				  {name: "**Server**:", value: `${(pcMsg - interaction.createdAt)} ms`},
+				  {name: "**API**:", value: `${Math.round(client.ws.ping)} ms`},
+				  {name: "**Uptime**:", value: `${msToTime(client.uptime)}`},
+			  )
+
+		  await interaction.editReply({ embeds: [Embed] });	    
+    } catch (error) {
+      interaction.reply({content:"https://dar.vin/bgKXe"});
+    }
+    
+	},
+};
