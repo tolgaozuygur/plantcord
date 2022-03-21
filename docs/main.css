@@ -2,11 +2,6 @@
     background: #544ee2;
 }
 
-BODY {
-    background: rgb(84, 78, 226);
-    background: linear-gradient(180 deg, rgba(84, 78, 226, 1) 0%, rgba(1, 201, 188, 1) 100%);
-}
-
 html {
     height: 100%;
 }
@@ -16,4 +11,6 @@ body {
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background: rgb(84,78,226);
+    background: linear-gradient(180deg, rgba(84,78,226,1) 0%, rgba(1,201,188,1) 100%);
 }
