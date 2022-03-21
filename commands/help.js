@@ -1,9 +1,10 @@
 const {MessageEmbed} = require("discord.js");
+const localization = require('../localization.json');
 
 module.exports.info = {
-  "title" : "Yardım",
-  "name" : "help",
-  "color" : "GREY",
+  "title" : localization.commands.help.title,
+  "name" : localization.commands.help.name,
+  "color" : localization.commands.help.color,
 }
 
 module.exports.execute = async (client, message) => {

@@ -1,0 +1,38 @@
+{
+    "commands" : {
+        "help" : {
+            "title" : "HELP",
+            "name" : "help",
+            "color" : "GREEN"
+        },
+        "water" : {
+            "title" : "Bitkiyi suladın! 🌱",
+            "name" : "water",
+            "desc" : "Bitki sulamak için",
+            "color" : "BLUE",
+            "field" : "Toprak Nemi "
+        },
+        "ping" : {
+            "title" : "Pong! 🏓",
+            "name" : "ping",
+            "desc" : "Ping-pong",
+            "color" : "YELLOW",
+            "field" : "API Latency"
+        },
+        "uptime" : {
+            "title" : "Uptime",
+            "name" : "uptime",
+            "desc" : "Getting Uptime",
+            "color" : "RED",
+            "field" : "Uptime : "
+        },
+        "photo" : {
+            "title" : "Bitkinin şuanki fotoğrafı 📷",
+            "name" : "photo",
+            "desc" : "Bitkinin anlık fotoğrafı için",
+            "color" : "GREY",
+            "photo_path" : "plantcord.png"
+        }
+        
+    }
+}

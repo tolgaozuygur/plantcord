@@ -1,23 +1,24 @@
 const {MessageEmbed} = require("discord.js");
+const localization = require('../localization.json');
 
 module.exports.info = {
-  "title" : "Bitkinin şuanki fotoğrafı 📷",
-  "name" : "photo",
-  "desc" : "Bitkinin anlık fotoğrafı için",
-  "color" : "GREY",
-  "photo_path" : "plant_photo.webp"
+  "title" : localization.commands.photo.title,
+  "name" :  localization.commands.photo.name,
+  "desc" :  localization.commands.photo.desc,
+  "color" :  localization.commands.photo.color,
+  "photo_path" :  localization.commands.photo.photo_path,
 }
 
 module.exports.execute = (client, message) => {
   const embed = new MessageEmbed()
     .setTitle(this.info.title)
     .setColor(this.info.color)
-    .setImage('https://raw.githubusercontent.com/tolgaozuygur/plantcord/main/plantcord.png')
+    .setImage(`attachment://${this.info.photo_path}`)
     .setFooter({
       text: message.member.displayName,
       iconURL: message.author.displayAvatarURL({ dynamic: true }),
     })
     .setTimestamp();
 
-  message.channel.send({ embeds: [embed] });
+  message.channel.send({ embeds: [embed],files: [this.info.photo_path] });
 }

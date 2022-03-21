@@ -1,11 +1,12 @@
 const {MessageEmbed} = require("discord.js");
+const localization = require('../localization.json');
 
 module.exports.info = {
-  "title" : "Pong! 🏓",
-  "name" : "ping",
-  "desc" : "Ping-pong",
-  "color" : "YELLOW",
-  "field" : "API Latency"
+  "title" : localization.commands.ping.title,
+  "name" : localization.commands.ping.name,
+  "desc" : localization.commands.ping.desc,
+  "color" : localization.commands.ping.color,
+  "field" : localization.commands.ping.field,
 }
 
 module.exports.execute = (client, message) => {

@@ -1,11 +1,12 @@
 const {MessageEmbed} = require("discord.js");
+const localization = require('../localization.json');
 
 module.exports.info = {
-  "title" : "Bitkiyi suladın! 🌱",
-  "name" : "water",
-  "desc" : "Bitki sulamak için",
-  "color" : "BLUE",
-  "field" : "Toprak Nemi "
+  "title" : localization.commands.water.title,
+  "name" : localization.commands.water.name,
+  "desc" : localization.commands.water.desc,
+  "color" : localization.commands.water.color,
+  "field" : localization.commands.water.field
 }
 
 module.exports.execute = (client, message) => {
