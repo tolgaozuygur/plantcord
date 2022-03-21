@@ -69,6 +69,77 @@
             </div>
         </nav>
         <!-- end navbar -->
+        <?php
+        //get all .js files from commands folder and get their module.exports.info then echo them all seperately
+        $files = glob('../../commands/*.js');
+        foreach ($files as $file) {
+            $file = str_replace('../../commands/', '', $file);
+            $file = str_replace('.js', '', $file);
+            $file = str_replace('_', ' ', $file);
+            $file = ucwords($file);
+            echo "<div class='card' style='width: 18rem;'>
+            <div class='card-body'>
+                <h5 class='card-title'>$file</h5>
+                <p class='card-text'>";
+            $file = str_replace(' ', '_', $file);
+            $file = str_replace('.', '', $file);
+            $file = str_replace('-', '', $file);
+            $file = str_replace('(', '', $file);
+            $file = str_replace(')', '', $file);
+            $file = str_replace('/', '', $file);
+            $file = str_replace('\\', '', $file);
+            $file = str_replace('\'', '', $file);
+            $file = str_replace('"', '', $file);
+            $file = str_replace('&', '', $file);
+            $file = str_replace('%', '', $file);
+            $file = str_replace('#', '', $file);
+            $file = str_replace('!', '', $file);
+            $file = str_replace('?', '', $file);
+            $file = str_replace('$', '', $file);
+            $file = str_replace('^', '', $file);
+            $file = str_replace('*', '', $file);
+            $file = str_replace('+', '', $file);
+            $file = str_replace('=', '', $file);
+            $file = str_replace('<', '', $file);
+            $file = str_replace('>', '', $file);
+            $file = str_replace('|', '', $file);
+            $file = str_replace('~', '', $file);
+            $file = str_replace('`', '', $file);
+            $file = str_replace('@', '', $file);
+            $file = str_replace('%', '', $file);
+            $file = str_replace('&', '', $file);
+            $file = str_replace('#', '', $file);
+            $file = str_replace('$', '', $file);
+            $file = str_replace('^', '', $file);
+            $file = str_replace('*', '', $file);
+            $file = str_replace('+', '', $file);
+            $file = str_replace('=', '', $file);
+            $file = str_replace('<', '', $file);
+            $file = str_replace('>', '', $file);
+            $file = str_replace('|', '', $file);
+            $file = str_replace('~', '', $file);
+            $file = str_replace('`', '', $file);
+            $file = str_replace('@', '', $file);
+            $file = str_replace('%', '', $file);
+            $file = str_replace('&', '', $file);
+            $file = str_replace('#', '', $file);
+            $file = str_replace('$', '', $file);
+            $file = str_replace('^', '', $file);
+            $file = str_replace('*', '', $file);
+            $file = str_replace('+', '', $file);
+            $file = str_replace('=', '', $file);
+            $file = str_replace('<', '', $file);
+            $file = str_replace('>', '', $file);
+            $file = str_replace('|', '', $file);
+            $file = str_replace('~', '', $file);
+            $file = str_replace('`', '', $file);
+            $file = str_replace('@', '', $file);
+            $file = str_replace('%', '', $file);
+            $file = str_replace('&', '', $file);
+            $file = str_replace('#', '', $file);
+            $file = str_replace('$', '', $file);
+            $file = str_replace('^', '', $file);
+        ?>
     </body>
 
 </html>
