@@ -1,4 +1,19 @@
 .navbar {
-    background: rgb(4, 255, 141);
-    background: linear-gradient(231deg, rgba(4, 255, 141, 1) 0%, rgba(151, 0, 255, 1) 100%);
+    background: #544ee2;
+}
+
+BODY {
+    background: rgb(84, 78, 226);
+    background: linear-gradient(180 deg, rgba(84, 78, 226, 1) 0%, rgba(1, 201, 188, 1) 100%);
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
