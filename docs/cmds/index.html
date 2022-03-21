@@ -69,77 +69,19 @@
             </div>
         </nav>
         <!-- end navbar -->
-        <?php
-        //get all .js files from commands folder and get their module.exports.info then echo them all seperately
-        $files = glob('../../commands/*.js');
-        foreach ($files as $file) {
-            $file = str_replace('../../commands/', '', $file);
-            $file = str_replace('.js', '', $file);
-            $file = str_replace('_', ' ', $file);
-            $file = ucwords($file);
-            echo "<div class='card' style='width: 18rem;'>
-            <div class='card-body'>
-                <h5 class='card-title'>$file</h5>
-                <p class='card-text'>";
-            $file = str_replace(' ', '_', $file);
-            $file = str_replace('.', '', $file);
-            $file = str_replace('-', '', $file);
-            $file = str_replace('(', '', $file);
-            $file = str_replace(')', '', $file);
-            $file = str_replace('/', '', $file);
-            $file = str_replace('\\', '', $file);
-            $file = str_replace('\'', '', $file);
-            $file = str_replace('"', '', $file);
-            $file = str_replace('&', '', $file);
-            $file = str_replace('%', '', $file);
-            $file = str_replace('#', '', $file);
-            $file = str_replace('!', '', $file);
-            $file = str_replace('?', '', $file);
-            $file = str_replace('$', '', $file);
-            $file = str_replace('^', '', $file);
-            $file = str_replace('*', '', $file);
-            $file = str_replace('+', '', $file);
-            $file = str_replace('=', '', $file);
-            $file = str_replace('<', '', $file);
-            $file = str_replace('>', '', $file);
-            $file = str_replace('|', '', $file);
-            $file = str_replace('~', '', $file);
-            $file = str_replace('`', '', $file);
-            $file = str_replace('@', '', $file);
-            $file = str_replace('%', '', $file);
-            $file = str_replace('&', '', $file);
-            $file = str_replace('#', '', $file);
-            $file = str_replace('$', '', $file);
-            $file = str_replace('^', '', $file);
-            $file = str_replace('*', '', $file);
-            $file = str_replace('+', '', $file);
-            $file = str_replace('=', '', $file);
-            $file = str_replace('<', '', $file);
-            $file = str_replace('>', '', $file);
-            $file = str_replace('|', '', $file);
-            $file = str_replace('~', '', $file);
-            $file = str_replace('`', '', $file);
-            $file = str_replace('@', '', $file);
-            $file = str_replace('%', '', $file);
-            $file = str_replace('&', '', $file);
-            $file = str_replace('#', '', $file);
-            $file = str_replace('$', '', $file);
-            $file = str_replace('^', '', $file);
-            $file = str_replace('*', '', $file);
-            $file = str_replace('+', '', $file);
-            $file = str_replace('=', '', $file);
-            $file = str_replace('<', '', $file);
-            $file = str_replace('>', '', $file);
-            $file = str_replace('|', '', $file);
-            $file = str_replace('~', '', $file);
-            $file = str_replace('`', '', $file);
-            $file = str_replace('@', '', $file);
-            $file = str_replace('%', '', $file);
-            $file = str_replace('&', '', $file);
-            $file = str_replace('#', '', $file);
-            $file = str_replace('$', '', $file);
-            $file = str_replace('^', '', $file);
-        ?>
+        <script>
+            // Get all .js files from ../../commands folder then export their module.exports.info to html
+            const fs = require('fs');
+            const path = require('path');
+            const files = fs.readdirSync(path.join(__dirname, '../../commands'));
+            const commands = [];
+            files.forEach(file => {
+                if (file.endsWith('.js')) {
+                    commands.push(require(path.join(__dirname, '../../commands', file)).info);
+                }
+            });
+            console.log(commands);
+        </script>
     </body>
 
 </html>
