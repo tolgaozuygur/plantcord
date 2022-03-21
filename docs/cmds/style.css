@@ -1,0 +1,10 @@
+.cmd {
+    color: white;
+    background: rgb(84, 78, 226);
+    background: linear-gradient(45deg, rgba(84, 78, 226, 1) 0%, rgba(1, 201, 188, 1) 100%);
+    border-radius: 5%;
+    padding: 20px;
+}
+div.col{
+    padding: 15px;
+}

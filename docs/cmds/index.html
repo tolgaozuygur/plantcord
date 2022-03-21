@@ -6,9 +6,11 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <title>plantcord</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+        <link rel='stylesheet' type='text/css' media='screen'
+            href='../main.css'>
         <script src='main.js'></script>
-        <link rel='stylesheet' type='text/css' media='screen' href='../style.css'>
+        <link rel='stylesheet' type='text/css' media='screen'
+            href='../style.css'>
         <!-- bootsrap5 -->
         <link rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -69,19 +71,86 @@
             </div>
         </nav>
         <!-- end navbar -->
-        <script>
-            // Get all .js files from ../../commands folder then export their module.exports.info to html
-            const fs = require('fs');
-            const path = require('path');
-            const files = fs.readdirSync(path.join(__dirname, '../../commands'));
-            const commands = [];
-            files.forEach(file => {
-                if (file.endsWith('.js')) {
-                    commands.push(require(path.join(__dirname, '../../commands', file)).info);
-                }
-            });
-            console.log(commands);
-        </script>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="container-fluid">
+                        <div class="cmd">
+                            <h1>!help</h1>
+                            <p>
+                                This command will show you a list of all the
+                                commands you can use.
+                            </p>
+                            <p>
+                                <strong>Usage:</strong> !help
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="container-fluid">
+                        <div class="cmd">
+                            <h1>!ping</h1>
+                            <p>
+                                This command will show you the latency of the
+                                bot.
+                            </p>
+                            <p>
+                                <strong>Usage:</strong> !ping
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="container-fluid">
+                        <div class="cmd">
+                            <h1>!photo</h1>
+                            <p>
+                                This command will send a photo to the plant to
+                                the channel
+                            </p>
+                            <p>
+                                <strong>Usage:</strong> !photo
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="container-fluid">
+                        <div class="cmd">
+                            <h1>!uptime</h1>
+                            <p>
+                                This command will show you the uptime of the
+                                bot.
+                            </p>
+                            <p>
+                                <strong>Usage:</strong> !uptime
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <div class="container-fluid">
+                        <div class="cmd">
+                            <h1>!water</h1>
+                            <p>
+                                This command will show you the amount of water
+                                the plant needs.
+                            </p>
+                            <p>
+                                <strong>Usage:</strong> !water
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+            </div>
+        </div>
     </body>
 
 </html>
