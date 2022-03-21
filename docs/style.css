@@ -1,0 +1,49 @@
+.title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    /* center */
+    text-align: center;
+}
+
+div.main-1 div.container div.row a p {
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 80px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* remove all hover effects from a */
+a:hover {
+    text-decoration: none;
+}
+
+div.main-1 div.container div.row div.btn-11 {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.616);
+    background: rgb(84, 78, 226);
+    background: linear-gradient(45deg, rgba(84, 78, 226, 1) 0%, rgba(1, 201, 188, 1) 100%);
+    border-radius: 20px;
+    height: 100%;
+}
+
+.main-1 .row {
+    height: 80px;
+}
+
+p {
+    text-shadow: 7px 7px 10px rgba(0, 0, 0, 0.212);
+}
+
+h1 {
+    text-shadow: 7px 7px 20px rgba(0, 0, 0, 0.596);
+}
+
+h2 {
+    text-shadow: 7px 7px 20px rgba(0, 0, 0, 0.336);
+
+}
