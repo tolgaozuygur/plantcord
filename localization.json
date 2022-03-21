@@ -32,7 +32,15 @@
             "desc" : "Bitkinin anlık fotoğrafı için",
             "color" : "GREY",
             "photo_path" : "plantcord.png"
-        }
-        
+        },
+        "info" : {
+            "title" : "Veriler",
+            "name" : "info",
+            "desc" : "Detaylı veriler için",
+            "color" : "GREEN",
+            "field1" : "Sulama Sayıları ",
+            "field2" : "Nem Ortalamaları ",
+            "time_field" : " gündür devam ediyor."
+        }   
     }
 }
