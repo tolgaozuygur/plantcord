@@ -1,7 +1,8 @@
 const {MessageEmbed} = require("discord.js");
 const localization = require('../localization.json');
-const schedule = require('node-schedule');//zamanlama kütüphanesi
-
+const config = require('../config.json');
+const schedule = require('node-schedule');
+let MS_Per_Day = 1000 * 60 * 60 * 24;
 
 module.exports.info = {
   "title" : localization.commands.info.title,
@@ -18,7 +19,7 @@ function dateDiff(a, b) {
   const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
   const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
 
-  return Math.floor((utc2 - utc1) / _MS_PER_DAY);
+  return Math.floor((utc2 - utc1) / MS_Per_Day);
 }
 
 
@@ -41,7 +42,10 @@ function getAverage(array){
 
 
 module.exports.execute = (client, message) => {
-  const a = new Date(),b = new Date("YYYY-MM-DD"),difference = dateDiff(b, a); //BURAYA DENEYIN BAŞLANGIÇ TARİHİ EKLENECEK
+  const a = new Date();
+  const b = new Date(config.start_date);
+  const difference = dateDiff(b, a); 
+
   var d_avg = getAverage(d_humidity)
   var w_avg = getAverage(w_humidity)
   var a_avg = getAverage(a_humidity)
@@ -66,14 +70,16 @@ module.exports.execute = (client, message) => {
           },
           {
             "name": `Deney Uzunluğu`,
-            "value": `${difference + this.time_field}`,
+            "value": `${difference}` + `${this.info.time_field}`,
             "inline": false
           })
   message.channel.send({ embeds: [embed] });
-}
 
-const hourly_job = schedule.scheduleJob('00 00 * * * *', function(){
+const hourly_job = schedule.scheduleJob('*/1 * * * *', function(){
+  console.log("works");
   d_humidity.push(client.helpers.getMoisture())
   w_humidity.push(client.helpers.getMoisture())
   a_humidity.push(client.helpers.getMoisture())
 });
+
+}
