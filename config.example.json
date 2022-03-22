@@ -1,9 +1,10 @@
 {
-  "bot_name": "",
-  "plant_name": "",
-  "moisture": "",
+  "plant_name": "PlantNameHere",
+  "moisture_min": "15",
+  "moisture_max": "25",
   "prefix": "!",
   "bot_token": "",
   "plant_camera_path": "",
+  "localization_file": "en.json",
   "start_date": "YYYY-MM-DD"
 }

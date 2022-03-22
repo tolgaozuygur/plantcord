@@ -6,9 +6,9 @@
             "color" : "GREEN"
         },
         "water" : {
-            "title" : "Bitkiyi suladın! 🌱",
+            "title" : "<plant_name>'yu suladın! 🌱",
             "name" : "water",
-            "desc" : "Bitki sulamak için",
+            "desc" : "<plant_name>'yu sulamak için",
             "color" : "BLUE",
             "field" : "Toprak Nemi "
         },
@@ -27,9 +27,9 @@
             "field" : "Uptime : "
         },
         "photo" : {
-            "title" : "Bitkinin şuanki fotoğrafı 📷",
+            "title" : "<plant_name>'nun şu anki fotoğrafı 📷",
             "name" : "photo",
-            "desc" : "Bitkinin anlık fotoğrafı için",
+            "desc" : "<plant_name>'nun anlık fotoğrafı için",
             "color" : "GREY",
             "photo_path" : "plantcord.png"
         },

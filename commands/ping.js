@@ -1,5 +1,6 @@
 const {MessageEmbed} = require("discord.js");
-const localization = require('../localization.json');
+const config = require('../config.json');
+const localization = require('../localization/'+config.localization_file);
 
 module.exports.info = {
   "title" : localization.commands.ping.title,

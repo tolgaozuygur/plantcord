@@ -1,6 +1,6 @@
 const {MessageEmbed} = require("discord.js");
-const localization = require('../localization.json');
 const config = require('../config.json');
+const localization = require('../localization/'+config.localization_file);
 const schedule = require('node-schedule');
 let MS_Per_Day = 1000 * 60 * 60 * 24;
 

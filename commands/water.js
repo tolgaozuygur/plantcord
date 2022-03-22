@@ -1,10 +1,11 @@
 const {MessageEmbed} = require("discord.js");
-const localization = require('../localization.json');
+const config = require('../config.json');
+const localization = require('../localization/'+config.localization_file);
 
 module.exports.info = {
-  "title" : localization.commands.water.title,
+  "title" : localization.commands.water.title.replace("<plant_name>", config.plant_name),
   "name" : localization.commands.water.name,
-  "desc" : localization.commands.water.desc,
+  "desc" : localization.commands.water.desc.replace("<plant_name>", config.plant_name),
   "color" : localization.commands.water.color,
   "field" : localization.commands.water.field
 }

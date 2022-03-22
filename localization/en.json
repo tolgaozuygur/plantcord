@@ -1,0 +1,46 @@
+{
+    "commands" : {
+        "help" : {
+            "title" : "HELP",
+            "name" : "help",
+            "color" : "GREEN"
+        },
+        "water" : {
+            "title" : "You watered <plant_name>! 🌱",
+            "name" : "water",
+            "desc" : "To water <plant_name>",
+            "color" : "BLUE",
+            "field" : "Soil moisture "
+        },
+        "ping" : {
+            "title" : "Pong! 🏓",
+            "name" : "ping",
+            "desc" : "Ping-pong",
+            "color" : "YELLOW",
+            "field" : "API Latency"
+        },
+        "uptime" : {
+            "title" : "Uptime",
+            "name" : "uptime",
+            "desc" : "Getting Uptime",
+            "color" : "RED",
+            "field" : "Uptime : "
+        },
+        "photo" : {
+            "title" : "Current picture of <plant_name> 📷",
+            "name" : "photo",
+            "desc" : "To get the current picture of <plant_name>",
+            "color" : "GREY",
+            "photo_path" : "plantcord.png"
+        },
+        "info" : {
+            "title" : "Info",
+            "name" : "info",
+            "desc" : "For detailed info",
+            "color" : "GREEN",
+            "field1" : "Watering count ",
+            "field2" : "Moisture average ",
+            "time_field" : " days since the beginning of experiment"
+        }   
+    }
+}
