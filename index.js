@@ -37,14 +37,17 @@ for (const file of commandFiles) {
 }
 
 client.on('messageCreate', async (message) => {
+  if (client.config.spesific_channel === "yes") {
+    if (message.channel.id !== client.config.channel_id) return;
+  }
   if (message.author.bot) return;
   if (!message.content.startsWith(client.config.prefix)) return;
   const commandBody = message.content.slice(client.config.prefix.length);
   const args = commandBody.split(' ');
   const commandName = args.shift().toLowerCase();
   const command = client.commands.get(commandName);
-  if (!command){
-    return await message.reply({content:'This command does not exists.'})
+  if (!command) {
+    return await message.reply({ content: 'This command does not exists.' })
   }
 
   await command.execute(client, message, args);
