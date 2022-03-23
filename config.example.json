@@ -6,5 +6,7 @@
   "bot_token": "",
   "plant_camera_path": "",
   "localization_file": "en.json",
-  "start_date": "YYYY-MM-DD"
+  "start_date": "YYYY-MM-DD",
+  "specific_channel": "no",
+  "channel_id": "your_channel_id"
 }
