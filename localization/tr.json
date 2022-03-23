@@ -41,6 +41,15 @@
             "field1" : "Sulama Sayıları ",
             "field2" : "Nem Ortalamaları ",
             "time_field" : " gündür devam ediyor."
+        },
+        "graph" : {
+            "title" : "Grafik",
+            "name" : "durum grafiği",
+            "desc" : "Detaylı durum grafiği",
+            "color" : "BLUE",
+            "field1" : "Sulama Sayıları ",
+            "field2" : "Nem Ortalamaları ",
+            "time_field" : " gündür devam ediyor."
         }   
     }
 }
