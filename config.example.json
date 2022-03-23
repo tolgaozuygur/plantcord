@@ -9,5 +9,6 @@
   "start_date": "YYYY-MM-DD",
   "specific_channel": "no",
   "auto_change_voice_channel_name": "yes",
-  "channel_id": "your_channel_id"
+  "channel_id": "your_channel_id",
+  "voice_channel_id": ""
 }
