@@ -34,5 +34,6 @@ $ node index.js
 - [Nazım Sarp Tekbaş (@sarptekbas)](https://github.com/sarptekbas)
 - [Ozan Efe Akpınar (@ozefear)](https://ozefear.me)
 - [Robot. (@Robotsi)](https://github.com/Robotsi)
+- [Həbib Qurbanov](https://github.com/hurby24)
 - [Baran Mordoğan (@okunamayanad)](https://github.com/okunamayanad)
 - [Tolga Özuygur (@tolgaozuygur)](https://github.com/tolgaozuygur)
