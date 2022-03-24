@@ -1,13 +1,13 @@
-const {MessageEmbed} = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const config = require('../config.json');
-const localization = require('../localization/'+config.localization_file);
+const localization = require('../localization/' + config.localization_file);
 
 module.exports.info = {
-  "title" : localization.commands.photo.title.replace("<plant_name>", config.plant_name),
-  "name" :  localization.commands.photo.name,
-  "desc" :  localization.commands.photo.desc.replace("<plant_name>", config.plant_name),
-  "color" :  localization.commands.photo.color,
-  "photo_path" :  localization.commands.photo.photo_path,
+  "title": localization.commands.photo.title.replace("<plant_name>", config.plant_name),
+  "name": localization.commands.photo.name,
+  "desc": localization.commands.photo.desc.replace("<plant_name>", config.plant_name),
+  "color": localization.commands.photo.color,
+  "photo_path": localization.commands.photo.photo_path,
 }
 
 module.exports.execute = (client, message) => {
@@ -22,7 +22,7 @@ module.exports.execute = (client, message) => {
 
   // TODO: Change picture with real one.
   let filesToBeUploaded = []
-  if (!client.lastPhoto || client.lastPhoto.name !== localization.commands.photo.photo_path){
+  if (!client.lastPhoto || client.lastPhoto.name !== localization.commands.photo.photo_path) {
     // Last photo expired we need a new one.
     embed.setImage(`attachment://${this.info.photo_path}`);
     filesToBeUploaded = [this.info.photo_path]
@@ -30,9 +30,9 @@ module.exports.execute = (client, message) => {
     embed.setImage(client.lastPhoto.url)
   }
 
-  message.channel.send({ embeds: [embed],files:  filesToBeUploaded})
+  message.channel.send({ embeds: [embed], files: filesToBeUploaded })
     .then(message => {
-      if (message.embeds[0].image && filesToBeUploaded.length > 0){
+      if (message.embeds[0].image && filesToBeUploaded.length > 0) {
         // Updating last photo data.
         const picName = message.embeds[0].image.url.match(/[^/\\&\?]+\.\w{3,4}(?=([\?&].*$|$))/);
         client.lastPhoto = {

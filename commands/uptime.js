@@ -1,13 +1,13 @@
-const {MessageEmbed} = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const config = require('../config.json');
-const localization = require('../localization/'+config.localization_file);
+const localization = require('../localization/' + config.localization_file);
 
 module.exports.info = {
-  "title" : localization.commands.uptime.title,
-  "name" : localization.commands.uptime.name,
-  "desc" : localization.commands.uptime.desc,
-  "color" : localization.commands.uptime.color,
-  "field" : localization.commands.uptime.field,
+  "title": localization.commands.uptime.title,
+  "name": localization.commands.uptime.name,
+  "desc": localization.commands.uptime.desc,
+  "color": localization.commands.uptime.color,
+  "field": localization.commands.uptime.field,
 }
 
 module.exports.execute = (client, message) => {
@@ -20,7 +20,7 @@ module.exports.execute = (client, message) => {
   const embed = new MessageEmbed()
     .setTitle(this.info.title)
     .setColor(this.info.color)
-    .addField(this.info.field,`${days}d ${hours}h ${minutes}m ${seconds}s`)
+    .addField(this.info.field, `${days}d ${hours}h ${minutes}m ${seconds}s`)
     .setFooter({
       text: message.member.displayName,
       iconURL: message.author.displayAvatarURL({ dynamic: true }),

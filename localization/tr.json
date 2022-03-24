@@ -1,55 +1,55 @@
 {
-    "commands" : {
-        "help" : {
-            "title" : "HELP",
-            "name" : "help",
-            "color" : "GREEN"
+    "commands": {
+        "help": {
+            "title": "HELP",
+            "name": "help",
+            "color": "GREEN"
         },
-        "water" : {
-            "title" : "<plant_name>'yu suladın! 🌱",
-            "name" : "water",
-            "desc" : "<plant_name>'yu sulamak için",
-            "color" : "BLUE",
-            "field" : "Toprak Nemi "
+        "water": {
+            "title": "<plant_name>'yu suladın! 🌱",
+            "name": "water",
+            "desc": "<plant_name>'yu sulamak için",
+            "color": "BLUE",
+            "field": "Toprak Nemi "
         },
-        "ping" : {
-            "title" : "Pong! 🏓",
-            "name" : "ping",
-            "desc" : "Ping-pong",
-            "color" : "YELLOW",
-            "field" : "API Latency"
+        "ping": {
+            "title": "Pong! 🏓",
+            "name": "ping",
+            "desc": "Ping-pong",
+            "color": "YELLOW",
+            "field": "API Latency"
         },
-        "uptime" : {
-            "title" : "Uptime",
-            "name" : "uptime",
-            "desc" : "Getting Uptime",
-            "color" : "RED",
-            "field" : "Uptime : "
+        "uptime": {
+            "title": "Uptime",
+            "name": "uptime",
+            "desc": "Getting Uptime",
+            "color": "RED",
+            "field": "Uptime : "
         },
-        "photo" : {
-            "title" : "<plant_name>'nun şu anki fotoğrafı 📷",
-            "name" : "photo",
-            "desc" : "<plant_name>'nun anlık fotoğrafı için",
-            "color" : "GREY",
-            "photo_path" : "plantcord.png"
+        "photo": {
+            "title": "<plant_name>'nun şu anki fotoğrafı 📷",
+            "name": "photo",
+            "desc": "<plant_name>'nun anlık fotoğrafı için",
+            "color": "GREY",
+            "photo_path": "plantcord.png"
         },
-        "info" : {
-            "title" : "Veriler",
-            "name" : "info",
-            "desc" : "Detaylı veriler için",
-            "color" : "GREEN",
-            "field1" : "Sulama Sayıları ",
-            "field2" : "Nem Ortalamaları ",
-            "time_field" : " gündür devam ediyor."
+        "info": {
+            "title": "Veriler",
+            "name": "info",
+            "desc": "Detaylı veriler için",
+            "color": "GREEN",
+            "field1": "Sulama Sayıları ",
+            "field2": "Nem Ortalamaları ",
+            "time_field": " gündür devam ediyor."
         },
-        "graph" : {
-            "title" : "Grafik",
-            "name" : "durum grafiği",
-            "desc" : "Detaylı durum grafiği",
-            "color" : "BLUE",
-            "field1" : "Sulama Sayıları ",
-            "field2" : "Nem Ortalamaları ",
-            "time_field" : " gündür devam ediyor."
-        }   
+        "graph": {
+            "title": "Grafik",
+            "name": "durum grafiği",
+            "desc": "Detaylı durum grafiği",
+            "color": "BLUE",
+            "field1": "Sulama Sayıları ",
+            "field2": "Nem Ortalamaları ",
+            "time_field": " gündür devam ediyor."
+        }
     }
 }

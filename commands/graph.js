@@ -1,11 +1,11 @@
-const {MessageEmbed} = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const config = require('../config.json');
-const localization = require('../localization/'+config.localization_file);
+const localization = require('../localization/' + config.localization_file);
 
 module.exports.info = {
-  "title" : localization.commands.graph.title,
-  "name" : localization.commands.graph.name,
-  "color" : localization.commands.graph.color,
+  "title": localization.commands.graph.title,
+  "name": localization.commands.graph.name,
+  "color": localization.commands.graph.color,
 }
 
 module.exports.execute = async (client, message) => {
@@ -14,9 +14,9 @@ module.exports.execute = async (client, message) => {
     .setColor(this.info.color)
 
   embed.setFooter({
-      text: message.member.displayName,
-      iconURL: message.author.displayAvatarURL({ dynamic: true }),
-    })
+    text: message.member.displayName,
+    iconURL: message.author.displayAvatarURL({ dynamic: true }),
+  })
     .setTimestamp();
 
   message.channel.send({ embeds: [embed] });

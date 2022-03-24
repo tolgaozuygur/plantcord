@@ -8,7 +8,7 @@ const client = new Client({
   ],
 });
 client.config = require('./config.json');
-const localization = require('./localization/'+client.config.localization_file);
+const localization = require('./localization/' + client.config.localization_file);
 const change = require('./changeChannelNameAndActivity.js');
 client.commands = new Collection();
 const schedule = require('node-schedule');
@@ -17,10 +17,10 @@ client.helpers = {};
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 
-  schedule.scheduleJob('*/10 * * * *', function(){
+  schedule.scheduleJob('*/10 * * * *', function () {
     console.log("channelName updated");
     if (client.config.auto_change_voice_channel_name === "yes") {
-      change(client,` ${localization.commands.water.field} : ${client.helpers.getMoisture()}`)
+      change(client, ` ${localization.commands.water.field} : ${client.helpers.getMoisture()}`)
     }
   });
 });
