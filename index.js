@@ -13,18 +13,49 @@ const change = require('./changeChannelNameAndActivity.js');
 client.commands = new Collection();
 const schedule = require('node-schedule');
 const NodeWebcam = require("node-webcam");
+var is_there_vc;
 client.helpers = {};
 client.lastPhoto = {};
 
 client.on('ready', () => {
+  // Channel
+  if(client.config.auto_change_voice_channel_name === "yes"){
+    if(client.config.voice_channel_id !== ""){
+      client.guilds.cache.forEach(guild => {
+        guild.channels.cache.forEach(channel => {
+          if(channel.id === client.config.voice_channel_id){
+            is_there_vc = 1;
+            channel.permissionOverwrites.create(channel.guild.roles.everyone, { CONNECT: false});
+          }
+        });
+      });
+    }
+    else{
+      is_there_vc = 0;
+    }
+    if(is_there_vc !== 1){
+      if(client.config.guild_id !== ""){
+        guild.id.channels.create('Rename me', { type: 'voice' }).then(channel => {
+          client.config.voice_channel_id = channel.id;
+          fs.writeFileSync('./config.json', JSON.stringify(client.config, null, 2));
+          channel.permissionOverwrites.create(channel.guild.roles.everyone, { CONNECT: false});
+        });
+      }
+    }
+    if(is_there_vc === 1){
+      schedule.scheduleJob('*/10 * * * *', function(){
+        console.log("channelName updated");
+        if (client.config.auto_change_voice_channel_name === "yes") {
+          change(client,` ${localization.commands.water.field} : ${client.helpers.getMoisture()}`)
+        }
+      });
+    }
+  }
+  // Channel end
+
   console.log(`Logged in as ${client.user.tag}!`);
 
-  schedule.scheduleJob('*/10 * * * *', function(){
-    console.log("channelName updated");
-    if (client.config.auto_change_voice_channel_name === "yes") {
-      change(client,` ${localization.commands.water.field} : ${client.helpers.getMoisture()}`)
-    }
-  });
+
 });
 
 // Defining helper functions under client.
