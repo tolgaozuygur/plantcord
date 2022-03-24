@@ -41,6 +41,15 @@
             "field1" : "Watering count ",
             "field2" : "Moisture average ",
             "time_field" : " days since the beginning of experiment"
+        }  ,
+        "graph" : {
+            "title" : "Grafik",
+            "name" : "graph",
+            "desc" : "Detaylı durum grafiği",
+            "color" : "BLUE",
+            "field1" : "Sulama Sayıları ",
+            "field2" : "Nem Ortalamaları ",
+            "time_field" : " gündür devam ediyor."
         }   
     }
 }

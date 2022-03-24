@@ -7,6 +7,8 @@
   "plant_camera_path": "",
   "localization_file": "en.json",
   "start_date": "YYYY-MM-DD",
-  "specific_channel_for_bot_to_be_used_on": "no",
-  "specific_channel_id_for_bot_to_be_used_on": "your_channel_id"
+  "specific_channel": "no",
+  "auto_change_voice_channel_name": "yes",
+  "channel_id": "your_channel_id",
+  "voice_channel_id": ""
 }
