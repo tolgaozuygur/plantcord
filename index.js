@@ -14,6 +14,7 @@ client.commands = new Collection();
 const schedule = require('node-schedule');
 const NodeWebcam = require("node-webcam");
 client.helpers = {};
+client.lastPhoto = {};
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);

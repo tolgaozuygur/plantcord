@@ -19,35 +19,33 @@ module.exports.execute = (client, message) => {
       iconURL: message.author.displayAvatarURL({ dynamic: true }),
     })
     .setTimestamp();
-    
+
   //check the photo mtime
   fs.stat(config.photo_path, (err, stats) => {
-    if(err) {
-        //no photo found
-        console.log(`No photo found. Is the webcam connected?`);
-    }else{
+    let currentPhotoMTime;
+    if (err) {
+      //no photo found
+      console.log(`DEBUG: No photo found. Is the webcam connected?`);
+    } else {
       //photo found
-      currentPhotoMTime = stats.mtime;
-      console.log(`File Data Last Modified: ${stats.mtime}`);
+      currentPhotoMTime = stats.mtime.toISOString();
+      console.log(`DEBUG: File Data Last Modified: ${stats.mtime}`);
       //send embed message
       let filesToBeUploaded = []
-      console.log("last photo? " + client.lastPhoto);
-      if (!client.lastPhoto || client.lastPhoto.mtime !== currentPhotoMTime){
+      if (!client.lastPhoto || client.lastPhoto.mtime !== currentPhotoMTime) {
         // Last photo expired we need a new one.
-        console.log(`Last photo expired, uploading new one.`);
-        embed.setImage(`attachment://${config.photo_path}`);
+        console.log(`DEBUG: Last photo expired, uploading new one.`);
+        embed.setImage(`attachment://${config.photo_path.split('/').reverse()[0]}`);
         filesToBeUploaded = [config.photo_path]
       } else {
-        console.log(`Using photo from cash`);
+        console.log(`DEBUG: Using photo from cache.`);
         embed.setImage(client.lastPhoto.url)
       }
-
-      message.channel.send({ embeds: [embed],files:  filesToBeUploaded})
+      message.channel.send({embeds: [embed], files: filesToBeUploaded})
         .then(message => {
-          console.log(`debug ` + message.embeds[0] + " / " + filesToBeUploaded.length); 
-          if (message.embeds[0].image && filesToBeUploaded.length > 0){
-            // Updating last photo data.      
-            console.log(`Updating lastPhoto`);  
+          if (message.embeds[0].image && filesToBeUploaded.length > 0) {
+            // Updating last photo data.
+            console.log(`DEBUG: Updating lastPhoto`);
             const picName = message.embeds[0].image.url.match(/[^/\\&\?]+\.\w{3,4}(?=([\?&].*$|$))/);
             client.lastPhoto = {
               'name': picName[0],
@@ -56,6 +54,6 @@ module.exports.execute = (client, message) => {
             }
           }
         });
-      }
+    }
   });
 }
