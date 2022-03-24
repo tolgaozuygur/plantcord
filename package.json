@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "chartjs": "^0.3.24",
+    "chartjs-node-canvas": "^4.1.6",
     "discord.js": "^13.2.0",
     "dotenv": "^10.0.0",
     "node-schedule": "^2.1.0",
