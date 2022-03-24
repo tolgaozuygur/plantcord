@@ -19,6 +19,10 @@ and then run these two commands:
 ``` bash
 $ npm install
 ```
+(fswebcam is required on linux)
+``` bash
+$ apt-get install fswebcam
+```
 ``` bash
 $ node index.js
 ```

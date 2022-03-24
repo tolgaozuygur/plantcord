@@ -34,8 +34,7 @@
             "title" : "<plant_name>'nun şu anki fotoğrafı 📷",
             "name" : "photo",
             "desc" : "<plant_name>'nun anlık fotoğrafı için",
-            "color" : "GREY",
-            "photo_path" : "plantcord.png"
+            "color" : "GREY"
         },
         "info" : {
             "title" : "Veriler",

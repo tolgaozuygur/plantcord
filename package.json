@@ -3,6 +3,7 @@
     "chartjs": "^0.3.24",
     "discord.js": "^13.2.0",
     "dotenv": "^10.0.0",
-    "node-schedule": "^2.1.0"
+    "node-schedule": "^2.1.0",
+    "node-webcam": "^0.8.0"
   }
 }

@@ -34,8 +34,7 @@
             "title" : "Current picture of <plant_name> 📷",
             "name" : "photo",
             "desc" : "To get the current picture of <plant_name>",
-            "color" : "GREY",
-            "photo_path" : "plantcord.png"
+            "color" : "GREY"
         },
         "info" : {
             "title" : "Info",

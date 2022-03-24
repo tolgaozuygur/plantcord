@@ -12,6 +12,7 @@ const localization = require('./localization/'+client.config.localization_file);
 const change = require('./changeChannelNameAndActivity.js');
 client.commands = new Collection();
 const schedule = require('node-schedule');
+const NodeWebcam = require("node-webcam");
 client.helpers = {};
 
 client.on('ready', () => {
@@ -63,3 +64,20 @@ client.on('messageCreate', async (message) => {
 });
 
 client.login(client.config.bot_token);
+
+// Take picture of the plant with a certain interval
+function takePicture() {
+  var FSWebcam = NodeWebcam.FSWebcam;
+  var opts = {
+    rotation:client.config.photo_rotation,
+    quality:80,
+    width:client.config.photo_width,
+    height:client.config.photo_height,
+    output:client.config.photo_ftype
+  };
+  var webcam = new FSWebcam( opts );
+  webcam.capture(client.config.photo_path, function ( err, data ) {} );
+  console.log('Took a new picture of the plant!');
+}
+takePicture();
+setInterval(takePicture, client.config.photo_update_interval);

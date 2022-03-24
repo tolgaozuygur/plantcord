@@ -107,3 +107,4 @@ dist
 .tern-port
 plant_photo.webp
 config.json
+photos/current_photo.jpg

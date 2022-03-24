@@ -10,5 +10,11 @@
   "specific_channel": "no",
   "auto_change_voice_channel_name": "yes",
   "channel_id": "your_channel_id",
-  "voice_channel_id": ""
+  "voice_channel_id": "",
+  "photo_path": "./photos/current_photo.jpg",
+  "photo_ftype": "jpeg",
+  "photo_update_interval": "30000",
+  "photo_rotation": "270",
+  "photo_width": "1280",
+  "photo_height": "720"
 }
