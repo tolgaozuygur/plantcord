@@ -1,4 +1,8 @@
 {
+    "console_logs": {
+        "command_loaded": "adlı komut başarıyla yüklendi!",
+        "helper_loaded": "adlı yardımcı başarıyla yüklendi!"
+    },
     "commands" : {
         "help" : {
             "title" : "HELP",
@@ -50,6 +54,7 @@
             "field1" : "Sulama Sayıları ",
             "field2" : "Nem Ortalamaları ",
             "time_field" : " gündür devam ediyor."
-        }   
+        },
+        "not_found": "Böyle bir komut bulunamadı!" 
     }
 }
