@@ -11,6 +11,7 @@
   "auto_change_voice_channel_name": "yes",
   "channel_id": "your_channel_id",
   "voice_channel_id": "",
+  "guild_id": "your_guild_id",
   "photo_path": "./photos/current_photo.jpg",
   "photo_ftype": "jpeg",
   "photo_update_interval": "30000",
