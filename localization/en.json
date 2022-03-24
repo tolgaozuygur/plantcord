@@ -1,4 +1,8 @@
 {
+    "console_logs": {
+        "command_loaded": "named command has been loaded successfully!",
+        "helper_loaded": "named helper has been loaded successfully!"
+    },
     "commands" : {
         "help" : {
             "title" : "HELP",
@@ -50,6 +54,7 @@
             "field1" : "Sulama Sayıları ",
             "field2" : "Nem Ortalamaları ",
             "time_field" : " gündür devam ediyor."
-        }   
+        },
+        "not_found": "This command does not exist"
     }
 }

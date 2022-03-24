@@ -32,7 +32,7 @@ for (const file of helperFiles) {
   const helper = require(`./helpers/${file}`);
   const helperName = file.split('.js')[0]
   client.helpers[helperName] = helper;
-  console.log(`${helperName} - Helper loaded!`);
+  console.log(`${helperName} ${localization.console_logs.helper_loaded}`);
 }
 
 // COMMAND HANDLER
@@ -42,7 +42,7 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 for (const file of commandFiles) {
   const command = require(`./commands/${file}`);
   client.commands.set(command.info.name, command);
-  console.log(`${command.info.name} - Command loaded!`);
+  console.log(`${command.info.name} ${localization.console_logs.command_loaded}`);
 }
 
 client.on('messageCreate', async (message) => {
@@ -56,7 +56,7 @@ client.on('messageCreate', async (message) => {
   const commandName = args.shift().toLowerCase();
   const command = client.commands.get(commandName);
   if (!command) {
-    return await message.reply({ content: 'This command does not exists.' })
+    return await message.reply({ content: localization.commands.not_found});
   }
 
   await command.execute(client, message, args);
