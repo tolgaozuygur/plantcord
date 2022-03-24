@@ -46,8 +46,8 @@ for (const file of commandFiles) {
 }
 
 client.on('messageCreate', async (message) => {
-  if (client.config.specific_channel_for_bot_to_be_used_on === "yes") {
-    if (message.channel.id !== client.config.specific_channel_id_for_bot_to_be_used_on) return;
+  if (client.config.specific_channel === "yes") {
+    if (message.channel.id !== client.config.channel_id) return;
   }
   if (message.author.bot) return;
   if (!message.content.startsWith(client.config.prefix)) return;
