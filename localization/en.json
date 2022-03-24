@@ -47,13 +47,13 @@
             "time_field" : " days since the beginning of experiment"
         }  ,
         "graph" : {
-            "title" : "Grafik",
+            "title" : "Graph",
             "name" : "graph",
-            "desc" : "Detaylı durum grafiği",
+            "desc" : "Detailed info graph",
             "color" : "BLUE",
-            "field1" : "Sulama Sayıları ",
-            "field2" : "Nem Ortalamaları ",
-            "time_field" : " gündür devam ediyor."
+            "field1" : "Watering count ",
+            "field2" : "Moisture average ",
+            "time_field" : " days since the beginning of experiment"
         },
         "not_found": "This command does not exist"
     }
