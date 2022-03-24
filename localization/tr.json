@@ -1,7 +1,8 @@
 {
     "console_logs": {
         "command_loaded": "adlı komut başarıyla yüklendi!",
-        "helper_loaded": "adlı yardımcı başarıyla yüklendi!"
+        "helper_loaded": "adlı yardımcı başarıyla yüklendi!",
+        "schedule_loaded": "adlı zamanlı iş başarıyla yüklendi!"
     },
     "commands" : {
         "help" : {

@@ -1,7 +1,8 @@
 {
     "console_logs": {
         "command_loaded": "named command has been loaded successfully!",
-        "helper_loaded": "named helper has been loaded successfully!"
+        "helper_loaded": "named helper has been loaded successfully!",
+        "schedule_loaded": "named schedule has been loaded successfully!"
     },
     "commands" : {
         "help" : {
