@@ -3,7 +3,7 @@ const { ChartJSNodeCanvas } = require('chartjs-node-canvas');
 const chartJSNodeCanvas = new ChartJSNodeCanvas({ type: 'png', width: 800, height: 600, backgroundColour: 'black'  });
 const fs = require("fs");
 module.exports.execute = (client) => { 
-    schedule.scheduleJob('*/1 * * * * *', function(){
+    schedule.scheduleJob(client.helpers.secToCron(client.config.graph_export_interval), function(){
     (async () => {
     const configuration = {
       type: 'line',

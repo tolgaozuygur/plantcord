@@ -14,9 +14,12 @@
   "guild_id": "your_guild_id",
   "photo_path": "./photos/current_photo.jpg",
   "photo_ftype": "jpeg",
-  "photo_update_interval": "30000",
   "photo_rotation": "270",
   "photo_width": "1280",
   "photo_height": "720",
-  "graph_path": "./photos/graph.png"
+  "graph_path": "./photos/graph.png",
+  "graph_export_interval" : 1,
+  "channel_rename_interval": 1,
+  "take_photo_interval": 1,
+  "photo_update_interval": 1
 }

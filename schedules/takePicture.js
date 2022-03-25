@@ -26,8 +26,7 @@ function takePictureNonLinux(client) {
 }
 
 module.exports.execute = (client) => {
-    schedule.scheduleJob('*/1 * * * * *', function(){
-        console.log("picture returns");
+    schedule.scheduleJob(client.helpers.secToCron(client.config.take_photo_interval), function(){
         if(availableOs.includes(process.platform)){
             takePicture(client);
         }else{
