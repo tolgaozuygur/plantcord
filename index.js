@@ -15,6 +15,7 @@ client.commands = new Collection();
 client.schedule = new Collection();
 client.helpers = {};
 client.lastPhoto = {};
+client.lastGraph = {};
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
