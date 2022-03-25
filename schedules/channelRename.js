@@ -29,7 +29,7 @@ module.exports.execute = (client) => {
             
         }
         */
-        schedule.scheduleJob('*/1 * * * * *', function(){
+        schedule.scheduleJob(client.helpers.secToCron(client.config.channel_rename_interval), function(){
             client.channels.cache.get(client.config.voice_channel_id).setName(` ${client.localization.commands.water.field} : ${client.helpers.getMoisture()}`);
         });
     }
