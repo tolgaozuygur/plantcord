@@ -42,8 +42,10 @@
             "name" : "info",
             "desc" : "For detailed info",
             "color" : "GREEN",
+            "field0" : "Current soil moisture ",
             "field1" : "Watering count ",
             "field2" : "Moisture average ",
+            "field3" : "Length of the experiment ",
             "time_field" : " days since the beginning of experiment"
         }  ,
         "graph" : {

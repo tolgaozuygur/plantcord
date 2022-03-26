@@ -9,8 +9,10 @@ module.exports.info = {
   "name" : localization.commands.info.name,
   "desc" : localization.commands.info.desc,
   "color" : localization.commands.info.color,
+  "field0" : localization.commands.info.field0,
   "field1" : localization.commands.info.field1,
   "field2" : localization.commands.info.field2,
+  "field3" : localization.commands.info.field3,
   "time_field" : localization.commands.info.time_field
 }
 
@@ -58,6 +60,11 @@ module.exports.execute = (client, message) => {
     })
     .setTimestamp()
     .addFields(
+          {
+            "name": this.info.field0,
+            "value": "% "+ client.helpers.arduinoBridge.getMoisture(),
+            "inline": false
+          },
 		      {
             "name": this.info.field1,
             "value": "Günlük: "+ d_water_count + "\nHaftalık: " + w_water_count + "\nTüm Zamanlar: " + a_water_count,
@@ -65,11 +72,11 @@ module.exports.execute = (client, message) => {
           },
           {
             "name": this.info.field2,
-            "value": "Günlük: "+ d_avg + "\nHaftalık: " + w_avg + "\nTüm Zamanlar: " + a_avg,
+            "value": "Günlük: % "+ d_avg + "\nHaftalık: % " + w_avg + "\nTüm Zamanlar: % " + a_avg,
             "inline": true
           },
           {
-            "name": `Deney Uzunluğu`,
+            "name": this.info.field3,
             "value": `${difference}` + `${this.info.time_field}`,
             "inline": false
           })
@@ -77,9 +84,9 @@ module.exports.execute = (client, message) => {
 
 const hourly_job = schedule.scheduleJob('*/1 * * * *', function(){
   console.log("works");
-  d_humidity.push(client.helpers.getMoisture())
-  w_humidity.push(client.helpers.getMoisture())
-  a_humidity.push(client.helpers.getMoisture())
+  d_humidity.push(client.helpers.arduinoBridge.getMoisture())
+  w_humidity.push(client.helpers.arduinoBridge.getMoisture())
+  a_humidity.push(client.helpers.arduinoBridge.getMoisture())
 });
 
 }

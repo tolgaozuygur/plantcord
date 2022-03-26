@@ -42,8 +42,10 @@
             "name" : "info",
             "desc" : "Detaylı veriler için",
             "color" : "GREEN",
+            "field0" : "Su andaki toprak nem orani ",
             "field1" : "Sulama Sayıları ",
             "field2" : "Nem Ortalamaları ",
+            "field3" : "Deney Uzunluğu ",
             "time_field" : " gündür devam ediyor."
         },
         "graph" : {

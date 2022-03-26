@@ -20,7 +20,7 @@ module.exports.execute = (client, message) => {
     })
     .setTimestamp();
   if(this.info.field){
-    embed.addField(this.info.field, `${client.helpers.getMoisture()}%`)
+    embed.addField(this.info.field, `${client.helpers.arduinoBridge.getMoisture()}%`)
   }
 
   message.channel.send({ embeds: [embed] });
