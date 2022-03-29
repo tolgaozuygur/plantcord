@@ -1,7 +1,5 @@
 const { Client, Intents, Collection } = require('discord.js');
 const fs = require("fs");
-const mongoose = require('mongoose');
-const Database = require('./Schemas/Database');
 const { setInterval } = require('timers');
 const client = new Client({
   intents: [
@@ -18,42 +16,9 @@ client.schedule = new Collection();
 client.helpers = {};
 client.lastPhoto = {};
 client.lastGraph = {};
-client.Water = 0;
-
-mongoose
-  .connect(client.config.mongo_url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log('Connected to the database');
-  })
-  .catch((err) => {
-    console.log(err);
-  });
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-    setInterval(() => {
-    client.helpers.database.checkDay(client);
-  }, 5000);
-  setInterval(async () => {
-    client.helpers.database.getHour(client);
-    Database.updateOne(
-      { Plant: client.config.plant_name },
-      {
-        $inc: {
-          [`Water.${await client.helpers.database.getDay(client)}`]:
-            client.Water,
-          [`Moisture.${await client.helpers.database.getDay(client)}`]:
-            client.helpers.getMoisture(100),
-        },
-      },
-      { upsert: true }
-    ).exec();
-
-    client.Water = 0;
-  }, 3600000);
 });
 
 // Defining helper functions under client.

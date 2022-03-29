@@ -19,6 +19,5 @@
   "graph_export_interval" : 3600,
   "channel_rename_interval": 360,
   "take_photo_interval": 30,
-  "arduino_port": "",
-  "mongo_url": ""
+  "arduino_port": ""
 }
