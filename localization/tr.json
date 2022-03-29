@@ -1,0 +1,62 @@
+{
+    "console_logs": {
+        "command_loaded": "adlı komut başarıyla yüklendi!",
+        "helper_loaded": "adlı yardımcı başarıyla yüklendi!",
+        "schedule_loaded": "adlı zamanlı iş başarıyla yüklendi!"
+    },
+    "commands" : {
+        "help" : {
+            "title" : "HELP",
+            "name" : "help",
+            "color" : "GREEN"
+        },
+        "water" : {
+            "title" : "<plant_name>'yu suladın! 🌱",
+            "name" : "water",
+            "desc" : "<plant_name>'yu sulamak için",
+            "color" : "BLUE",
+            "field" : "Toprak Nemi "
+        },
+        "ping" : {
+            "title" : "Pong! 🏓",
+            "name" : "ping",
+            "desc" : "Ping-pong",
+            "color" : "YELLOW",
+            "field" : "API Latency"
+        },
+        "uptime" : {
+            "title" : "Uptime",
+            "name" : "uptime",
+            "desc" : "Getting Uptime",
+            "color" : "RED",
+            "field" : "Uptime : "
+        },
+        "photo" : {
+            "title" : "<plant_name>'nun şu anki fotoğrafı 📷",
+            "name" : "photo",
+            "desc" : "<plant_name>'nun anlık fotoğrafı için",
+            "color" : "GREY"
+        },
+        "info" : {
+            "title" : "Veriler",
+            "name" : "info",
+            "desc" : "Detaylı veriler için",
+            "color" : "GREEN",
+            "field0" : "Su andaki toprak nem orani ",
+            "field1" : "Sulama Sayıları ",
+            "field2" : "Nem Ortalamaları ",
+            "field3" : "Deney Uzunluğu ",
+            "time_field" : " gündür devam ediyor."
+        },
+        "graph" : {
+            "title" : "Grafik",
+            "name" : "durum grafiği",
+            "desc" : "Detaylı durum grafiği",
+            "color" : "BLUE",
+            "field1" : "Sulama Sayıları ",
+            "field2" : "Nem Ortalamaları ",
+            "time_field" : " gündür devam ediyor."
+        },
+        "not_found": "Böyle bir komut bulunamadı!" 
+    }
+}

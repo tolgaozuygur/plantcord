@@ -1,0 +1,62 @@
+{
+    "console_logs": {
+        "command_loaded": "named command has been loaded successfully!",
+        "helper_loaded": "named helper has been loaded successfully!",
+        "schedule_loaded": "named schedule has been loaded successfully!"
+    },
+    "commands" : {
+        "help" : {
+            "title" : "HELP",
+            "name" : "help",
+            "color" : "GREEN"
+        },
+        "water" : {
+            "title" : "You watered <plant_name>! 🌱",
+            "name" : "water",
+            "desc" : "To water <plant_name>",
+            "color" : "BLUE",
+            "field" : "Soil moisture "
+        },
+        "ping" : {
+            "title" : "Pong! 🏓",
+            "name" : "ping",
+            "desc" : "Ping-pong",
+            "color" : "YELLOW",
+            "field" : "API Latency"
+        },
+        "uptime" : {
+            "title" : "Uptime",
+            "name" : "uptime",
+            "desc" : "Getting Uptime",
+            "color" : "RED",
+            "field" : "Uptime : "
+        },
+        "photo" : {
+            "title" : "Current picture of <plant_name> 📷",
+            "name" : "photo",
+            "desc" : "To get the current picture of <plant_name>",
+            "color" : "GREY"
+        },
+        "info" : {
+            "title" : "Info",
+            "name" : "info",
+            "desc" : "For detailed info",
+            "color" : "GREEN",
+            "field0" : "Current soil moisture ",
+            "field1" : "Watering count ",
+            "field2" : "Moisture average ",
+            "field3" : "Length of the experiment ",
+            "time_field" : " days since the beginning of experiment"
+        }  ,
+        "graph" : {
+            "title" : "Graph",
+            "name" : "graph",
+            "desc" : "Detailed info graph",
+            "color" : "BLUE",
+            "field1" : "Watering count ",
+            "field2" : "Moisture average ",
+            "time_field" : " days since the beginning of experiment"
+        },
+        "not_found": "This command does not exist"
+    }
+}
