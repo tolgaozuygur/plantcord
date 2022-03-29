@@ -3,6 +3,7 @@ const config = require('../config.json');
 const localization = require('../localization/'+config.localization_file);
 const schedule = require('node-schedule');
 let MS_Per_Day = 1000 * 60 * 60 * 24;
+const Database = require('../Schemas/Database');
 
 module.exports.info = {
   "title" : localization.commands.info.title,
@@ -47,6 +48,49 @@ module.exports.execute = (client, message) => {
   const a = new Date();
   const b = new Date(config.start_date);
   const difference = dateDiff(b, a); 
+	
+  let data = await Database.findOne({ Plant: client.config.plant_name });
+  let day = await client.helpers.database.getDay(client);
+
+  if (data) {
+    let dailywater = 0,
+      weeklywater = 0,
+      alltimewater = 0,
+      dailymoisture = 0,
+      weeklymoisture = 0,
+      alltimemoisture = 0,
+      tempday = 0;
+    let waterdays = Object.keys(data.Water);
+    let moisturedays = Object.keys(data.Moisture);
+    console.log(waterdays + '\n' + moisturedays);
+
+    waterdays.forEach((_day) => {
+      let datas = Object.values(data.Water).reduce((x, y) => x + y, 0);
+      alltimewater += datas;
+
+      if (day == _day) {
+        dailywater += datas;
+      }
+
+      if (_day <= 7) {
+        weeklywater += datas;
+      }
+    });
+
+    moisturedays.forEach((_day) => {
+      console.log(_day);
+      let datas = Object.values(data.Moisture).reduce((x, y) => x + y, 0);
+      alltimemoisture += datas;
+      tempday++;
+
+      if (day == _day) {
+        dailymoisture = datas / data.Hour;
+      }
+
+      if (_day1 <= 7) {
+        weeklymoisture += datas / (_day * data.Hour);
+      }
+    });
 
   var d_avg = getAverage(d_humidity)
   var w_avg = getAverage(w_humidity)
@@ -67,7 +111,7 @@ module.exports.execute = (client, message) => {
           },
 		      {
             "name": this.info.field1,
-            "value": "Günlük: "+ d_water_count + "\nHaftalık: " + w_water_count + "\nTüm Zamanlar: " + a_water_count,
+            "value": "Günlük: "+ dailywater + "\nHaftalık: " + weeklywater + "\nTüm Zamanlar: " + alltimewater,
             "inline": false
           },
           {

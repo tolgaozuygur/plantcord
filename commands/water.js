@@ -24,4 +24,5 @@ module.exports.execute = (client, message) => {
   }
 
   message.channel.send({ embeds: [embed] });
+  client.Water++;
 }
