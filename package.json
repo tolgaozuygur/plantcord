@@ -6,7 +6,6 @@
     "dotenv": "^10.0.0",
     "node-schedule": "^2.1.0",
     "node-webcam": "^0.8.0",
-    "serialport": "^10.4.0",
-    "mongoose": "^6.2.7"
+    "serialport": "^10.4.0"
   }
 }
