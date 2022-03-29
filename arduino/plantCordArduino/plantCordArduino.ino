@@ -2,6 +2,10 @@ const int AirValue = 440;
 const int WaterValue = 196;
 const int serialSendTime = 5000;
 const int moistureSampleRate = 250;
+const int pumpWaterTime = 1000;
+const int pumpPin = 2;
+const byte DATA_MAX_SIZE = 32;
+char data[DATA_MAX_SIZE];   // an array to store the received data
 
 int soilMoistureArray[] = {0,0,0,0,0,0,0,0};
 int soilMoistureArrayLength = 8;
@@ -9,6 +13,7 @@ unsigned long serialSendTimer = 0;
 
 
 void setup() {
+  pinMode(pumpPin, OUTPUT);
   Serial.begin(9600);
 }
 void loop() {
@@ -19,6 +24,18 @@ void loop() {
     serialSendTimer = millis() + serialSendTime; 
   }
   delay(moistureSampleRate);
+  //test
+  receiveData();
+  handlePump();
+}
+
+void handlePump(){
+  if(String(data) == "wtr"){
+    //water command received
+    digitalWrite(pumpPin, HIGH);
+    delay(pumpWaterTime);
+    digitalWrite(pumpPin, LOW);
+  }
 }
 
 int getCurrentSoilMoisture(){
@@ -45,4 +62,25 @@ int getCurrentSoilMoisture(){
   //Serial.println("]");
   soilMoisturePercentAverage = soilMoisturePercentAverage / soilMoistureArrayLength;
   return soilMoisturePercentAverage;
+}
+
+void receiveData() {
+  static char endMarker = '\n'; 
+  char receivedChar; 
+  int ndx = 0; 
+  // clean data buffer
+  memset(data, 32, sizeof(data));
+  while(Serial.available() > 0) {
+    receivedChar = Serial.read();
+    if (receivedChar == endMarker) {
+      data[ndx] = '\0'; 
+      return;
+    }
+    data[ndx] = receivedChar;
+    ndx++;
+    if (ndx >= DATA_MAX_SIZE) {
+      break;
+    }
+  }
+  memset(data, 32, sizeof(data));
 }
