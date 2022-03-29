@@ -10,11 +10,13 @@ module.exports = (input, every=true) => {
     let week = day / 7;
     // convert weeks to months
     let month = week / 4;
-
     if (every === true) {
         if (sec < 60) {
             return `*/${sec} * * * * *`;
         } else if (sec >= 60 && sec < 3600) {
+            if((sec - min * 60)==0){
+                return `*/${Math.floor(min)} * * * *`;
+            }
             return `*/${sec - min * 60} */${Math.floor(min)} * * * *`;
         } else if (sec >= 3600 && sec < 86400) {
             return `*/${sec - min * 60} */${Math.floor(min - hour * 24)} */${Math.floor(hour)} * * *`;
