@@ -1,0 +1,23 @@
+{
+  "plant_name": "PlantNameHere",
+  "moisture_min": "15",
+  "moisture_max": "25",
+  "prefix": "!",
+  "bot_token": "",
+  "localization_file": "en.json",
+  "start_date": "YYYY-MM-DD",
+  "specific_channel": "no",
+  "channel_id": "your_channel_id",
+  "auto_change_voice_channel_name": "yes",  
+  "voice_channel_id": "",
+  "photo_path": "./photos/current_photo.jpg",
+  "photo_ftype": "jpeg",
+  "photo_rotation": "270",
+  "photo_width": "1280",
+  "photo_height": "720",
+  "graph_path": "./photos/graph.png",
+  "graph_export_interval" : 3600,
+  "channel_rename_interval": 360,
+  "take_photo_interval": 30,
+  "arduino_port": ""
+}

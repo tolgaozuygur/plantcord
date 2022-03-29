@@ -1,3 +1,6 @@
+# JetBrains
+.idea
+
 # Logs
 logs
 *.log
@@ -102,3 +105,9 @@ dist
 
 # TernJS port file
 .tern-port
+plant_photo.webp
+config.json
+photos/current_photo.jpg
+image.png
+photos/current_photo.png
+photos/graph.png
