@@ -1,5 +1,6 @@
 {
   "plant_name": "PlantNameHere",
+  "plant_type": "PlantTypeHere",
   "moisture_min": 15,
   "moisture_max": 20,
   "prefix": "!",
