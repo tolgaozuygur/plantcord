@@ -62,7 +62,7 @@ client.on('messageCreate', async (message) => {
   const commandName = args.shift().toLowerCase();
   const command = client.commands.get(commandName);
   if (!command) {
-    return await message.reply({ content: localization.commands.not_found});
+    return await message.reply({ content: client.localization.commands.not_found});
   }
 
   await command.execute(client, message, args);

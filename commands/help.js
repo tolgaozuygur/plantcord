@@ -14,7 +14,7 @@ module.exports.execute = async (client, message) => {
     .setColor(this.info.color)
 
   await client.commands.forEach(command => {
-    if(command.info.desc)
+    if(command.info.desc && command.info.name != "ping" && command.info.name != "uptime")
       embed.addField(`${client.config.prefix}${command.info.name}`, command.info.desc)
   })
 

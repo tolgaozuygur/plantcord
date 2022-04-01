@@ -7,7 +7,10 @@ module.exports.info = {
   "name" : localization.commands.water.name,
   "desc" : localization.commands.water.desc.replace("<plant_name>", config.plant_name),
   "color" : localization.commands.water.color,
-  "field" : localization.commands.water.field
+  "field" : localization.commands.water.field,
+  "moisture_low" : localization.commands.water.moisture_low,
+  "moisture_high" : localization.commands.water.moisture_high,
+  "recommended_moisture" : localization.commands.water.recommended_moisture
 }
 
 module.exports.execute = (client, message) => {
@@ -20,8 +23,11 @@ module.exports.execute = (client, message) => {
       iconURL: message.author.displayAvatarURL({ dynamic: true }),
     })
     .setTimestamp();
-  if(this.info.field){
-    embed.addField(this.info.field, `${client.helpers.arduinoBridge.getMoisture()}%`)
+  embed.addField(this.info.field, `${client.helpers.arduinoBridge.getMoisture()}%`)
+  if(client.helpers.arduinoBridge.getMoisture() < config.moisture_min){
+    embed.addField(this.info.moisture_low, this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
+  }else if(client.helpers.arduinoBridge.getMoisture() > config.moisture_max){
+    embed.addField(this.info.moisture_high, this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
   }
 
   message.channel.send({ embeds: [embed] });

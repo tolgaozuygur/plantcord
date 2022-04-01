@@ -11,11 +11,14 @@
             "color" : "GREEN"
         },
         "water" : {
-            "title" : "You watered <plant_name>! 🌱",
+            "title" : "You watered me! 🌱",
             "name" : "water",
-            "desc" : "To water <plant_name>",
+            "desc" : "To give me a drop of water",
             "color" : "BLUE",
             "field" : "Soil moisture "
+            "moisture_low" : "Can you give me some more water? My soil is too dry.",
+            "moisture_high" : "Please don't water me anymore, you can kill me.",
+            "recommended_moisture" : "Recommended moisture"
         },
         "ping" : {
             "title" : "Pong! 🏓",
@@ -32,20 +35,19 @@
             "field" : "Uptime : "
         },
         "photo" : {
-            "title" : "Current picture of <plant_name> 📷",
+            "title" : "Here's a selfie 📷",
             "name" : "photo",
-            "desc" : "To get the current picture of <plant_name>",
+            "desc" : "To get my picture",
             "color" : "GREY"
         },
         "info" : {
-            "title" : "Info",
+            "title" : "Info 🌱",
             "name" : "info",
-            "desc" : "For detailed info",
+            "desc" : "For current soil moisture",
             "color" : "GREEN",
             "field0" : "Current soil moisture ",
-            "field1" : "Watering count ",
-            "field2" : "Moisture average ",
-            "field3" : "Length of the experiment ",
+            "field1" : "Recommended moisture ",
+            "field2" : "Length of the experiment ",
             "time_field" : " days since the beginning of experiment"
         }  ,
         "graph" : {

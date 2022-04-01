@@ -4,7 +4,7 @@ function takePicture(client) {
     var FSWebcam = NodeWebcam.FSWebcam;
     var opts = {
       rotation:client.config.photo_rotation,
-      quality:80,
+      quality:90,
       width:client.config.photo_width,
       height:client.config.photo_height,
       output:client.config.photo_ftype

@@ -1,19 +1,22 @@
-const int AirValue = 440; 
-const int WaterValue = 196;
+const int AirValue = 410; 
+const int WaterValue = 188;
 const int serialSendTime = 5000;
-const int moistureSampleRate = 250;
-const int pumpWaterTime = 1000;
+const int moistureSampleRate = 1000;
+const int pumpWaterTime = 50;
 const int pumpPin = 2;
+const int pumpPrimeButtonPin = 4;
 const byte DATA_MAX_SIZE = 32;
-char data[DATA_MAX_SIZE];   // an array to store the received data
+char data[DATA_MAX_SIZE]; 
 
-int soilMoistureArray[] = {0,0,0,0,0,0,0,0};
-int soilMoistureArrayLength = 8;
+int soilMoistureArray[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+int soilMoistureArrayLength = 15;
 unsigned long serialSendTimer = 0;
+int pumpPrimeButtonState = 0;
 
 
 void setup() {
   pinMode(pumpPin, OUTPUT);
+  pinMode(pumpPrimeButtonPin, INPUT_PULLUP);
   Serial.begin(9600);
 }
 void loop() {
@@ -23,24 +26,34 @@ void loop() {
     Serial.println(currentSoilMoisture); 
     serialSendTimer = millis() + serialSendTime; 
   }
-  delay(moistureSampleRate);
-  //test
   receiveData();
   handlePump();
+  delay(moistureSampleRate);
 }
 
 void handlePump(){
-  if(String(data) == "wtr"){
-    //water command received
-    digitalWrite(pumpPin, HIGH);
-    delay(pumpWaterTime);
-    digitalWrite(pumpPin, LOW);
+  if(digitalRead(pumpPrimeButtonPin) == HIGH){
+    if(pumpPrimeButtonState == 1){
+      digitalWrite(pumpPin, LOW);
+      pumpPrimeButtonState = 0;
+    }
+    if(String(data) == "wtr"){
+      //water command received
+      digitalWrite(pumpPin, HIGH);
+      delay(pumpWaterTime);
+      digitalWrite(pumpPin, LOW);
+    }
+  }else{
+    if(pumpPrimeButtonState == 0){
+      digitalWrite(pumpPin, HIGH);
+      pumpPrimeButtonState = 1;
+    }
   }
 }
 
 int getCurrentSoilMoisture(){
   int soilMoistureValue = analogRead(A0);
-  //Serial.println(soilMoistureValue);
+  Serial.println(soilMoistureValue);
   int soilMoisturePercent = map(soilMoistureValue, AirValue, WaterValue, 0, 100);
   if(soilMoisturePercent >= 100){
     soilMoisturePercent = 100;

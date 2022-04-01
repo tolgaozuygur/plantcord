@@ -1,7 +1,7 @@
 {
   "plant_name": "PlantNameHere",
-  "moisture_min": "15",
-  "moisture_max": "25",
+  "moisture_min": 15,
+  "moisture_max": 20,
   "prefix": "!",
   "bot_token": "",
   "localization_file": "en.json",

@@ -62,28 +62,22 @@ module.exports.execute = (client, message) => {
     .addFields(
           {
             "name": this.info.field0,
-            "value": "% "+ client.helpers.arduinoBridge.getMoisture(),
+            "value": "%" + client.helpers.arduinoBridge.getMoisture(),
             "inline": false
           },
 		      {
             "name": this.info.field1,
-            "value": "Günlük: "+ d_water_count + "\nHaftalık: " + w_water_count + "\nTüm Zamanlar: " + a_water_count,
+            "value": "%" + config.moisture_min + " - %" + config.moisture_max,
             "inline": false
           },
           {
             "name": this.info.field2,
-            "value": "Günlük: % "+ d_avg + "\nHaftalık: % " + w_avg + "\nTüm Zamanlar: % " + a_avg,
-            "inline": true
-          },
-          {
-            "name": this.info.field3,
             "value": `${difference}` + `${this.info.time_field}`,
             "inline": false
           })
   message.channel.send({ embeds: [embed] });
 
 const hourly_job = schedule.scheduleJob('*/1 * * * *', function(){
-  console.log("works");
   d_humidity.push(client.helpers.arduinoBridge.getMoisture())
   w_humidity.push(client.helpers.arduinoBridge.getMoisture())
   a_humidity.push(client.helpers.arduinoBridge.getMoisture())
