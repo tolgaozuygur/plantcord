@@ -11,14 +11,15 @@
             "color" : "GREEN"
         },
         "water" : {
-            "title" : "You watered me! 🌱",
+            "title" : "You watered me! 💧",
             "name" : "water",
             "desc" : "To give me a drop of water",
             "color" : "BLUE",
             "field" : "Soil moisture "
-            "moisture_low" : "Can you give me some more water? My soil is too dry.",
-            "moisture_high" : "Please don't water me anymore, you can kill me.",
-            "recommended_moisture" : "Recommended moisture"
+            "moisture_low" : "Can you give me some more water? My soil is too dry. 🥵",
+            "moisture_high" : "Please don't water me anymore, you can kill me. 🥺",
+            "recommended_moisture" : "Recommended moisture",
+            "moisture" : "Moisture"
         },
         "ping" : {
             "title" : "Pong! 🏓",
