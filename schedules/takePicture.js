@@ -28,14 +28,16 @@ function takePictureNonLinux(client) {
 
 function saveThatPic(){
     var current = new Date();
-    if(fs.existsSync(`./collage/${current.getFullYear()}/${current.getMonth()}/${current.getDate()}.png`)){
-        console.log('DEBUG: Collage already exists, skipping.');
-    }else{
-        console.log('DEBUG: Collage does not exist, creating.');
-        fs.copyFile(client.config.photo_path, `./collage/${current.getFullYear()}/${current.getMonth()}/${current.getDate()}.png`, (err) => {
-            if (err) throw err;
-            console.log('DEBUG: Collage created.');
-        });
+    if(current.getHours() <= client.config.photo_save_hour){
+        if(fs.existsSync(`./collage/${current.getFullYear()}/${current.getMonth()}/${current.getDate()}.png`)){
+            console.log('DEBUG: Collage already exists, skipping.');
+        }else{
+            console.log('DEBUG: Collage does not exist, creating.');
+            fs.copyFile(client.config.photo_path, `./collage/${current.getFullYear()}/${current.getMonth()}/${current.getDate()}.png`, (err) => {
+                if (err) throw err;
+                console.log('DEBUG: Collage created.');
+            });
+        }
     }
 }
 
