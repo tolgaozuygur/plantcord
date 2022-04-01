@@ -28,11 +28,6 @@ function dateDiff(a, b) {
   return Math.floor((utc2 - utc1) / MS_Per_Day);
 }
 
-
-var d_water_count = 0 //günlük sulama sayısı
-var w_water_count = 0 //haftalık sulama sayısı
-var a_water_count = 0 //tüm zamanlar sulama sayısı
-
 var d_humidity = []
 var w_humidity = []
 var a_humidity = []

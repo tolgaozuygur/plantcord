@@ -1,4 +1,3 @@
-var is_there_vc;
 schedule = require("node-schedule");
 module.exports.execute = (client) => {
     if(client.config.auto_change_voice_channel_name === "yes"){
