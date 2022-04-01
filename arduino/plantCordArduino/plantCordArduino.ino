@@ -1,8 +1,8 @@
 const int AirValue = 410; 
 const int WaterValue = 188;
 const int serialSendTime = 5000;
-const int moistureSampleRate = 1000;
-const int pumpWaterTime = 50;
+const int moistureSampleRate = 1200;
+const int pumpWaterTime = 60;
 const int pumpPin = 2;
 const int pumpPrimeButtonPin = 4;
 const byte DATA_MAX_SIZE = 32;
