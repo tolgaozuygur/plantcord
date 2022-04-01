@@ -11,14 +11,15 @@
             "color" : "GREEN"
         },
         "water" : {
-            "title" : "Beni suladın! 🌱",
+            "title" : "Beni suladın! 💧",
             "name" : "water",
             "desc" : "Bana bir damla su vermek için",
             "color" : "BLUE",
             "field" : "Toprak Nemi ",
-            "moisture_low" : "Bana biraz daha su verir misin? Topragim cok kuru.",
-            "moisture_high" : "Lutfen bana daha cok su verme. Topragim cok nemli, beni oldurebilirsin.",
-            "recommended_moisture" : "Onerilen nem"
+            "moisture_low" : "Bana biraz daha su verir misin? Toprağım çok kuru. 🥵",
+            "moisture_high" : "Lütfen bana daha cok su verme. Toprağım çok nemli, beni öldürebilirsin. 🥺",
+            "recommended_moisture" : "Önerilen nem",
+            "moisture" : "Nem"
         },
         "ping" : {
             "title" : "Pong! 🏓",
@@ -43,10 +44,10 @@
         "info" : {
             "title" : "Veriler 🌱",
             "name" : "info",
-            "desc" : "Su anki toprak nemini ogrenmek için",
+            "desc" : "Şu anki toprak nemini öğrenmek için",
             "color" : "GREEN",
-            "field0" : "Su andaki toprak nem orani ",
-            "field1" : "Onerilen nem araligi ",
+            "field0" : "Şu andaki toprak nem oranı ",
+            "field1" : "Önerilen nem aralığı ",
             "field2" : "Deney Uzunluğu ",
             "time_field" : " gündür devam ediyor."
         },
