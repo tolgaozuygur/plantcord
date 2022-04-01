@@ -53,7 +53,7 @@
         },
         "graph" : {
             "title" : "Grafik",
-            "name" : "durum grafiği",
+            "name" : "graph",
             "desc" : "Detaylı durum grafiği",
             "color" : "BLUE",
             "field1" : "Sulama Sayıları ",
