@@ -26,7 +26,7 @@ function takePictureNonLinux(client) {
     console.log('Took a new picture of the plant!');
 }
 
-function saveThatPic(){
+function saveForCollage(client){
     var current = new Date();
     if(current.getHours() <= client.config.photo_save_hour){
         if(fs.existsSync(`./collage/${current.getFullYear()}/${current.getMonth()}/${current.getDate()}.png`)){
@@ -48,6 +48,6 @@ module.exports.execute = (client) => {
         }else{
             takePictureNonLinux(client);
         }
-        saveThatPic();
+        saveForCollage(client);
     });
 }

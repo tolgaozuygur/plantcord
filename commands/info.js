@@ -2,6 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const config = require('../config.json');
 const localization = require('../localization/' + config.localization_file);
 const schedule = require('node-schedule');
+const fs = require("fs");
 let MS_Per_Day = 1000 * 60 * 60 * 24;
 
 module.exports.info = {
@@ -44,73 +45,76 @@ function getAverage(array) {
 
 module.exports.execute = (client, message) => {
   let currentPhotoMTime;
-  if (err) {
-    //no photo found
-    console.log(`DEBUG: No photo found. Is the webcam connected?`);
-  } else {
-    //photo found
-    currentPhotoMTime = stats.mtime.toISOString();
-    console.log(`DEBUG: File Data Last Modified: ${stats.mtime}`);
-    //send embed message
-    let cachedImg = []
-    if (!client.lastPhoto || client.lastPhoto.mtime !== currentPhotoMTime) {
-      // Last photo expired we need a new one.
-      console.log(`DEBUG: Last photo expired, uploading new one.`);
-      embed.setImage(`attachment://${config.photo_path.split('/').reverse()[0]}`);
-      cachedImg = [config.photo_path]
-    } else {
-      console.log(`DEBUG: Using photo from cache.`);
-      embed.setImage(client.lastPhoto.url)
-    }
 
-    const a = new Date();
-    const b = new Date(config.start_date);
-    const difference = dateDiff(b, a);
 
-    var d_avg = getAverage(d_humidity)
-    var w_avg = getAverage(w_humidity)
-    var a_avg = getAverage(a_humidity)
-    const embed = new MessageEmbed()
-      .setTitle(this.info.title)
-      .setColor(this.info.color)
-      .setThubnail(cachedImg)
-      .setFooter({
-        text: message.member.displayName,
-        iconURL: message.author.displayAvatarURL({ dynamic: true }),
+  const a = new Date();
+  const b = new Date(config.start_date);
+  const difference = dateDiff(b, a);
+
+  var d_avg = getAverage(d_humidity)
+  var w_avg = getAverage(w_humidity)
+  var a_avg = getAverage(a_humidity)
+  const embed = new MessageEmbed()
+    .setTitle(this.info.title)
+    .setColor(this.info.color)
+    .setFooter({
+      text: message.member.displayName,
+      iconURL: message.author.displayAvatarURL({ dynamic: true }),
+    })
+    .setTimestamp()
+    .addFields(
+      {
+        "name": this.info.plant_name_title,
+        "value": this.info.plant_name,
+        "inline": true
+      },
+      {
+        "name": this.info.plant_type_title,
+        "value": this.info.plant_type,
+        "inline": true
+      },
+      {
+        "name": this.info.field0,
+        "value": "%" + client.helpers.arduinoBridge.getMoisture(),
+        "inline": false
+      },
+      {
+        "name": this.info.field1,
+        "value": "%" + config.moisture_min + " - %" + config.moisture_max,
+        "inline": false
+      },
+      {
+        "name": this.info.field2,
+        "value": `${difference}` + `${this.info.time_field}`,
+        "inline": false
       })
-      .setTimestamp()
-      .addFields(
-        {
-          "name": this.info.plant_name_title,
-          "value": this.info.plant_name,
-          "inline": true
-        },
-        {
-          "name": this.info.plant_type_title,
-          "value": this.info.plant_type,
-          "inline": true
-        },
-        {
-          "name": this.info.field0,
-          "value": "%" + client.helpers.arduinoBridge.getMoisture(),
-          "inline": false
-        },
-        {
-          "name": this.info.field1,
-          "value": "%" + config.moisture_min + " - %" + config.moisture_max,
-          "inline": false
-        },
-        {
-          "name": this.info.field2,
-          "value": `${difference}` + `${this.info.time_field}`,
-          "inline": false
-        })
-    message.channel.send({ embeds: [embed] });
+  fs.stat(config.photo_path, (err, stats) => {
+    if (err) {
+      //no photo found
+      console.log(`DEBUG: No photo found. Is the webcam connected?`);
+    } else {
+      //photo found
+      currentPhotoMTime = stats.mtime.toISOString();
+      console.log(`DEBUG: File Data Last Modified: ${stats.mtime}`);
+      //send embed message
+      let cachedImg = []
+      if (!client.lastPhoto || client.lastPhoto.mtime !== currentPhotoMTime) {
+        // Last photo expired we need a new one.
+        console.log(`DEBUG: Last photo expired, uploading new one.`);
+        embed.setImage(`attachment://${config.photo_path.split('/').reverse()[0]}`);
+        cachedImg = [config.photo_path]
+      } else {
+        console.log(`DEBUG: Using photo from cache.`);
+        embed.setImage(client.lastPhoto.url)
+      }
+      embed.setThubnail(cachedImg)
+    }
+  })
+  message.channel.send({ embeds: [embed] });
 
-    const hourly_job = schedule.scheduleJob('*/1 * * * *', function () {
-      d_humidity.push(client.helpers.arduinoBridge.getMoisture())
-      w_humidity.push(client.helpers.arduinoBridge.getMoisture())
-      a_humidity.push(client.helpers.arduinoBridge.getMoisture())
-    });
-  }
+  const hourly_job = schedule.scheduleJob('*/1 * * * *', function () {
+    d_humidity.push(client.helpers.arduinoBridge.getMoisture())
+    w_humidity.push(client.helpers.arduinoBridge.getMoisture())
+    a_humidity.push(client.helpers.arduinoBridge.getMoisture())
+  });
 }
