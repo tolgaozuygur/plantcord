@@ -23,11 +23,13 @@ module.exports.execute = (client, message) => {
       iconURL: message.author.displayAvatarURL({ dynamic: true }),
     })
     .setTimestamp();
-  embed.addField(this.info.field, `${client.helpers.arduinoBridge.getMoisture()}%`)
+  
   if(client.helpers.arduinoBridge.getMoisture() < config.moisture_min){
-    embed.addField(this.info.moisture_low, this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
+    embed.addField(this.info.field + ": %" + client.helpers.arduinoBridge.getMoisture(), this.info.moisture_low + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
   }else if(client.helpers.arduinoBridge.getMoisture() > config.moisture_max){
-    embed.addField(this.info.moisture_high, this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
+    embed.addField(this.info.field + ": %" + client.helpers.arduinoBridge.getMoisture(), this.info.moisture_high + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
+  }else{
+    embed.addField(this.info.field + ": %" + client.helpers.arduinoBridge.getMoisture(), ":)")
   }
 
   message.channel.send({ embeds: [embed] });
