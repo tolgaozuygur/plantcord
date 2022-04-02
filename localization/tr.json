@@ -26,7 +26,8 @@
             "name" : "ping",
             "desc" : "Ping-pong",
             "color" : "YELLOW",
-            "field" : "API Latency"
+            "latencyfield" : "Latency",
+            "apifield" : "API Latency"
         },
         "uptime" : {
             "title" : "Uptime",
