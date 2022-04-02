@@ -11,6 +11,12 @@ module.exports.info = {
 }
 
 module.exports.execute = (client, message) => {
+  fs.stat(config.photo_path, (err, stats) => {
+    if (err) {
+      //no photo found
+      console.log(`DEBUG: No photo found. Is the webcam connected?`);
+      stats.mtime = 0;
+    }
   const embed = new MessageEmbed()
     .setTitle(this.info.title)
     .setColor(this.info.color)
@@ -18,7 +24,8 @@ module.exports.execute = (client, message) => {
       text: message.member.displayName,
       iconURL: message.author.displayAvatarURL({ dynamic: true }),
     })
-    .setTimestamp();
+    .setTimestamp(stats.mtime);
+  });
 
   //check the photo mtime
   fs.stat(config.photo_path, (err, stats) => {
