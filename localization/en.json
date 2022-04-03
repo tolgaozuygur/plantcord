@@ -22,12 +22,12 @@
             "moisture" : "Moisture"
         },
         "wind" : {
-            "title" : "You created some wind 💧",
+            "title" : "You created some wind 💨",
             "name" : "wind",
             "desc" : "To turn on the fan for <fan_duration> seconds. This can help evaporating the water in the soil.",
             "color" : "RED",
             "field" : "You turned on the fan for <fan_duration> seconds",
-            "moisture_high" : "Thanks! My soil is too moist, some wind might help! 🥵",
+            "moisture_high" : "Thanks! My soil is too moist, some wind might help! 😛",
             "moisture_low" : "My soil is already too dry, wish there was no wind. 🥺",
             "recommended_moisture" : "Recommended moisture",
             "fan_already_on" : "Fan is already on.",
