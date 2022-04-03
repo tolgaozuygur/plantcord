@@ -22,16 +22,16 @@
             "moisture" : "Nem"
         },
         "wind" : {
-            "title" : "Burasi biraz esmeye basladi 💧",
+            "title" : "Burası biraz esmeye başladı 💨",
             "name" : "wind",
-            "desc" : "Ruzgar fanini <fan_duration> saniye calistirmak icin. Bu topraktaki suyun buharlasma hizini arttirabilir.",
+            "desc" : "Rüzgar fanını <fan_duration> saniye çalıştırmak. Bu topraktaki suyun buharlaşma hızını arttırabilir.",
             "color" : "RED",
-            "field" : "Fani <fan_duration> saniyeligine calistirdin",
-            "moisture_high" : "Tesekkurler! Topragim cok nemli, biraz ruzgarin yardimi dokunabilir. 🥵",
-            "moisture_low" : "Topragim zaten cok kuru, keske hic ruzgar olmasaydi... 🥺",
+            "field" : "Fanı <fan_duration> saniyeliğine çalıştırdın",
+            "moisture_high" : "Tesekkurler! Toprağım cok nemli, biraz rüzgarın yardımı dokunabilir. 😛",
+            "moisture_low" : "Toprağım zaten çok kuru, keşke hiç rüzgar olmasaydı... 🥺",
             "recommended_moisture" : "Önerilen nem",
-            "fan_already_on" : "Fan zaten calisiyor.",
-            "fan_already_on_field" : "Calistirmak icin durmasini bekleyin."
+            "fan_already_on" : "Fan zaten calışıyor.",
+            "fan_already_on_field" : "Çalıştırmak için durmasını bekleyin."
         },
         "ping" : {
             "title" : "Pong! 🏓",
@@ -64,8 +64,8 @@
             "field2" : "Fan durumu ",
             "field3" : "Deney Uzunluğu ",
             "time_field" : " gündür devam ediyor.",
-            "fan_on" : "Acik",
-            "fan_off" : "Kapali"
+            "fan_on" : "Açık",
+            "fan_off" : "Kapalı"
         },
         "graph" : {
             "title" : "Grafik",
