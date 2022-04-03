@@ -48,14 +48,6 @@
             "desc" : "Şu anki toprak nemini öğrenmek için",
             "color" : "GREEN",
             "field0" : "Şu andaki toprak nem oranı ",
-            "field1" : "Önerilen nem aralığı "
-        },
-        "details" : {
-            "title" : "Detaylı veriler 🌱",
-            "name" : "details",
-            "desc" : "Detaylı bilgiler edinmek için",
-            "color" : "PURPLE",
-            "field0" : "Şu andaki toprak nem oranı ",
             "field1" : "Önerilen nem aralığı ",
             "field2" : "Deney Uzunluğu ",
             "time_field" : " gündür devam ediyor.",
