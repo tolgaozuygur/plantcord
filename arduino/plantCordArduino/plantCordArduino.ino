@@ -2,9 +2,10 @@ const int AirValue = 410;
 const int WaterValue = 188;
 const int serialSendTime = 5000;
 const int moistureSampleRate = 1200;
-const int pumpWaterTime = 60;
+const int pumpWaterTime = 75;
 const int pumpPin = 2;
 const int pumpPrimeButtonPin = 4;
+const int fanPin = 6;
 const byte DATA_MAX_SIZE = 32;
 char data[DATA_MAX_SIZE]; 
 
@@ -15,6 +16,7 @@ int pumpPrimeButtonState = 0;
 
 
 void setup() {
+  pinMode(fanPin, OUTPUT);
   pinMode(pumpPin, OUTPUT);
   pinMode(pumpPrimeButtonPin, INPUT_PULLUP);
   Serial.begin(9600);
@@ -28,7 +30,19 @@ void loop() {
   }
   receiveData();
   handlePump();
+  handleFan();
   delay(moistureSampleRate);
+}
+
+void handleFan(){
+  if(String(data) == "fanon"){
+    //fan on command received
+    digitalWrite(fanPin, HIGH);
+  }
+  if(String(data) == "fanoff"){
+    //fan on command received
+    digitalWrite(fanPin, LOW);
+  }
 }
 
 void handlePump(){

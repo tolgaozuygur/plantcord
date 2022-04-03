@@ -51,6 +51,7 @@ module.exports.execute = (client, message) => {
   var d_avg = getAverage(d_humidity)
   var w_avg = getAverage(w_humidity)
   var a_avg = getAverage(a_humidity)
+  
   const embed = new MessageEmbed()
     .setTitle(this.info.title)
     .setColor(this.info.color)
@@ -72,6 +73,11 @@ module.exports.execute = (client, message) => {
           },
           {
             "name": this.info.field2,
+            "value": client.helpers.arduinoBridge.getFanStateText(),
+            "inline": false
+          },
+          {
+            "name": this.info.field3,
             "value": `${difference}` + `${this.info.time_field}`,
             "inline": false
           })

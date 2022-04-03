@@ -21,6 +21,18 @@
             "recommended_moisture" : "Önerilen nem",
             "moisture" : "Nem"
         },
+        "wind" : {
+            "title" : "Burasi biraz esmeye basladi 💧",
+            "name" : "wind",
+            "desc" : "Ruzgar fanini <fan_duration> saniye calistirmak icin. Bu topraktaki suyun buharlasma hizini arttirabilir.",
+            "color" : "RED",
+            "field" : "Fani <fan_duration> saniyeligine calistirdin",
+            "moisture_high" : "Tesekkurler! Topragim cok nemli, biraz ruzgarin yardimi dokunabilir. 🥵",
+            "moisture_low" : "Topragim zaten cok kuru, keske hic ruzgar olmasaydi... 🥺",
+            "recommended_moisture" : "Önerilen nem",
+            "fan_already_on" : "Fan zaten calisiyor.",
+            "fan_already_on_field" : "Calistirmak icin durmasini bekleyin."
+        },
         "ping" : {
             "title" : "Pong! 🏓",
             "name" : "ping",
@@ -49,8 +61,11 @@
             "color" : "GREEN",
             "field0" : "Şu andaki toprak nem oranı ",
             "field1" : "Önerilen nem aralığı ",
-            "field2" : "Deney Uzunluğu ",
-            "time_field" : " gündür devam ediyor."
+            "field2" : "Fan durumu ",
+            "field3" : "Deney Uzunluğu ",
+            "time_field" : " gündür devam ediyor.",
+            "fan_on" : "Acik",
+            "fan_off" : "Kapali"
         },
         "graph" : {
             "title" : "Grafik",
