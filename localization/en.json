@@ -50,16 +50,6 @@
             "field0" : "Current soil moisture ",
             "field1" : "Recommended moisture ",
             "field2" : "Length of the experiment ",
-            "time_field" : " days since the beginning of experiment"
-        }  ,
-        "details" : {
-            "title" : "Details",
-            "name" : "details",
-            "desc" : "For deatiled info",
-            "color" : "PURPLE",
-            "field0" : "Current soil moisture ",
-            "field1" : "Recommended moisture ",
-            "field2" : "Length of the experiment ",
             "time_field" : " days since the beginning of experiment",
             "plant_name_title" : "Plant name : ",
             "plant_type_title" : "Plant type : "
