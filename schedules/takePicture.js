@@ -1,6 +1,5 @@
 const availableOs=["freebsd",'linux','openbsd','sunos','aix'];
 const NodeWebcam = require('node-webcam');
-const fs = require('fs');
 function takePicture(client) {
     var FSWebcam = NodeWebcam.FSWebcam;
     var opts = {
@@ -11,7 +10,7 @@ function takePicture(client) {
       output:client.config.photo_ftype
     };
     var webcam = new FSWebcam( opts );
-    webcam.capture(client.config.photo_path, function () {} );
+    webcam.capture(client.config.photo_path, function ( err, data ) {} );
     console.log('Took a new picture of the plant!');
   }
 
@@ -22,23 +21,8 @@ function takePictureNonLinux(client) {
         height:client.config.photo_height,
         output:client.config.photo_ftype
     };
-    NodeWebcam.capture(client.config.photo_path, opts, function () {} );
+    NodeWebcam.capture(client.config.photo_path, opts, function ( err, data ) {} );
     console.log('Took a new picture of the plant!');
-}
-
-function saveForCollage(client){
-    var current = new Date();
-    if(current.getHours() <= client.config.photo_save_hour){
-        if(fs.existsSync(`./collage/${current.getFullYear()}/${current.getMonth()}/${current.getDate()}.png`)){
-            console.log('DEBUG: Collage already exists, skipping.');
-        }else{
-            console.log('DEBUG: Collage does not exist, creating.');
-            fs.copyFile(client.config.photo_path, `./collage/${current.getFullYear()}/${current.getMonth()}/${current.getDate()}.png`, (err) => {
-                if (err) throw err;
-                console.log('DEBUG: Collage created.');
-            });
-        }
-    }
 }
 
 module.exports.execute = (client) => {
@@ -48,6 +32,5 @@ module.exports.execute = (client) => {
         }else{
             takePictureNonLinux(client);
         }
-        saveForCollage(client);
     });
 }

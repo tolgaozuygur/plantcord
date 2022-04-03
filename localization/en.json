@@ -15,7 +15,7 @@
             "name" : "water",
             "desc" : "To give me a drop of water",
             "color" : "BLUE",
-            "field" : "Soil moisture ",
+            "field" : "Soil moisture "
             "moisture_low" : "Can you give me some more water? My soil is too dry. 🥵",
             "moisture_high" : "Please don't water me anymore, you can kill me. 🥺",
             "recommended_moisture" : "Recommended moisture",
@@ -50,9 +50,7 @@
             "field0" : "Current soil moisture ",
             "field1" : "Recommended moisture ",
             "field2" : "Length of the experiment ",
-            "time_field" : " days since the beginning of experiment",
-            "plant_name_title" : "Plant name : ",
-            "plant_type_title" : "Plant type : "
+            "time_field" : " days since the beginning of experiment"
         }  ,
         "graph" : {
             "title" : "Graph",
