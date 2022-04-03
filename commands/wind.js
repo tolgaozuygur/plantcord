@@ -35,7 +35,7 @@ module.exports.execute = (client, message) => {
     }else if(client.helpers.arduinoBridge.getMoisture() > config.moisture_max){
       embed.addField(this.info.field, this.info.moisture_high + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
     }else{
-      embed.addField(this.info.field, ":)")
+      embed.addField(this.info.field, "😊")
     }
   }else{
     embed.addField(this.info.fan_already_on, this.info.fan_already_on_field)
