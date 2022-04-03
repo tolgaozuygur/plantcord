@@ -29,7 +29,7 @@ module.exports.execute = (client, message) => {
   }else if(client.helpers.arduinoBridge.getMoisture() > config.moisture_max){
     embed.addField(this.info.field + ": %" + client.helpers.arduinoBridge.getMoisture(), this.info.moisture_high + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
   }else{
-    embed.addField(this.info.field + ": %" + client.helpers.arduinoBridge.getMoisture(), ":)")
+    embed.addField(this.info.field + ": %" + client.helpers.arduinoBridge.getMoisture(), "😊")
   }
 
   message.channel.send({ embeds: [embed] });
