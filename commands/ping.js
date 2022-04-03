@@ -16,7 +16,7 @@ module.exports.execute = (client, message) => {
   const embed = new MessageEmbed()
     .setTitle(this.info.title)
     .setColor(this.info.color)
-    .addField(this.info.latencyfield, `${Date.now() - message.createdTimestamp}`)
+    .addField(this.info.latencyfield, `${Date.now() - message.createdTimestamp}ms`)
     .addField(this.info.apifield,`${apiLatency}ms`)
     .setFooter({
       text: message.member.displayName,
