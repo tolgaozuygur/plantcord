@@ -50,7 +50,9 @@
             "field0" : "Şu andaki toprak nem oranı ",
             "field1" : "Önerilen nem aralığı ",
             "field2" : "Deney Uzunluğu ",
-            "time_field" : " gündür devam ediyor."
+            "time_field" : " gündür devam ediyor.",
+            "plant_name_title" : "Bitki adı : ",
+            "plant_type_title" : "Bitki türü : "
         },
         "graph" : {
             "title" : "Grafik",

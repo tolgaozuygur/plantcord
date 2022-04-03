@@ -11,7 +11,7 @@ module.exports.info = {
   "apifield" : localization.commands.ping.apifield,
 }
 
-module.exports.execute = (client, message) => {
+module.exports.execute = (message) => {
   const apiLatency = Math.round(message.client.ws.ping);
   const embed = new MessageEmbed()
     .setTitle(this.info.title)

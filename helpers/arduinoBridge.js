@@ -5,7 +5,7 @@ var port;
 
 if(config.arduino_port != ""){
 	port = new SerialPort({ path: config.arduino_port, baudRate: 9600 })
-	port.flush(function(err,results){});
+	port.flush(function(){});
 	const parser = port.pipe(new ReadlineParser({ delimiter: '\r\n' }))
 
 	moisture = 0;

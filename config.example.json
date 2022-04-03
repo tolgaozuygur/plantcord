@@ -1,5 +1,6 @@
 {
   "plant_name": "PlantNameHere",
+  "plant_type": "PlantTypeHere",
   "moisture_min": 15,
   "moisture_max": 20,
   "prefix": "!",
@@ -19,5 +20,6 @@
   "graph_export_interval" : 3600,
   "channel_rename_interval": 360,
   "take_photo_interval": 30,
-  "arduino_port": ""
+  "arduino_port": "",
+  "photo_save_hour": 12
 }
