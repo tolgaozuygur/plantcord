@@ -16,7 +16,7 @@ module.exports.info = {
   "fan_already_on_field" : localization.commands.wind.fan_already_on_field
 }
 
-module.exports.execute = (client, message) => {  
+module.exports.execute = (client, message) => {
   const embed = new MessageEmbed()
     .setTitle(this.info.title)
     .setColor(this.info.color)
@@ -25,10 +25,10 @@ module.exports.execute = (client, message) => {
       iconURL: message.author.displayAvatarURL({ dynamic: true }),
     })
     .setTimestamp();
-  
+
   if(fan_state == 0){
     fan_state = 1;
-    setTimeout(fanTimeOut, config.fan_duration * 1000, client);
+    setTimeout(fanTimeOut, config.wind_fan_duration * 1000, client);
     client.helpers.arduinoBridge.turnOnTheFan();
     if(client.helpers.arduinoBridge.getMoisture() < config.moisture_min){
       embed.addField(this.info.field, this.info.moisture_low + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)

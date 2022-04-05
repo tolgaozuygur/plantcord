@@ -33,6 +33,9 @@
             "fan_already_on" : "Fan zaten calışıyor.",
             "fan_already_on_field" : "Çalıştırmak için durmasını bekleyin."
         },
+        "storm" : {
+            "name" : "storm"
+        },
         "ping" : {
             "title" : "Pong! 🏓",
             "name" : "ping",
@@ -76,6 +79,6 @@
             "field2" : "Nem Ortalamaları ",
             "time_field" : " gündür devam ediyor."
         },
-        "not_found": "Böyle bir komut bulunamadı!" 
+        "not_found": "Böyle bir komut bulunamadı!"
     }
 }
