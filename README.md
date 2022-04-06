@@ -37,4 +37,5 @@ $ node index.js
 - [Ozan Efe Akpınar (@ozefear)](https://ozefear.me)
 - [Alperen Emre Kır (@Robotsi)](https://github.com/Robotsi)
 - [Baran Mordoğan (@okunamayanad)](https://github.com/okunamayanad)
+- [Buğra İpek (@benbugraipek)](https://www.instagram.com/benbugraipek/)
 - [Tolga Özuygur (@tolgaozuygur)](https://github.com/tolgaozuygur)
