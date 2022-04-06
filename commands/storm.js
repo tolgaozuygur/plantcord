@@ -4,20 +4,20 @@ const localization = require('../localization/'+config.localization_file);
 var fan_state = 0;
 
 module.exports.info = {
-  "title" : localization.commands.wind.title.replace("<plant_name>", config.plant_name),
+  "title" : localization.commands.storm.title.replace("<plant_name>", config.plant_name),
   "name" : localization.commands.storm.name,
-  "desc" : localization.commands.wind.desc.replace("<plant_name>", config.plant_name),
-  "color" : localization.commands.wind.color,
-  "field" : localization.commands.wind.field.replace("<fan_duration>", config.fan_duration),
-  "moisture_low" : localization.commands.wind.moisture_low,
-  "moisture_high" : localization.commands.wind.moisture_high,
-  "recommended_moisture" : localization.commands.wind.recommended_moisture,
-  "fan_already_on" : localization.commands.wind.fan_already_on,
-  "fan_already_on_field" : localization.commands.wind.fan_already_on_field
+  "desc" : localization.commands.storm.desc.replace("<plant_name>", config.plant_name),
+  "color" : localization.commands.storm.color,
+  "field" : localization.commands.storm.field.replace("<fan_duration>", config.storm_fan_duration),
+  "moisture_low" : localization.commands.storm.moisture_low,
+  "moisture_high" : localization.commands.storm.moisture_high,
+  "recommended_moisture" : localization.commands.storm.recommended_moisture,
+  "fan_already_on" : localization.commands.storm.fan_already_on,
+  "fan_already_on_field" : localization.commands.storm.fan_already_on_field
 }
 
 module.exports.execute = (client, message) => {
-  if(!message.member.roles.cache.has(config.member_role)) return
+  if(!config.storm_role.some(role => message.member.roles.cache.has(role))) return message.reply(localization.storm.non_member)
   const embed = new MessageEmbed()
     .setTitle(this.info.title)
     .setColor(this.info.color)

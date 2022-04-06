@@ -24,7 +24,7 @@
         "wind" : {
             "title" : "Burası biraz esmeye başladı 💨",
             "name" : "wind",
-            "desc" : "Rüzgar fanını <fan_duration> saniye çalıştırmak. Bu topraktaki suyun buharlaşma hızını arttırabilir.",
+            "desc" : "Rüzgar fanını 1 dakikalığına çalıştırmak. Bu topraktaki suyun buharlaşma hızını arttırabilir.",
             "color" : "RED",
             "field" : "Fanı <fan_duration> saniyeliğine çalıştırdın",
             "moisture_high" : "Tesekkurler! Toprağım cok nemli, biraz rüzgarın yardımı dokunabilir. 😛",
@@ -34,7 +34,17 @@
             "fan_already_on_field" : "Çalıştırmak için durmasını bekleyin."
         },
         "storm" : {
-            "name" : "storm"
+            "title" : "Burası biraz esmeye başladı 💨",
+            "name" : "storm",
+            "desc" : "Rüzgar fanını 10 dakikalığına çalıştırmak. Bu topraktaki suyun buharlaşma hızını arttırabilir (YT üyelerine özel) .",
+            "color" : "RED",
+            "field" : "Fanı <fan_duration> saniyeliğine çalıştırdın",
+            "moisture_high" : "Tesekkurler! Toprağım cok nemli, biraz rüzgarın yardımı dokunabilir. 😛",
+            "moisture_low" : "Toprağım zaten çok kuru, keşke hiç rüzgar olmasaydı... 🥺",
+            "recommended_moisture" : "Önerilen nem",
+            "fan_already_on" : "Fan zaten calışıyor.",
+            "fan_already_on_field" : "Çalıştırmak için durmasını bekleyin.",
+            "non_member": "Bu komutu kullanmak için YouTube kanalına üye olmalısınız. Değilseniz wind komutunu kullanabilirsiniz."
         },
         "ping" : {
             "title" : "Pong! 🏓",

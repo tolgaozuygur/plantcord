@@ -8,7 +8,7 @@ module.exports.info = {
   "name" : localization.commands.wind.name,
   "desc" : localization.commands.wind.desc.replace("<plant_name>", config.plant_name),
   "color" : localization.commands.wind.color,
-  "field" : localization.commands.wind.field.replace("<fan_duration>", config.fan_duration),
+  "field" : localization.commands.wind.field.replace("<fan_duration>", config.wind_fan_duration),
   "moisture_low" : localization.commands.wind.moisture_low,
   "moisture_high" : localization.commands.wind.moisture_high,
   "recommended_moisture" : localization.commands.wind.recommended_moisture,

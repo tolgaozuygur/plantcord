@@ -22,5 +22,5 @@
   "arduino_port": "",
   "wind_fan_duration": 60,
   "storm_fan_duration": 600,
-  "member_role": "165911303720796160"
+  "storm_role": ["165911303720796160", "936685978947567698"]
 }

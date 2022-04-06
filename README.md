@@ -4,8 +4,8 @@
 
 ### Plant caring system for Discord communities
 
-This system allows people on a discord server to take care of a plant as a community. 
-They can see the soil moisture level, watch the plant and water it together to keep it alive. 
+This system allows people on a discord server to take care of a plant as a community.
+They can see the soil moisture level, watch the plant and water it together to keep it alive.
 
 Project is currently being developed as a collab on the server: https://discord.gg/hallederiz
 
@@ -35,6 +35,6 @@ $ node index.js
 - [Hurby](https://dribbble.com/hurby24)
 - [Nazım Sarp Tekbaş (@sarptekbas)](https://github.com/sarptekbas)
 - [Ozan Efe Akpınar (@ozefear)](https://ozefear.me)
-- [Robot. (@Robotsi)](https://github.com/Robotsi)
+- [Alperen Emre Kır (@Robotsi)](https://github.com/Robotsi)
 - [Baran Mordoğan (@okunamayanad)](https://github.com/okunamayanad)
 - [Tolga Özuygur (@tolgaozuygur)](https://github.com/tolgaozuygur)
