@@ -33,6 +33,19 @@
             "fan_already_on" : "Fan is already on.",
             "fan_already_on_field" : "Wait for it to turn off first."
         },
+        "storm" : {
+            "title" : "You created a storm 💨",
+            "name" : "storm",
+            "desc" : "To turn on the fan for <fan_duration> seconds. (For X role only)",
+            "color" : "RED",
+            "field" : "Fanı <fan_duration> saniyeliğine çalıştırdın",
+            "moisture_high" : "Thanks! My soil is too moist, some wind might help!",
+            "moisture_low" : "My soil is already too dry, wish there was no wind.",
+            "recommended_moisture" : "Recommended moisture",
+            "fan_already_on" : "Fan is already on.",
+            "fan_already_on_field" : "Wait for it to turn off first.",
+            "non_member": "To use this function you must have X role (replace this with the role you'd like to assign, such as youtube membership)"
+        },
         "ping" : {
             "title" : "Pong! 🏓",
             "name" : "ping",
