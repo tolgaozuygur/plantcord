@@ -25,6 +25,10 @@ module.exports.getMoisture= () => {
   return moisture;
 }
 
+module.exports.getFanState= () => {
+  return fan_state;
+}
+
 module.exports.getFanStateText= () => {
 	if(fan_state == 0){
 		return localization.commands.info.fan_off;
