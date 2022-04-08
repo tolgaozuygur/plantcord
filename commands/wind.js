@@ -31,11 +31,11 @@ module.exports.execute = (client, message) => {
     setTimeout(fanTimeOut, config.wind_fan_duration * 1000, client);
     client.helpers.arduinoBridge.turnOnTheFan();
     if(client.helpers.arduinoBridge.getMoisture() < config.moisture_min){
-      embed.addField(this.info.field, this.info.moisture_low + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
+      embed.addField(this.info.field, this.info.moisture_low + " " + config.emoji_sad + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
     }else if(client.helpers.arduinoBridge.getMoisture() > config.moisture_max){
-      embed.addField(this.info.field, this.info.moisture_high + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
+      embed.addField(this.info.field, this.info.moisture_high + " " + config.emoji_happy + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
     }else{
-      embed.addField(this.info.field, "😊")
+      embed.addField(this.info.field, config.emoji_happy)
     }
   }else{
     embed.addField(this.info.fan_already_on, this.info.fan_already_on_field)
