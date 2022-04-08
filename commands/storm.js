@@ -27,7 +27,7 @@ module.exports.execute = (client, message) => {
     .setTimestamp();
 
   if(client.helpers.arduinoBridge.getFanState() == 0){
-    setTimeout(fanTimeOut, config.storm_fan_duration * 1000, client);
+    setTimeout(fanTimeOut, config.storm_fan_duration * 1000, client, message);
     client.helpers.arduinoBridge.turnOnTheFan();
     if(client.helpers.arduinoBridge.getMoisture() < config.moisture_min){
       embed.addField(this.info.field, this.info.moisture_low + " " + config.emoji_sad + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
@@ -43,7 +43,11 @@ module.exports.execute = (client, message) => {
   message.channel.send({ embeds: [embed] });
 }
 
-function fanTimeOut(client) {
+function fanTimeOut(client, message) {
+  const embed = new MessageEmbed()
+    .setTitle(localization.commands.storm.storm_stopped)
+    .setTimestamp();
+  message.channel.send({ embeds: [embed] });
   client.helpers.arduinoBridge.turnOffTheFan();
 }
 
