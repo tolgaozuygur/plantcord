@@ -31,7 +31,8 @@
             "moisture_low" : "My soil is already too dry, wish there was no wind.",
             "recommended_moisture" : "Recommended moisture",
             "fan_already_on" : "Fan is already on.",
-            "fan_already_on_field" : "Wait for it to turn off first."
+            "fan_already_on_field" : "Wait for it to turn off first.",
+            "wind_stopped" : "Wind stopped."
         },
         "storm" : {
             "title" : "You created a storm 💨",
@@ -44,7 +45,8 @@
             "recommended_moisture" : "Recommended moisture",
             "fan_already_on" : "Fan is already on.",
             "fan_already_on_field" : "Wait for it to turn off first.",
-            "non_member": "To use this function you must have X role (replace this with the role you'd like to assign, such as youtube membership)"
+            "non_member": "To use this function you must have X role (replace this with the role you'd like to assign, such as youtube membership)",
+            "storm_stopped" : "Storm stopped."
         },
         "ping" : {
             "title" : "Pong! 🏓",
