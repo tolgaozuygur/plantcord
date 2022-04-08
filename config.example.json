@@ -21,7 +21,7 @@
   "take_photo_interval": 30,
   "arduino_port": "",
   "wind_fan_duration": 60,
-  "storm_fan_duration": 600,
+  "storm_fan_duration": 300,
   "storm_role": ["165911303720796160", "936685978947567698"],
   "emoji_happy" : "😊",
   "emoji_sad" : "🥺"
