@@ -1,7 +1,6 @@
 const {MessageEmbed} = require("discord.js");
 const config = require('../config.json');
 const localization = require('../localization/'+config.localization_file);
-var fan_state = 0;
 
 module.exports.info = {
   "title" : localization.commands.wind.title.replace("<plant_name>", config.plant_name),
@@ -26,8 +25,7 @@ module.exports.execute = (client, message) => {
     })
     .setTimestamp();
 
-  if(fan_state == 0){
-    fan_state = 1;
+  if(client.helpers.arduinoBridge.getFanState() == 0){
     setTimeout(fanTimeOut, config.wind_fan_duration * 1000, client);
     client.helpers.arduinoBridge.turnOnTheFan();
     if(client.helpers.arduinoBridge.getMoisture() < config.moisture_min){
@@ -45,7 +43,6 @@ module.exports.execute = (client, message) => {
 }
 
 function fanTimeOut(client) {
-  fan_state = 0;
   client.helpers.arduinoBridge.turnOffTheFan();
 }
 
