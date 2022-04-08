@@ -36,7 +36,7 @@
         "storm" : {
             "title" : "Burası biraz esmeye başladı 💨",
             "name" : "storm",
-            "desc" : "Rüzgar fanını 10 dakikalığına çalıştırmak. Bu topraktaki suyun buharlaşma hızını arttırabilir (YT katıl üyelerine özel) .",
+            "desc" : "Rüzgar fanını 5 dakikalığına çalıştırmak. Bu topraktaki suyun buharlaşma hızını arttırabilir (YT katıl üyelerine özel) .",
             "color" : "RED",
             "field" : "Fanı <fan_duration> saniyeliğine çalıştırdın",
             "moisture_high" : "Tesekkurler! Toprağım cok nemli, biraz rüzgarın yardımı dokunabilir.",
