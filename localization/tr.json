@@ -13,7 +13,7 @@
         "water" : {
             "title" : "Beni suladın! 💧",
             "name" : "water",
-            "desc" : "Bana bir damla su vermek için",
+            "desc" : "Bana bir damla su vermek için.",
             "color" : "BLUE",
             "field" : "Toprak Nemi ",
             "moisture_low" : "Bana biraz daha su verir misin? Toprağım çok kuru.",
@@ -24,7 +24,7 @@
         "wind" : {
             "title" : "Burası biraz esmeye başladı 💨",
             "name" : "wind",
-            "desc" : "Rüzgar fanını 1 dakikalığına çalıştırmak. Bu topraktaki suyun buharlaşma hızını arttırabilir.",
+            "desc" : "Rüzgar fanını 1 dakikalığına çalıştırmak için. Bu topraktaki suyun buharlaşma hızını arttırabilir.",
             "color" : "RED",
             "field" : "Fanı <fan_duration> saniyeliğine çalıştırdın",
             "moisture_high" : "Tesekkurler! Toprağım cok nemli, biraz rüzgarın yardımı dokunabilir.",
@@ -34,9 +34,9 @@
             "fan_already_on_field" : "Çalıştırmak için durmasını bekleyin."
         },
         "storm" : {
-            "title" : "Burası biraz esmeye başladı 💨",
+            "title" : "Burası baya esmeye başladı 💨💨💨",
             "name" : "storm",
-            "desc" : "Rüzgar fanını 5 dakikalığına çalıştırmak. Bu topraktaki suyun buharlaşma hızını arttırabilir (YT katıl üyelerine özel) .",
+            "desc" : "Rüzgar fanını 5 dakikalığına çalıştırmak için. (YT katıl üyelerine özel)",
             "color" : "RED",
             "field" : "Fanı <fan_duration> saniyeliğine çalıştırdın",
             "moisture_high" : "Tesekkurler! Toprağım cok nemli, biraz rüzgarın yardımı dokunabilir.",
@@ -70,7 +70,7 @@
         "info" : {
             "title" : "Veriler 🌱",
             "name" : "info",
-            "desc" : "Şu anki toprak nemini öğrenmek için",
+            "desc" : "Şu anki toprak nemini öğrenmek için.",
             "color" : "GREEN",
             "field0" : "Şu andaki toprak nem oranı ",
             "field1" : "Önerilen nem aralığı ",
