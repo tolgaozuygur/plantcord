@@ -31,7 +31,8 @@
             "moisture_low" : "Toprağım zaten çok kuru, keşke hiç rüzgar olmasaydı...",
             "recommended_moisture" : "Önerilen nem",
             "fan_already_on" : "Fan zaten calışıyor.",
-            "fan_already_on_field" : "Çalıştırmak için durmasını bekleyin."
+            "fan_already_on_field" : "Çalıştırmak için durmasını bekleyin.",
+            "wind_stopped" : "Rüzgar durdu."
         },
         "storm" : {
             "title" : "Burası baya esmeye başladı 💨💨💨",
@@ -44,7 +45,8 @@
             "recommended_moisture" : "Önerilen nem",
             "fan_already_on" : "Fan zaten calışıyor.",
             "fan_already_on_field" : "Çalıştırmak için durmasını bekleyin.",
-            "non_member": "Bu komutu kullanmak için YouTube kanalına üye olmalısınız. Değilseniz wind komutunu kullanabilirsiniz."
+            "non_member": "Bu komutu kullanmak için YouTube kanalına üye olmalısınız. Değilseniz wind komutunu kullanabilirsiniz.",
+            "storm_stopped" : "Fırtına durdu."
         },
         "ping" : {
             "title" : "Pong! 🏓",
