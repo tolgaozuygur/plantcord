@@ -17,7 +17,7 @@
             "color" : "BLUE",
             "field" : "Toprak Nemi ",
             "moisture_low" : "Bana biraz daha su verir misin? Toprağım çok kuru.",
-            "moisture_high" : "Lütfen bana daha cok su verme. Toprağım çok nemli, beni öldürebilirsin.",
+            "moisture_high" : "Lütfen bana daha çok su verme. Toprağım çok nemli, beni öldürebilirsin.",
             "recommended_moisture" : "Önerilen nem",
             "moisture" : "Nem"
         },
@@ -27,10 +27,10 @@
             "desc" : "Rüzgar fanını 1 dakikalığına çalıştırmak için. Bu topraktaki suyun buharlaşma hızını arttırabilir.",
             "color" : "RED",
             "field" : "Fanı <fan_duration> saniyeliğine çalıştırdın",
-            "moisture_high" : "Tesekkurler! Toprağım cok nemli, biraz rüzgarın yardımı dokunabilir.",
+            "moisture_high" : "Teşekkürler! Toprağım çok nemli, biraz rüzgarın yardımı dokunabilir.",
             "moisture_low" : "Toprağım zaten çok kuru, keşke hiç rüzgar olmasaydı...",
             "recommended_moisture" : "Önerilen nem",
-            "fan_already_on" : "Fan zaten calışıyor.",
+            "fan_already_on" : "Fan zaten çalışıyor.",
             "fan_already_on_field" : "Çalıştırmak için durmasını bekleyin.",
             "wind_stopped" : "Rüzgar durdu."
         },
@@ -40,10 +40,10 @@
             "desc" : "Rüzgar fanını 5 dakikalığına çalıştırmak için. (YT katıl üyelerine özel)",
             "color" : "RED",
             "field" : "Fanı <fan_duration> saniyeliğine çalıştırdın",
-            "moisture_high" : "Tesekkurler! Toprağım cok nemli, biraz rüzgarın yardımı dokunabilir.",
+            "moisture_high" : "Teşekkürler! Toprağım çok nemli, biraz rüzgarın yardımı dokunabilir.",
             "moisture_low" : "Toprağım zaten çok kuru, keşke hiç rüzgar olmasaydı...",
             "recommended_moisture" : "Önerilen nem",
-            "fan_already_on" : "Fan zaten calışıyor.",
+            "fan_already_on" : "Fan zaten çalışıyor.",
             "fan_already_on_field" : "Çalıştırmak için durmasını bekleyin.",
             "non_member": "Bu komutu kullanmak için YouTube kanalına üye olmalısınız. Değilseniz wind komutunu kullanabilirsiniz.",
             "storm_stopped" : "Fırtına durdu."
@@ -57,16 +57,16 @@
             "apifield" : "API Latency"
         },
         "uptime" : {
-            "title" : "Uptime",
+            "title" : "Çalışma Süresi",
             "name" : "uptime",
-            "desc" : "Getting Uptime",
+            "desc" : "Çalışma süresini öğrenmek için.",
             "color" : "RED",
             "field" : "Uptime : "
         },
         "photo" : {
             "title" : "Merhaba! 📷",
             "name" : "photo",
-            "desc" : "Selfie çekmem için",
+            "desc" : "Selfie çekmem için.",
             "color" : "GREY"
         },
         "info" : {
