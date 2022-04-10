@@ -52,7 +52,7 @@ for (const file of scheduleFiles) {
 
 client.on('messageCreate', async (message) => {
   if (client.config.specific_channel === "yes" && message.channel.id !== client.config.channel_id) return;
-  if (message.author.bot) return;
+  if (message.author.bot || !message.guild) return;
   if (!message.content.startsWith(client.config.prefix)) return;
   const commandBody = message.content.slice(client.config.prefix.length);
   const args = commandBody.split(' ');
