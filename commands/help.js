@@ -13,10 +13,10 @@ module.exports.execute = async (client, message) => {
     .setTitle(this.info.title)
     .setColor(this.info.color)
 
-  await client.commands.forEach(command => {
-    if(command.info.desc && command.info.name != "ping" && command.info.name != "uptime")
-      embed.addField(`${client.config.prefix}${command.info.name}`, command.info.desc)
-  })
+  for (const command of client.commands) {
+    if(command[1].info.desc && command[1].info.name != "ping" && command[1].info.name != "uptime")
+      embed.addField(`${client.config.prefix}${command[1].info.name}`, command[1].info.desc)
+  }
 
   embed.setFooter({
       text: message.member.displayName,
