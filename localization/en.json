@@ -19,7 +19,9 @@
             "moisture_low" : "Can you give me some more water? My soil is too dry.",
             "moisture_high" : "Please don't water me anymore, you can kill me.",
             "recommended_moisture" : "Recommended moisture",
-            "moisture" : "Moisture"
+            "moisture" : "Moisture",
+            "water_cooldown": "Wait 1 minute to water the plant again.",
+            "water_cooldown_done": "You can water the plant again."
         },
         "wind" : {
             "title" : "You created some wind 💨",

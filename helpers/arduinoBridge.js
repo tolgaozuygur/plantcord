@@ -4,6 +4,7 @@ const { SerialPort } = require('serialport')
 const { ReadlineParser } = require('@serialport/parser-readline')
 var port;
 var fan_state = 0;
+var water_state = 1;
 
 if(config.arduino_port != ""){
 	port = new SerialPort({ path: config.arduino_port, baudRate: 9600 })
@@ -29,6 +30,10 @@ module.exports.getFanState= () => {
   return fan_state;
 }
 
+module.exports.getWaterState= () => {
+	return water_state;
+}
+
 module.exports.getFanStateText= () => {
 	if(fan_state == 0){
 		return localization.commands.info.fan_off;
@@ -45,8 +50,13 @@ module.exports.waterThePlant= () => {
 			return console.log('Error on writing to arduino port: ', err.message);
 		}
 			//console.log('Water plant message sent');
+			water_state = 0;
 		});
 	}
+}
+
+module.exports.makeWaterThePlantAvailable = () => {
+	water_state = 1;
 }
 
 module.exports.turnOnTheFan= () => {

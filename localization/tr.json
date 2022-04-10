@@ -19,7 +19,9 @@
             "moisture_low" : "Bana biraz daha su verir misin? Toprağım çok kuru.",
             "moisture_high" : "Lütfen bana daha cok su verme. Toprağım çok nemli, beni öldürebilirsin.",
             "recommended_moisture" : "Önerilen nem",
-            "moisture" : "Nem"
+            "moisture" : "Nem",
+            "water_cooldown": "Tekrar sulamak için 1 dakika bekleyin.",
+            "water_cooldown_done": "Tekrar sulayabilirsiniz."
         },
         "wind" : {
             "title" : "Burası biraz esmeye başladı 💨",

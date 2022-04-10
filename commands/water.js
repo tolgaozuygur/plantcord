@@ -10,7 +10,9 @@ module.exports.info = {
   "field" : localization.commands.water.field,
   "moisture_low" : localization.commands.water.moisture_low,
   "moisture_high" : localization.commands.water.moisture_high,
-  "recommended_moisture" : localization.commands.water.recommended_moisture
+  "recommended_moisture" : localization.commands.water.recommended_moisture,
+  "water_cooldown" : localization.commands.water.water_cooldown,
+  "water_cooldown_done" : localization.commands.water.water_cooldown_done
 }
 
 module.exports.execute = (client, message) => {
@@ -23,14 +25,27 @@ module.exports.execute = (client, message) => {
       iconURL: message.author.displayAvatarURL({ dynamic: true }),
     })
     .setTimestamp();
-  
-  if(client.helpers.arduinoBridge.getMoisture() < config.moisture_min){
-    embed.addField(this.info.field + ": %" + client.helpers.arduinoBridge.getMoisture(), this.info.moisture_low + " " + config.emoji_sad + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
-  }else if(client.helpers.arduinoBridge.getMoisture() > config.moisture_max){
-    embed.addField(this.info.field + ": %" + client.helpers.arduinoBridge.getMoisture(), this.info.moisture_high + " " + config.emoji_sad + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
-  }else{
-    embed.addField(this.info.field + ": %" + client.helpers.arduinoBridge.getMoisture(), config.emoji_happy)
+
+  if(client.helpers.arduinoBridge.getWaterState() == 1){
+    setTimeout(waterTimeOut, config.water_cooldown_duration * 1000, client, message);
+    if(client.helpers.arduinoBridge.getMoisture() < config.moisture_min){
+      embed.addField(this.info.field + ": %" + client.helpers.arduinoBridge.getMoisture(), this.info.moisture_low + " " + config.emoji_sad + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
+    }else if(client.helpers.arduinoBridge.getMoisture() > config.moisture_max){
+      embed.addField(this.info.field + ": %" + client.helpers.arduinoBridge.getMoisture(), this.info.moisture_high + " " + config.emoji_sad + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
+    }else{
+      embed.addField(this.info.field + ": %" + client.helpers.arduinoBridge.getMoisture(), config.emoji_happy)
+    }
+  } else{
+    embed.addField(this.info.fan_already_on, this.info.fan_already_on_field)
   }
 
   message.channel.send({ embeds: [embed] });
+}
+
+function waterTimeOut(client, message) {
+  const embed = new MessageEmbed()
+    .setTitle(localization.commands.water.water_cooldown_done)
+    .setTimestamp();
+  message.channel.send({ embeds: [embed] });
+  client.helpers.arduinoBridge.makeWaterThePlantAvailable();
 }
