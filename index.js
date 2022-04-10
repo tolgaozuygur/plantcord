@@ -1,6 +1,5 @@
 const { Client, Intents, Collection } = require('discord.js');
 const fs = require("fs");
-const { setInterval } = require('timers');
 const client = new Client({
   intents: [
     Intents.FLAGS.GUILDS,
@@ -52,9 +51,7 @@ for (const file of scheduleFiles) {
 }
 
 client.on('messageCreate', async (message) => {
-  if (client.config.spesific_channel === "yes") {
-    if (message.channel.id !== client.config.channel_id) return;
-  }
+  if (client.config.specific_channel === "yes" && message.channel.id !== client.config.channel_id) return;
   if (message.author.bot) return;
   if (!message.content.startsWith(client.config.prefix)) return;
   const commandBody = message.content.slice(client.config.prefix.length);
@@ -62,7 +59,7 @@ client.on('messageCreate', async (message) => {
   const commandName = args.shift().toLowerCase();
   const command = client.commands.get(commandName);
   if (!command) {
-    return await message.reply({ content: client.localization.commands.not_found});
+    return message.reply({ content: client.localization.commands.not_found});
   }
 
   await command.execute(client, message, args);
