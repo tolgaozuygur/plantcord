@@ -56,16 +56,23 @@ client.on('messageCreate', async (message) => {
     if (message.channel.id !== client.config.channel_id) return;
   }
   if (message.author.bot) return;
-  if (!message.content.startsWith(client.config.prefix)) return;
-  const commandBody = message.content.slice(client.config.prefix.length);
-  const args = commandBody.split(' ');
-  const commandName = args.shift().toLowerCase();
-  const command = client.commands.get(commandName);
-  if (!command) {
-    return await message.reply({ content: client.localization.commands.not_found});
-  }
+  if (!message.content.startsWith(client.config.prefix)) {
+    message.delete()
+  } else {
+    const commandBody = message.content.slice(client.config.prefix.length);
+    const args = commandBody.split(' ');
+    if (args.length > 3) {
+      message.delete()
+    };
+    const commandName = args.shift().toLowerCase();
+    const command = client.commands.get(commandName);
+    if (!command) {
+      message.delete()
+      return await message.reply({ content: client.localization.commands.not_found}).then(message => message.delete({timeout:"5000"}));
+    }
 
-  await command.execute(client, message, args);
+    await command.execute(client, message, args);
+  }
 });
 
 client.login(client.config.bot_token).then(()=>{
