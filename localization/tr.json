@@ -6,11 +6,11 @@
     },
     "commands" : {
         "counter" : {
-            "title" : "Counter",
+            "title" : "Sayaç",
             "name" : "counter",
             "color" : "YELLOW",
-            "wind_counter": "wind Counter",
-            "water_counter": "water Counter"
+            "wind_counter": "Rüzgar Emri Sayacı",
+            "water_counter": "Su Emri Sayacı"
         },
         "help" : {
             "title" : "HELP",
