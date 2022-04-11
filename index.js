@@ -15,7 +15,7 @@ client.schedule = new Collection();
 client.helpers = {};
 client.lastPhoto = {};
 client.lastGraph = {};
-
+client.fan_speed = 0;
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -70,4 +70,16 @@ client.login(client.config.bot_token).then(()=>{
   client.schedule.forEach(f=>{
     f.execute(client);
   })
+
+
+  setInterval(()=>{decreaseFanSpeed(client)},client.config.fan_decrease_time_interval);
 });
+
+
+function decreaseFanSpeed(client){
+  if(client.fan_speed>0){
+    client.fan_speed -= 1;
+  }
+  
+  client.helpers.arduinoBridge.fanspeed();
+}
