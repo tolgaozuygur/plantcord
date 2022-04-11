@@ -28,6 +28,7 @@
   "fan_decrease_time_interval" : 1000,
   "wind_command_increase_percentage": 10,
   "storm_command_increase_percentage": 25,
+  "fan_speed_min_value": 100,
   "fan_speed_max_value": 255,
   "fan_speed_send_arduino_time_interval" : 5000
 }

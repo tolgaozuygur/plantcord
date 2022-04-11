@@ -22,7 +22,6 @@ if(config.arduino_port != ""){
 }
 
 module.exports.getMoisture= () => {
-	moisture = 0;
   return moisture;
 }
 
@@ -43,8 +42,8 @@ module.exports.waterThePlant= () => {
 }
 
 module.exports.fanspeed = (fan_speed) => {
-	console.log("thought to arduino");
-	console.log(fanSpeedMap(fan_speed));
+	//console.log("thought to arduino");
+	//console.log(fanSpeedMap(fan_speed));
 	if(port != null){
 		port.write('f'+fanSpeedMap(fan_speed)+'\n', (err) => {
 		if (err) {
@@ -56,5 +55,12 @@ module.exports.fanspeed = (fan_speed) => {
 
 
 function fanSpeedMap(percentage_fan_speed){
-	return percentage_fan_speed/100*config.fan_speed_max_value;
+	fanSpeedMapped = config.fan_speed_min_value + (percentage_fan_speed/100*(config.fan_speed_max_value-config.fan_speed_min_value));
+	if(fanSpeedMapped <= config.fan_speed_min_value){
+		fanSpeedMapped = 0;
+	}
+	if(fanSpeedMapped >= config.fan_speed_max_value - 5){
+		fanSpeedMapped = config.fan_speed_max_value;
+	}
+	return fanSpeedMapped;
 }
