@@ -1,5 +1,7 @@
 const availableOs=["freebsd",'linux','openbsd','sunos','aix'];
 const NodeWebcam = require('node-webcam');
+const schedule = require('node-schedule');
+
 function takePicture(client) {
     var FSWebcam = NodeWebcam.FSWebcam;
     var opts = {
