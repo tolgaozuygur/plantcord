@@ -39,7 +39,7 @@
             "name" : "storm",
             "desc" : "To turn on the fan for <fan_duration> seconds. (For X role only)",
             "color" : "RED",
-            "field" : "Fanı <fan_duration> saniyeliğine çalıştırdın",
+            "field" : "You turned on the fan for <fan_duration> seconds",
             "moisture_high" : "Thanks! My soil is too moist, some wind might help!",
             "moisture_low" : "My soil is already too dry, wish there was no wind.",
             "recommended_moisture" : "Recommended moisture",
