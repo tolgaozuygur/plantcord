@@ -71,7 +71,7 @@ module.exports.execute = (client, message) => {
           },
           {
             "name": this.info.field2,
-            "value": client.helpers.arduinoBridge.getFanStateText(),
+            "value": client.fan_speed+"%",
           },
           {
             "name": this.info.field3,

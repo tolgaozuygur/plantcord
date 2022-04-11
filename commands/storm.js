@@ -7,7 +7,7 @@ module.exports.info = {
   "name" : localization.commands.storm.name,
   "desc" : localization.commands.storm.desc.replace("<plant_name>", config.plant_name),
   "color" : localization.commands.storm.color,
-  "field" : localization.commands.storm.field.replace("<fan_duration>", config.storm_fan_duration),
+  "field" : localization.commands.storm.field.replace("<fan_speed>", config.storm_command_increase_percentage),
   "moisture_low" : localization.commands.storm.moisture_low,
   "moisture_high" : localization.commands.storm.moisture_high,
   "recommended_moisture" : localization.commands.storm.recommended_moisture,
@@ -16,7 +16,7 @@ module.exports.info = {
 }
 
 module.exports.execute = (client, message) => {
-  if(!config.storm_role.some(role => message.member.roles.cache.has(role))) return message.reply(localization.storm.non_member)
+  //if(!config.storm_role.some(role => message.member.roles.cache.has(role))) return message.reply("localization.storm.non_member")
   const embed = new MessageEmbed()
     .setTitle(this.info.title)
     .setColor(this.info.color)
@@ -26,9 +26,9 @@ module.exports.execute = (client, message) => {
     })
     .setTimestamp();
 
-  if(client.helpers.arduinoBridge.getFanState() == 0){
-    setTimeout(fanTimeOut, config.storm_fan_duration * 1000, client, message);
-    client.helpers.arduinoBridge.turnOnTheFan();
+  if(client.fan_speed < 100){
+    client.fan_speed += config.storm_command_increase_percentage
+    //setTimeout(fanTimeOut, config.storm_fan_duration * 1000, client, message);
     if(client.helpers.arduinoBridge.getMoisture() < config.moisture_min){
       embed.addField(this.info.field, this.info.moisture_low + " " + config.emoji_sad + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
     }else if(client.helpers.arduinoBridge.getMoisture() > config.moisture_max){
@@ -42,14 +42,3 @@ module.exports.execute = (client, message) => {
 
   message.channel.send({ embeds: [embed] });
 }
-
-function fanTimeOut(client, message) {
-  const embed = new MessageEmbed()
-    .setTitle(localization.commands.storm.storm_stopped)
-    .setTimestamp();
-  message.channel.send({ embeds: [embed] });
-  client.helpers.arduinoBridge.turnOffTheFan();
-}
-
-
-

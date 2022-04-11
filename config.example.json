@@ -24,5 +24,9 @@
   "storm_fan_duration": 300,
   "storm_role": ["165911303720796160", "936685978947567698"],
   "emoji_happy" : "😊",
-  "emoji_sad" : "🥺"
+  "emoji_sad" : "🥺",
+  "fan_decrease_time_interval" : 1000,
+  "wind_command_increase_percentage": 10,
+  "storm_command_increase_percentage": 25,
+  "fan_speed_max_value": 255
 }
