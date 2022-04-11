@@ -1,14 +1,11 @@
-const { Client, Collection } = require('discord.js');
+const { Client, Intents, Collection } = require('discord.js');
 const fs = require("fs");
-const { setInterval } = require('timers');
-const { ChannelType, GatewayIntentBits } = require('discord-api-types/v10');
 const client = new Client({
   intents: [
     Intents.FLAGS.GUILDS,
     Intents.FLAGS.GUILD_MESSAGES,
     Intents.FLAGS.GUILD_PRESENCES,
   ],
-  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildPresences]
 });
 client.config = require('./config.json');
 client.localization = require('./localization/'+client.config.localization_file);
@@ -54,19 +51,16 @@ for (const file of scheduleFiles) {
 }
 
 client.on('messageCreate', async (message) => {
-  if (client.config.spesific_channel === "yes") {
-    if (message.channel.id !== client.config.channel_id) return;
-  }
-  if (message.author.bot || !message.guild) return;
-  if (!message.content.startsWith(client.config.prefix)) return;
-  const commandBody = message.content.slice(client.config.prefix.length);
-  const args = commandBody.split(' ');
+  if ((client.config.specific_channel === "yes" && message.channel.id !== client.config.channel_id) || message.author.bot || !message.guild || !message.content.startsWith(client.config.prefix)) return;
+  
+  const args = message.content.slice(client.config.prefix.length).trim().split(' ');
   const commandName = args.shift().toLowerCase();
   const command = client.commands.get(commandName);
+  
   if (!command) {
-    return await message.reply({ content: client.localization.commands.not_found});
+    return message.reply({ content: client.localization.commands.not_found });
   }
-
+  
   await command.execute(client, message, args);
 });
 
