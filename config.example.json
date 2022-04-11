@@ -22,13 +22,17 @@
   "arduino_port": "",
   "wind_fan_duration": 60,
   "storm_fan_duration": 300,
-  "storm_role": ["165911303720796160", "936685978947567698"],
-  "emoji_happy" : "😊",
-  "emoji_sad" : "🥺",
-  "fan_decrease_time_interval" : 1000,
+  "storm_role": [
+    "165911303720796160",
+    "936685978947567698"
+  ],
+  "emoji_happy": "😊",
+  "emoji_sad": "🥺",
+  "fan_decrease_time_interval": 1000,
   "wind_command_increase_percentage": 10,
   "storm_command_increase_percentage": 25,
   "fan_speed_min_value": 100,
   "fan_speed_max_value": 255,
-  "fan_speed_send_arduino_time_interval" : 5000
+  "fan_speed_send_arduino_time_interval": 5000,
+  "waterCommandCounter": 10
 }
