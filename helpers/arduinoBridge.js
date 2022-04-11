@@ -59,7 +59,7 @@ function fanSpeedMap(percentage_fan_speed){
 	if(fanSpeedMapped <= config.fan_speed_min_value){
 		fanSpeedMapped = 0;
 	}
-	if(fanSpeedMapped >= config.fan_speed_max_value - 5){
+	if(fanSpeedMapped >= config.fan_speed_max_value - 10){
 		fanSpeedMapped = config.fan_speed_max_value;
 	}
 	return fanSpeedMapped;
