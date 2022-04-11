@@ -5,6 +5,13 @@
         "schedule_loaded": "adlı zamanlı iş başarıyla yüklendi!"
     },
     "commands" : {
+        "counter" : {
+            "title" : "Sayaç",
+            "name" : "counter",
+            "color" : "YELLOW",
+            "wind_counter": "Rüzgar Emri Sayacı",
+            "water_counter": "Su Emri Sayacı"
+        },
         "help" : {
             "title" : "HELP",
             "name" : "help",

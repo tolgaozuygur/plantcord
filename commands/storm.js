@@ -17,7 +17,7 @@ module.exports.info = {
 }
 
 module.exports.execute = (client, message) => {
-  if(!config.storm_role.some(role => message.member.roles.cache.has(role))) return message.reply("localization.storm.non_member")
+  if(!config.storm_role.some(role => message.member.roles.cache.has(role))) return message.reply(localization.commands.storm.non_member)
   const embed = new MessageEmbed()
     .setTitle(this.info.title)
     .setColor(this.info.color)

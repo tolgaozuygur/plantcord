@@ -17,6 +17,7 @@ module.exports.info = {
 }
 
 module.exports.execute = (client, message) => {
+  client.wind_counter++ ;
   const embed = new MessageEmbed()
     .setTitle(this.info.title)
     .setColor(this.info.color)
