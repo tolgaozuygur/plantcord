@@ -53,7 +53,7 @@
             "recommended_moisture" : "Recommended moisture",
             "fan_already_on" : "Fan is already maximum speed.",
             "fan_already_on_field" : "Wait for it to get below %100 first.",
-            "non_member": "To use this function you must have X role (replace this with the role you'd like to assign, such as youtube membership)",
+            "non_member": "To use this function you must have youtube membership",
             "storm_stopped" : "Storm stopped.",
             "fan_speed" : "Fan Speed"
         },
