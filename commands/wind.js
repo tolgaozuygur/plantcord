@@ -12,7 +12,8 @@ module.exports.info = {
   "moisture_high" : localization.commands.wind.moisture_high,
   "recommended_moisture" : localization.commands.wind.recommended_moisture,
   "fan_already_on" : localization.commands.wind.fan_already_on,
-  "fan_already_on_field" : localization.commands.wind.fan_already_on_field
+  "fan_already_on_field" : localization.commands.wind.fan_already_on_field,
+  "fan_speed" : localization.commands.wind.fan_speed
 }
 
 module.exports.execute = (client, message) => {
@@ -27,16 +28,16 @@ module.exports.execute = (client, message) => {
     .setTimestamp();
 
   if(client.fan_speed < 100){
-    client.fan_speed += config.wind_command_increase_percentage
+    client.fan_speed += config.wind_command_increase_percentage;
     if(client.helpers.arduinoBridge.getMoisture() < config.moisture_min){
-      embed.addField(this.info.field, this.info.moisture_low + " " + config.emoji_sad + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
+      embed.addField(this.info.field + " " + this.info.fan_speed + ": %" + client.fan_speed, this.info.moisture_low + " " + config.emoji_sad + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
     }else if(client.helpers.arduinoBridge.getMoisture() > config.moisture_max){
-      embed.addField(this.info.field, this.info.moisture_high + " " + config.emoji_happy + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
+      embed.addField(this.info.field + " " + this.info.fan_speed + ": %" + client.fan_speed, this.info.moisture_high + " " + config.emoji_happy + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
     }else{
-      embed.addField(this.info.field, config.emoji_happy)
+      embed.addField(this.info.field + " " + this.info.fan_speed + ": %" + client.fan_speed, config.emoji_happy)
     }
   }else{
-    embed.addField(this.info.fan_already_on, this.info.fan_already_on_field)
+    embed.addField(this.info.fan_already_on  + " " + this.info.fan_speed + ": %" + client.fan_speed, this.info.fan_already_on_field)
   }
 
   message.channel.send({ embeds: [embed] });

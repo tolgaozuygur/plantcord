@@ -2,7 +2,7 @@ const int AirValue = 410;
 const int WaterValue = 188;
 const int serialSendTime = 5000;
 const int moistureSampleRate = 1200;
-const int pumpWaterTime = 75;
+const int pumpWaterTime = 50;
 const int pumpPin = 2;
 const int pumpPrimeButtonPin = 4;
 const int fanPin = 6;
@@ -34,14 +34,18 @@ void loop() {
   delay(moistureSampleRate);
 }
 
-void handleFan(){
-  if(String(data) == "fanon"){
-    //fan on command received
-    digitalWrite(fanPin, HIGH);
-  }
-  if(String(data) == "fanoff"){
-    //fan on command received
-    digitalWrite(fanPin, LOW);
+void handleFan(){  
+  if(String(data[0]) == "f"){
+    //Serial.println("Fan command detected");
+    char *p = &data[1];
+    int fanPower = atoi(p);
+    if(fanPower < 0){
+      fanPower = 0;
+    }else if(fanPower > 255){
+      fanPower = 255;
+    }    
+    analogWrite(fanPin, fanPower);
+    //Serial.println(fanPower);
   }
 }
 
