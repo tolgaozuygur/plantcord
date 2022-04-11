@@ -14,6 +14,7 @@ module.exports.info = {
 }
 
 module.exports.execute = (client, message) => {
+  client.water_counter++ ;
   client.helpers.arduinoBridge.waterThePlant();
   const embed = new MessageEmbed()
     .setTitle(this.info.title)

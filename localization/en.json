@@ -5,6 +5,13 @@
         "schedule_loaded": "named schedule has been loaded successfully!"
     },
     "commands" : {
+        "counter" : {
+            "title" : "Counter",
+            "name" : "counter",
+            "color" : "YELLOW",
+            "wind_counter": "Wind Counter",
+            "water_counter": "Water Counter"
+        },
         "help" : {
             "title" : "HELP",
             "name" : "help",

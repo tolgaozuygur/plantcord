@@ -9,7 +9,8 @@ const client = new Client({
 });
 client.config = require('./config.json');
 client.localization = require('./localization/'+client.config.localization_file);
-
+client.water_counter = 0;
+client.wind_counter = 0;
 client.commands = new Collection();
 client.schedule = new Collection();
 client.helpers = {};
