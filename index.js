@@ -73,6 +73,7 @@ client.login(client.config.bot_token).then(()=>{
 
 
   setInterval(()=>{decreaseFanSpeed(client)},client.config.fan_decrease_time_interval);
+  setInterval(()=>{sendToArduino(client.fan_speed)},client.config.fan_speed_send_arduino_time_interval);
 });
 
 
@@ -81,5 +82,8 @@ function decreaseFanSpeed(client){
     client.fan_speed -= 1;
   }
   
-  client.helpers.arduinoBridge.fanspeed();
+}
+
+function sendToArduino(fan_speed){
+  client.helpers.arduinoBridge.fanspeed(fan_speed);
 }
