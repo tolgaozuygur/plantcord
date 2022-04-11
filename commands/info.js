@@ -64,22 +64,18 @@ module.exports.execute = (client, message) => {
           {
             "name": this.info.field0,
             "value": "%" + client.helpers.arduinoBridge.getMoisture(),
-            "inline": false
           },
 		      {
             "name": this.info.field1,
             "value": "%" + config.moisture_min + " - %" + config.moisture_max,
-            "inline": false
           },
           {
             "name": this.info.field2,
             "value": client.helpers.arduinoBridge.getFanStateText(),
-            "inline": false
           },
           {
             "name": this.info.field3,
             "value": `${difference}` + `${this.info.time_field}`,
-            "inline": false
           })
   message.channel.send({ embeds: [embed] });
 
