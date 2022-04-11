@@ -2,20 +2,31 @@
 const { ChartJSNodeCanvas } = require('chartjs-node-canvas');
 const chartJSNodeCanvas = new ChartJSNodeCanvas({ type: 'png', width: 1920, height: 1080, backgroundColour: 'white'  });
 const fs = require("fs");
-let  measuredData={
-  days : ['22.03','23.03','24.03','25.03','26.03','27.03','28.03','29.03','30.03','1.04','2.04','3.04','4.04','5.04','6.04','7.04','8.04','9.04','10.04','11.04','12.04','13.04','14.04','15.04','16.04','17.04','18.04','19.04','20.04','21.04','22.04'],
-  measurements : [76,55,64,58,59,66,48,49,51,45,80,76,44,55,62,45,53,47,56,70,43,55,68,69,76,56,43,43,71,57],
-  maxValue : [],
-  minValue : [],
-}
+const csv = require('csvtojson')
+let daysArray = [];
+let measurementsArray = [];
 module.exports.execute = (client) => { 
 
+    schedule.scheduleJob(client.helpers.secToCron(client.config.graph_export_interval), function(){
+    (async () => {
+
+      const rows = await csv().fromFile("./moisture_data.csv");
+      rows.forEach(r=>{
+        daysArray.push(convertTime(r.time,":"));
+        measurementsArray.push(r.moisture);
+      })
+      let  measuredData={
+        days : daysArray,
+        measurements : measurementsArray,
+        maxValue : [],
+        minValue : [],
+      }
+    
     measuredData.days.forEach(m=>{
       measuredData.maxValue.push(client.config.moisture_max)
       measuredData.minValue.push(client.config.moisture_min)
     })
-    schedule.scheduleJob(client.helpers.secToCron(client.config.graph_export_interval), function(){
-    (async () => {
+      
     const configuration = {
       backgroundColor : 'rgba(255, 99, 132, 0)',
       type: 'line',
@@ -68,7 +79,7 @@ module.exports.execute = (client) => {
           legend: { display: false, },
           title: {
             display: true,
-            text: 'Chart.js Line Chart updated 1'
+            text: 'Chart'
           }
         }
       },
@@ -82,4 +93,10 @@ module.exports.execute = (client) => {
 
     })();
     })
+}
+
+var convertTime = function(date, separator) {
+  var date = new Date(parseInt(date));
+  return date.getHours()+
+  separator+(date.getMinutes());
 }
