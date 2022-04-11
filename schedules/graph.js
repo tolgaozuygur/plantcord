@@ -1,6 +1,7 @@
 
 const { ChartJSNodeCanvas } = require('chartjs-node-canvas');
 const chartJSNodeCanvas = new ChartJSNodeCanvas({ type: 'png', width: 1920, height: 1080, backgroundColour: 'white'  });
+const schedule = require('node-schedule');
 const fs = require("fs");
 let  measuredData={
   days : ['22.03','23.03','24.03','25.03','26.03','27.03','28.03','29.03','30.03','1.04','2.04','3.04','4.04','5.04','6.04','7.04','8.04','9.04','10.04','11.04','12.04','13.04','14.04','15.04','16.04','17.04','18.04','19.04','20.04','21.04','22.04'],
