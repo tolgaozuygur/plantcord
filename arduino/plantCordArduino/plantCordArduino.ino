@@ -34,14 +34,18 @@ void loop() {
   delay(moistureSampleRate);
 }
 
-void handleFan(){
-  if(String(data) == "fanon"){
-    //fan on command received
-    digitalWrite(fanPin, HIGH);
-  }
-  if(String(data) == "fanoff"){
-    //fan on command received
-    digitalWrite(fanPin, LOW);
+void handleFan(){  
+  if(String(data[0]) == "f"){
+    //Serial.println("Fan command detected");
+    char *p = &data[1];
+    int fanPower = atoi(p);
+    if(fanPower < 0){
+      fanPower = 0;
+    }else if(fanPower > 255){
+      fanPower = 255;
+    }    
+    analogWrite(fanPin, fanPower);
+    //Serial.println(fanPower);
   }
 }
 
