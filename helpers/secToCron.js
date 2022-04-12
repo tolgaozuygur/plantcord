@@ -1,4 +1,4 @@
-module.exports = (input, every=true) => {
+module.exports = (input, every = true) => {
     let sec = input;
     // convert seconds to minutes
     let min = sec / 60;

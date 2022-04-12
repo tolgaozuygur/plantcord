@@ -3,11 +3,11 @@ const config = require('../config.json');
 const localization = require('../localization/'+config.localization_file);
 
 module.exports.info = {
-  "title" : localization.commands.counter.title,
-  "name" : localization.commands.counter.name,
-  "color" : localization.commands.counter.color,
-  "wind_counter" : localization.commands.counter.wind_counter,
-  "water_counter" : localization.commands.counter.water_counter,
+  "title": localization.commands.counter.title,
+  "name": localization.commands.counter.name,
+  "color": localization.commands.counter.color,
+  "wind_counter": localization.commands.counter.wind_counter,
+  "water_counter": localization.commands.counter.water_counter,
 }
 
 module.exports.execute = async (client, message) => {
@@ -15,16 +15,16 @@ module.exports.execute = async (client, message) => {
     .setTitle(this.info.title)
     .setColor(this.info.color)
 
-    .addFields(
-        {
-          "name": this.info.wind_counter,
-          "value": client.wind_counter + ""
-        },{
-          "name": this.info.water_counter,
-          "value": client.water_counter + ""
-        })
+    .addFields({
+      "name": this.info.wind_counter,
+      "value": client.wind_counter + ""
+    },
+    {
+      "name": this.info.water_counter,
+      "value": client.water_counter + ""
+    })
   
-  embed.setFooter({
+    embed.setFooter({
       text: message.member.displayName,
       iconURL: message.author.displayAvatarURL({ dynamic: true }),
     })

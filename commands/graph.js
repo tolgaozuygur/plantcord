@@ -1,12 +1,12 @@
 const {MessageEmbed} = require("discord.js");
 const config = require('../config.json');
-const localization = require('../localization/'+config.localization_file);
+const localization = require('../localization/' + config.localization_file);
 const fs = require('fs');
-let filesToBeUploaded = []
+
 module.exports.info = {
-  "title" : localization.commands.graph.title,
-  "name" : localization.commands.graph.name,
-  "color" : localization.commands.graph.color,
+  "title": localization.commands.graph.title,
+  "name": localization.commands.graph.name,
+  "color": localization.commands.graph.color,
 }
 
 module.exports.execute = async (client, message) => {

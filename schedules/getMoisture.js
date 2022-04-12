@@ -10,6 +10,8 @@ module.exports.execute = (client) => {
 function getMoistureAndSave(client){
     moisture_data = client.helpers.arduinoBridge.getMoisture();
     fs.writeFile('./moisture_data.csv', Date.now()+","+moisture_data+"\n", { flag: "a+" }, (err) => {
-    if (err) throw err;
+        if (err) {
+            throw err;
+        }
     }); 
 }

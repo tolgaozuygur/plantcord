@@ -7,6 +7,7 @@ const client = new Client({
     Intents.FLAGS.GUILD_PRESENCES,
   ],
 });
+
 client.config = require('./config.json');
 client.localization = require('./localization/'+client.config.localization_file);
 client.water_counter = 0;
@@ -17,6 +18,7 @@ client.helpers = {};
 client.lastPhoto = {};
 client.lastGraph = {};
 client.fan_speed = 0;
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -55,10 +57,12 @@ client.on('messageCreate', async (message) => {
   if (client.config.specific_channel === "yes" && message.channel.id !== client.config.channel_id) return;
   if (message.author.bot || !message.guild) return;
   if (!message.content.startsWith(client.config.prefix)) return;
+
   const commandBody = message.content.slice(client.config.prefix.length);
   const args = commandBody.split(' ');
   const commandName = args.shift().toLowerCase();
   const command = client.commands.get(commandName);
+
   if (!command) {
     return message.reply({ content: client.localization.commands.not_found});
   }
@@ -66,20 +70,24 @@ client.on('messageCreate', async (message) => {
   await command.execute(client, message, args);
 });
 
-client.login(client.config.bot_token).then(()=>{
+client.login(client.config.bot_token).then(() => {
 
-  client.schedule.forEach(f=>{
+  client.schedule.forEach(f => {
     f.execute(client);
   })
 
+  setInterval(() => {
+    decreaseFanSpeed(client)
+  }, client.config.fan_decrease_time_interval);
 
-  setInterval(()=>{decreaseFanSpeed(client)},client.config.fan_decrease_time_interval);
-  setInterval(()=>{sendToArduino(client.fan_speed)},client.config.fan_speed_send_arduino_time_interval);
+  setInterval(() => {
+    sendToArduino(client.fan_speed)
+  }, client.config.fan_speed_send_arduino_time_interval);
 });
 
 
-function decreaseFanSpeed(client){
-  if(client.fan_speed>0){
+function decreaseFanSpeed(client) {
+  if (client.fan_speed>0) {
     client.fan_speed -= 1;
   }
   

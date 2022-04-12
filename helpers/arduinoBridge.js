@@ -1,5 +1,4 @@
 const config = require('../config.json');
-const localization = require('../localization/'+config.localization_file);
 const { SerialPort } = require('serialport')
 const { ReadlineParser } = require('@serialport/parser-readline')
 var port;
@@ -12,7 +11,6 @@ if(config.arduino_port != ""){
 	moisture = 0;
 
 	parser.on('data', data =>{
-	  //console.log('Arduino:', data);
 	  var splitData = data.split("=");
 	  if(splitData[0] == "m"){
 		  moisture = splitData[1];
@@ -33,30 +31,27 @@ module.exports.getFanState= () => {
 module.exports.waterThePlant= () => {
 	if(port != null){
 		port.write('wtr\n', (err) => {
-		if (err) {
-			return console.log('Error on writing to arduino port: ', err.message);
-		}
-			//console.log('Water plant message sent');
+			if (err) {
+				return console.log('Error on writing to arduino port: ', err.message);
+			}
 		});
 	}
 }
 
 module.exports.fanspeed = (fan_speed) => {
-	//console.log("thought to arduino");
-	//console.log(fanSpeedMap(fan_speed));
 	if(port != null){
 		port.write('f'+fanSpeedMap(fan_speed)+'\n', (err) => {
-		if (err) {
-			return console.log('Error on writing to arduino port: ', err.message);
-		}
+			if (err) {
+				return console.log('Error on writing to arduino port: ', err.message);
+			}
 		});
 	}
 }
 
 
 function fanSpeedMap(percentage_fan_speed){
-	fanSpeedMapped = config.fan_speed_min_value + (percentage_fan_speed/100*(config.fan_speed_max_value-config.fan_speed_min_value));
-	if(fanSpeedMapped <= config.fan_speed_min_value){
+	fanSpeedMapped = config.fan_speed_min_value + (percentage_fan_speed / 100 * (config.fan_speed_max_value - config.fan_speed_min_value));
+	if (fanSpeedMapped <= config.fan_speed_min_value) {
 		fanSpeedMapped = 0;
 	}
 	if(fanSpeedMapped >= config.fan_speed_max_value - 10){

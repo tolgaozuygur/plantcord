@@ -7,7 +7,7 @@ let daysArray = [];
 let measurementsArray = [];
 module.exports.execute = (client) => { 
 
-    schedule.scheduleJob(client.helpers.secToCron(client.config.graph_export_interval), function(){
+    schedule.scheduleJob(client.helpers.secToCron(client.config.graph_export_interval), function() {
     (async () => {
 
       const rows = await csv().fromFile("./moisture_data.csv");
@@ -43,7 +43,7 @@ module.exports.execute = (client) => {
           borderWidth: 1,
           pointRadius: 0,
         },
-        //min value line
+        // min value line
         {
           borderDash: [3],
           data: measuredData.minValue,
@@ -87,7 +87,9 @@ module.exports.execute = (client) => {
     const image = await chartJSNodeCanvas.renderToBuffer(configuration);
     const fileContents = new Buffer.from(image)
     fs.writeFile(client.config.graph_path, fileContents, (err) => {
-      if (err) return console.error(err)
+      if (err) {
+        return console.error(err)
+      }
       console.log('graph file saved to ', client.config.graph_path)
     })
 
