@@ -38,4 +38,5 @@ $ node index.js
 - [Alperen Emre Kır (@Robotsi)](https://github.com/Robotsi)
 - [Baran Mordoğan (@okunamayanad)](https://github.com/okunamayanad)
 - [Buğra İpek (@benbugraipek)](https://www.instagram.com/benbugraipek/)
+- [Bot Ekrem (@BotEkrem)](https://github.com/BotEkrem)
 - [Tolga Özuygur (@tolgaozuygur)](https://github.com/tolgaozuygur)
