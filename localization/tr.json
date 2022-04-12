@@ -31,7 +31,7 @@
         "wind" : {
             "title" : "Burası biraz esmeye başladı 💨",
             "name" : "wind",
-            "desc" : "Fan hızını %10 arttırmak için. (saniyede %1 azalacaktır)",
+            "desc" : "Fan hızını %<fan_speed> arttırmak için. (saniyede %1 azalacaktır)",
             "color" : "RED",
             "field" : "Fan hizini %<fan_speed> arttirdin!",
             "moisture_high" : "Teşekkürler! Toprağım çok nemli, biraz rüzgarın yardımı dokunabilir.",
@@ -45,7 +45,7 @@
         "storm" : {
             "title" : "Burası baya esmeye başladı 💨💨💨",
             "name" : "storm",
-            "desc" : "Fan hızını %25 arttırmak için. (YT katıl üyelerine özel)",
+            "desc" : "Fan hızını %<fan_speed> arttırmak için. (YT katıl üyelerine özel)",
             "color" : "RED",
             "field" : "Fan hızını %<fan_speed> arttırdın!",
             "moisture_high" : "Teşekkürler! Toprağım çok nemli, biraz rüzgarın yardımı dokunabilir.",
