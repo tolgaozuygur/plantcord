@@ -31,7 +31,7 @@
         "wind" : {
             "title" : "You increase wind speed💨",
             "name" : "wind",
-            "desc" : "To turn on the fan for <fan_speed_config_wind> seconds. This can help evaporating the water in the soil.",
+            "desc" : "To increase the fan speed by %<fan_speed>. This can help evaporating the water in the soil.",
             "color" : "RED",
             "field" : "Fan speed increased %<fan_speed> ",
             "moisture_high" : "Thanks! My soil is too moist, some wind might help!",
@@ -45,7 +45,7 @@
         "storm" : {
             "title" : "You created a storm 💨",
             "name" : "storm",
-            "desc" : "To turn on the fan for <fan_speed_config_storm> seconds. (For X role only)",
+            "desc" : "To increase the fan speed by %<fan_speed>. (For X role only)",
             "color" : "RED",
             "field" : "Fan speed increased %<fan_speed> ",
             "moisture_high" : "Thanks! My soil is too moist, some wind might help!",
