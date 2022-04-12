@@ -12,8 +12,13 @@ module.exports.execute = (client) => {
 
       const rows = await csv().fromFile("./moisture_data.csv");
       rows.forEach(r=>{
-        daysArray.push(convertTime(r.time,":"));
-        measurementsArray.push(r.moisture);
+        let now = new Date().toISOString().split('T')[0];
+        let todayFromMidnight = new Date(now).getTime();
+        if(todayFromMidnight<r.time){
+          daysArray.push(convertTime(r.time,":"));
+          measurementsArray.push(r.moisture);
+        }
+        
       })
       let  measuredData={
         days : daysArray,
