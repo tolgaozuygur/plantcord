@@ -45,7 +45,7 @@
         "storm" : {
             "title" : "You created a storm 💨",
             "name" : "storm",
-            "desc" : "To increase the fan speed by %<fan_speed>. (For X role only)",
+            "desc" : "To increase the fan speed by %<fan_speed>. (exclusive to YouTube members)",
             "color" : "RED",
             "field" : "Fan speed increased %<fan_speed> ",
             "moisture_high" : "Thanks! My soil is too moist, some wind might help!",
