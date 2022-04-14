@@ -5,7 +5,7 @@ const localization = require('../localization/'+config.localization_file);
 module.exports.info = {
   "title" : localization.commands.wind.title.replace("<plant_name>", config.plant_name),
   "name" : localization.commands.wind.name,
-  "desc" : localization.commands.wind.desc.replace("<plant_name>", config.plant_name),
+  "desc" : localization.commands.wind.desc.replace("<plant_name>", config.plant_name).replace("<fan_speed>", config.wind_command_increase_percentage),
   "color" : localization.commands.wind.color,
   "field" : localization.commands.wind.field.replace("<fan_speed>", config.wind_command_increase_percentage),
   "moisture_low" : localization.commands.wind.moisture_low,
