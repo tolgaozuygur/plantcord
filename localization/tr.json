@@ -33,7 +33,7 @@
             "name" : "wind",
             "desc" : "Fan hızını %<fan_speed> arttırmak için. (saniyede %1 azalacaktır)",
             "color" : "RED",
-            "field" : "Fan hizini %<fan_speed> arttirdin!",
+            "field" : "Fan hızını %<fan_speed> arttırdın!",
             "moisture_high" : "Teşekkürler! Toprağım çok nemli, biraz rüzgarın yardımı dokunabilir.",
             "moisture_low" : "Toprağım zaten çok kuru, keşke hiç rüzgar olmasaydı...",
             "recommended_moisture" : "Önerilen nem",
