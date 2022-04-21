@@ -1,4 +1,5 @@
 const { Client, Intents, Collection } = require('discord.js');
+const csv = require('csvtojson')
 const fs = require("fs");
 const client = new Client({
   intents: [
@@ -72,7 +73,7 @@ client.login(client.config.bot_token).then(()=>{
     f.execute(client);
   })
 
-
+  getCounter();
   setInterval(()=>{decreaseFanSpeed(client)},client.config.fan_decrease_time_interval);
   setInterval(()=>{sendToArduino(client.fan_speed)},client.config.fan_speed_send_arduino_time_interval);
 });
@@ -83,6 +84,17 @@ function decreaseFanSpeed(client){
     client.fan_speed -= 1;
   }
   
+}
+
+async function getCounter(){
+  const rows = await csv().fromFile("./counter_data.csv");
+    rows.forEach(r=>{
+      client.water_counter = r.water;
+      client.wind_counter = r.wind;
+
+      console.log(client.wind_counter);
+      console.log(client.water_counter);
+    })
 }
 
 function sendToArduino(fan_speed){
