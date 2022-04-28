@@ -18,6 +18,7 @@
   "graph_path": "./photos/graph.png",
   "graph_export_interval": 3600,
   "channel_rename_interval": 360,
+  "save_counter_interval": 1,
   "take_photo_interval": 30,
   "arduino_port": "",
   "storm_role": ["165911303720796160", "936685978947567698"],

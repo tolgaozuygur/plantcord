@@ -23,6 +23,7 @@ module.exports.execute = async (client, message) => {
   fs.stat(config.graph_path, (err, stats) => {
     let currentGraphMTime;
     if (err) {
+      console.log(err);
       //no graph found
       embed.addField('graph',`under maintenance`)
       message.channel.send({embeds: [embed]});
