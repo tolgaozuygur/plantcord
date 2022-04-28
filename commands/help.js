@@ -9,20 +9,28 @@ module.exports.info = {
 }
 
 module.exports.execute = async (client, message) => {
+  // We are not creating an embed every time help is called.
+  if (client.helpEmbed)
+    return message.channel.send({ embeds: [client.helpEmbed] });
+
   const embed = new MessageEmbed()
     .setTitle(this.info.title)
     .setColor(this.info.color)
 
-  for (const command of client.commands) {
-    if(command[1].info.desc && command[1].info.name != "ping" && command[1].info.name != "uptime")
-      embed.addField(`${client.config.prefix}${command[1].info.name}`, command[1].info.desc)
-  }
+  // TODO: Can be moved to the config file.
+  const notListedCommands = ['ping', 'uptime'];
 
-  embed.setFooter({
-      text: message.member.displayName,
-      iconURL: message.author.displayAvatarURL({ dynamic: true }),
-    })
-    .setTimestamp();
+  const sortedCommands = client.commands.sort((a, b) => {
+    const aOrder = a.info.order || 0;
+    const bOrder = b.info.order || 0;
+    return aOrder - bOrder;
+  })
 
+  await sortedCommands.forEach(command => {
+    if(command.info.desc && !notListedCommands.includes(command.info.name))
+      embed.addField(`${client.config.prefix}${command.info.name}`, command.info.desc)
+  })
+
+  client.helpEmbed = embed;
   message.channel.send({ embeds: [embed] });
 }

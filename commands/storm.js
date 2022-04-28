@@ -13,7 +13,8 @@ module.exports.info = {
   "recommended_moisture" : localization.commands.storm.recommended_moisture,
   "fan_already_on" : localization.commands.storm.fan_already_on,
   "fan_already_on_field" : localization.commands.storm.fan_already_on_field,
-  "fan_speed" : localization.commands.storm.fan_speed
+  "fan_speed" : localization.commands.storm.fan_speed,
+  "order": 500
 }
 
 module.exports.execute = (client, message) => {
