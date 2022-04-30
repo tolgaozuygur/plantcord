@@ -1,5 +1,5 @@
 const availableOs=["freebsd",'linux','openbsd','sunos','aix'];
-const { scheduleJob, scheduledJobs } = require('node-schedule');
+const { scheduleJob } = require('node-schedule');
 const NodeWebcam = require('node-webcam');
 const fs = require("fs")
 function takePicture(client) {
