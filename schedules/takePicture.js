@@ -34,25 +34,24 @@ module.exports.execute = (client) => {
         }else{
             takePictureNonLinux(client.config.photo_path);
         }
-    });
-    schedule.scheduleJob(client.helpers.secToCron(client.config.take_photo_interval_daily), function () {
-      const date = new Date()
-      let day = date.getDate()
-      let month = date.getMonth() + 1
-      console.log(day, month)
 
-      try {
-        if (!fs.existsSync(`../photos/${month}`)) {
-          fs.mkdir(`../photos/${month}`, {recursive: true}, err => {console.log(err)})
+        const date = new Date()
+        let day = date.getDate()
+        let month = date.getMonth() + 1
+        if(!date.getHours == client.config.take_photo_interval_dailyhour) return
 
-          if(availableOs.includes(process.platform)){
-            takePicture(`../photos/${month}/${day}.png`);
-          }else{
-            takePictureNonLinux(`../photos/${month}/${day}.png`);
+        try {
+          if (!fs.existsSync(`../photos/${month}`)) {
+            fs.mkdir(`../photos/${month}`, {recursive: true}, err => {console.log(err)})
+
+            fs.copyFile(client.config.photo_path, `../photos/${month}/${day}.png`, (err) => {
+              if (err) throw err;
+              console.log('File was copied to destination');
+            });
           }
+        } catch (err) {
+          console.error(err);
         }
-      } catch (err) {
-        console.error(err);
-      }
-    })
+
+    });
 }

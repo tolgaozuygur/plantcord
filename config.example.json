@@ -20,7 +20,7 @@
   "channel_rename_interval": 360,
   "save_counter_interval": 1,
   "take_photo_interval": 30,
-  "take_photo_interval_daily": 40,
+  "take_photo_interval_dailyhour": 14,
   "arduino_port": "",
   "storm_role": ["165911303720796160", "936685978947567698"],
   "emoji_happy" : "😊",
