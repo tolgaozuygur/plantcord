@@ -21,6 +21,7 @@
     "channel_rename_interval": 1,
     "save_counter_interval": 1,
     "take_photo_interval": 120,
+    "take_photo_interval_daily": 40,
     "arduino_port": "",
     "save_to_bucket_time":10,
     "wind_fan_duration": 60,
