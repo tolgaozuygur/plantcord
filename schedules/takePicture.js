@@ -46,9 +46,9 @@ module.exports.execute = (client) => {
           fs.mkdir(`../photos/${month}`, {recursive: true}, err => {console.log(err)})
 
           if(availableOs.includes(process.platform)){
-            takePicture(`../photos/${month}/${day}`);
+            takePicture(`../photos/${month}/${day}.png`);
           }else{
-            takePictureNonLinux(`../photos/${month}/${day}`);
+            takePictureNonLinux(`../photos/${month}/${day}.png`);
           }
         }
       } catch (err) {
