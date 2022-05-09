@@ -1,5 +1,7 @@
 const availableOs=["freebsd",'linux','openbsd','sunos','aix'];
+const { scheduleJob } = require('node-schedule');
 const NodeWebcam = require('node-webcam');
+const fs = require("fs")
 function takePicture(client) {
     var FSWebcam = NodeWebcam.FSWebcam;
     var opts = {
@@ -25,12 +27,25 @@ function takePictureNonLinux(client) {
     console.log('Took a new picture of the plant!');
 }
 
-module.exports.execute = (client) => {
+module.exports.execute = async(client) => {
     schedule.scheduleJob(client.helpers.secToCron(client.config.take_photo_interval), function(){
         if(availableOs.includes(process.platform)){
             takePicture(client);
         }else{
             takePictureNonLinux(client);
         }
+
+        const date = new Date()
+        let day = date.getDate()
+        let month = date.getMonth() + 1
+        if(!date.getHours == client.config.take_photo_interval_dailyhour) return
+
+        if (!fs.existsSync(`../photos/${month}`)) {
+          fs.mkdir(`../photos/${month}`, {recursive: true}, err => {console.log(err)})
+        }
+        await fs.copyFile(client.config.photo_path, `../photos/${month}/${day}.png`, (err) => {
+              if (err) throw err;
+              console.log('File was copied to destination');
+            });
     });
 }
