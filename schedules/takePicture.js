@@ -41,7 +41,7 @@ module.exports.execute = async (client) => {
 		let month = date.getMonth() + 1;
 		let year = date.getFullYear();
 
-		if (date.getHours != client.config.take_photo_interval_dailyhour) return;
+		if (date.getHours() != client.config.take_photo_interval_dailyhour) return;
 
 		if (!fs.existsSync(`./photoarchive`)) fs.mkdirSync(`./photoarchive`, { recursive: true });
 
