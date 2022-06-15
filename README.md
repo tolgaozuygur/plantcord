@@ -1,6 +1,6 @@
 # Plantcord
 
-![Plantcord](https://raw.githubusercontent.com/tolgaozuygur/plantcord/main/plantcord.png)
+![Plantcord](https://raw.githubusercontent.com/tolgaozuygur/plantcord/main/.github/banner/plantcord.png)
 
 ### Plant caring system for Discord communities
 
