@@ -45,7 +45,9 @@ module.exports.execute = async (client) => {
 
 		if (!fs.existsSync(`./photoarchive`)) fs.mkdirSync(`./photoarchive`, { recursive: true });
 
-		fs.copyFile(client.config.photo_path, `./photoarchive/photo-${month}-${day}-${year}.${client.config.photo_ftype}`, (err) => {
+		var photonumber = (fs.readdirSync('./photoarchive').length + 1).toString();
+
+		fs.copyFile(client.config.photo_path, `./photoarchive/${photonumber}-photo-${month}-${day}-${year}.${client.config.photo_ftype}`, (err) => {
 			if (err) throw err;
 			console.log('File copied successfully');
 		});
