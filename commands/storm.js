@@ -14,11 +14,12 @@ module.exports.info = {
 	"fan_already_on": localization.commands.storm.fan_already_on,
 	"fan_already_on_field": localization.commands.storm.fan_already_on_field,
 	"fan_speed": localization.commands.storm.fan_speed,
-	"order": 500
+	"order": 501
 }
 
 module.exports.execute = (client, message) => {
 	if (!config.storm_role.some(role => message.member.roles.cache.has(role))) return message.reply(localization.commands.storm.non_member)
+	client.wind_counter++;
 	const embed = new MessageEmbed()
 		.setTitle(this.info.title)
 		.setColor(this.info.color)

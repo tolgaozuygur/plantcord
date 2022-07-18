@@ -30,9 +30,9 @@ module.exports.getFanState = () => {
 }
 
 
-module.exports.waterThePlant = () => {
+module.exports.waterThePlant = (pump_time) => {
 	if (port != null) {
-		port.write('wtr\n', (err) => {
+		port.write('w' + pump_time + '\n', (err) => {
 			if (err) {
 				return console.log('Error on writing to arduino port: ', err.message);
 			}

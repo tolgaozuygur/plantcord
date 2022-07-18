@@ -28,6 +28,18 @@
             "recommended_moisture" : "Recommended moisture",
             "moisture" : "Moisture"
         },
+		"rain" : {
+            "title" : "You created some rain! 💧💧",
+            "name" : "rain",
+            "desc" : "To give me two drops of water.  (For X role only)",
+            "color" : "BLUE",
+            "field" : "Soil moisture ",
+            "moisture_low" : "Can you give me some more water? My soil is too dry.",
+            "moisture_high" : "Please don't water me anymore, you can kill me.",
+            "recommended_moisture" : "Recommended moisture",
+			"non_member": "To use this function you must have youtube membership",
+            "moisture" : "Moisture"
+        },
         "wind" : {
             "title" : "You increase wind speed💨",
             "name" : "wind",

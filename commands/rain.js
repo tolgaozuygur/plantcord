@@ -3,19 +3,21 @@ const config = require('../config.json');
 const localization = require('../localization/' + config.localization_file);
 
 module.exports.info = {
-	"title": localization.commands.water.title.replace("<plant_name>", config.plant_name),
-	"name": localization.commands.water.name,
-	"desc": localization.commands.water.desc.replace("<plant_name>", config.plant_name),
-	"color": localization.commands.water.color,
-	"field": localization.commands.water.field,
-	"moisture_low": localization.commands.water.moisture_low,
-	"moisture_high": localization.commands.water.moisture_high,
-	"recommended_moisture": localization.commands.water.recommended_moisture
+	"title": localization.commands.rain.title.replace("<plant_name>", config.plant_name),
+	"name": localization.commands.rain.name,
+	"desc": localization.commands.rain.desc.replace("<plant_name>", config.plant_name),
+	"color": localization.commands.rain.color,
+	"field": localization.commands.rain.field,
+	"moisture_low": localization.commands.rain.moisture_low,
+	"moisture_high": localization.commands.rain.moisture_high,
+	"recommended_moisture": localization.commands.rain.recommended_moisture,
+	"order": 500
 }
 
 module.exports.execute = (client, message) => {
+	if (!config.rain_role.some(role => message.member.roles.cache.has(role))) return message.reply(localization.commands.rain.non_member)
 	client.water_counter++;
-	client.helpers.arduinoBridge.waterThePlant(config.water_command_pump_time);
+	client.helpers.arduinoBridge.waterThePlant(config.rain_command_pump_time);
 	const embed = new MessageEmbed()
 		.setTitle(this.info.title)
 		.setColor(this.info.color)

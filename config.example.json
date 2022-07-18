@@ -1,5 +1,6 @@
 {
   "plant_name": "PlantNameHere",
+  "plant_type": "PlantTypeHere",
   "moisture_min": 15,
   "moisture_max": 20,
   "prefix": "!",
@@ -23,11 +24,14 @@
   "take_photo_interval_dailyhour": 14,
   "arduino_port": "",
   "storm_role": ["165911303720796160", "936685978947567698"],
+  "rain_role": ["165911303720796160", "936685978947567698"],
   "emoji_happy" : "😊",
   "emoji_sad" : "🥺",
   "fan_decrease_time_interval" : 1000,
   "wind_command_increase_percentage": 10,
   "storm_command_increase_percentage": 25,
+  "water_command_pump_time": 20,
+  "rain_command_pump_time": 40,
   "fan_speed_min_value": 100,
   "fan_speed_max_value": 255,
   "fan_speed_send_arduino_time_interval" : 5000

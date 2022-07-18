@@ -28,6 +28,18 @@
             "recommended_moisture" : "Önerilen nem",
             "moisture" : "Nem"
         },
+		"rain" : {
+            "title" : "Ufak bir yağmur başladı! 💧💧",
+            "name" : "rain",
+            "desc" : "Bana iki damla su vermek için. (YT katıl üyelerine özel)",
+            "color" : "BLUE",
+            "field" : "Toprak Nemi ",
+            "moisture_low" : "Bana biraz daha su verir misin? Toprağım çok kuru.",
+            "moisture_high" : "Lütfen bana daha çok su verme. Toprağım çok nemli, beni öldürebilirsin.",
+            "recommended_moisture" : "Önerilen nem",
+			"non_member": "Bu komutu kullanmak için YouTube kanalına üye olmalısınız. Değilseniz water komutunu kullanabilirsiniz.",
+            "moisture" : "Nem"
+        },
         "wind" : {
             "title" : "Burası biraz esmeye başladı 💨",
             "name" : "wind",

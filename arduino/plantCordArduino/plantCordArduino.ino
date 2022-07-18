@@ -2,7 +2,8 @@ const int AirValue = 410;
 const int WaterValue = 188;
 const int serialSendTime = 5000;
 const int moistureSampleRate = 1200;
-const int pumpWaterTime = 50;
+const int pumpWaterTimeMin = 10;
+const int pumpWaterTimeMax = 100;
 const int pumpPin = 2;
 const int pumpPrimeButtonPin = 4;
 const int fanPin = 6;
@@ -55,8 +56,16 @@ void handlePump(){
       digitalWrite(pumpPin, LOW);
       pumpPrimeButtonState = 0;
     }
-    if(String(data) == "wtr"){
+    if(String(data[0]) == "w"){
       //water command received
+      char *p = &data[1];
+      int pumpWaterTime = atoi(p);
+      //defined min max just in case if something goes wrong. 
+      if(pumpWaterTime < pumpWaterTimeMin){
+        pumpWaterTime = pumpWaterTimeMin;
+      }else if(pumpWaterTime > pumpWaterTimeMax){
+        pumpWaterTime = pumpWaterTimeMax;
+      }    
       digitalWrite(pumpPin, HIGH);
       delay(pumpWaterTime);
       digitalWrite(pumpPin, LOW);
