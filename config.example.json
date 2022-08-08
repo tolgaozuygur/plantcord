@@ -34,5 +34,6 @@
   "rain_command_pump_time": 40,
   "fan_speed_min_value": 100,
   "fan_speed_max_value": 255,
-  "fan_speed_send_arduino_time_interval" : 5000
+  "fan_speed_send_arduino_time_interval" : 5000,
+  "dev_mode": false
 }
