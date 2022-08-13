@@ -13,8 +13,14 @@ function takePicture(client) {
 		output: client.config.photo_ftype
 	};
 	var webcam = new FSWebcam(opts);
-	webcam.capture(client.config.photo_path, function (err, data) { });
-	console.log('Took a new picture of the plant!');
+	console.log('Trying to take picture...');
+	try {
+		webcam.capture(client.config.photo_path);
+		console.log('Took picture!');
+	} catch (err) {
+		console.error('Failed to take picture.');
+		console.error(err)
+	}
 }
 
 function takePictureNonLinux(client) {
@@ -24,8 +30,13 @@ function takePictureNonLinux(client) {
 		height: client.config.photo_height,
 		output: client.config.photo_ftype
 	};
-	NodeWebcam.capture(client.config.photo_path, opts, function (err, data) { });
-	console.log('Took a new picture of the plant!');
+	try {
+		NodeWebcam.capture(client.config.photo_path, opts)
+		console.log('Took a new picture of the plant!');
+	} catch (err) {
+		console.error('Failed to take picture non-linux');
+        console.error(err)
+	}
 }
 
 module.exports.execute = async (client) => {
