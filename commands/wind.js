@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const config = require('../config.json');
+const { User } = require("../utils/schemas")
 const localization = require('../localization/' + config.localization_file);
 
 module.exports.info = {
@@ -18,6 +19,10 @@ module.exports.info = {
 
 module.exports.execute = (client, message) => {
 	client.wind_counter++;
+
+	user = message.author;
+    const userData = User.findOne({ id: user.id } || new User({ id: user.id })); 
+
 	const embed = new MessageEmbed()
 		.setTitle(this.info.title)
 		.setColor(this.info.color)
@@ -32,8 +37,15 @@ module.exports.execute = (client, message) => {
 		if (client.helpers.arduinoBridge.getMoisture() < config.moisture_min) {
 			embed.addField(this.info.field + " " + this.info.fan_speed + ": %" + client.fan_speed, this.info.moisture_low + " " + config.emoji_sad + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
 		} else if (client.helpers.arduinoBridge.getMoisture() > config.moisture_max) {
+			const amount = Math.floor(Math.random() * (100 - 10 + 1)) + 10
+			userData.wallet += amount
+			userData.save()
 			embed.addField(this.info.field + " " + this.info.fan_speed + ": %" + client.fan_speed, this.info.moisture_high + " " + config.emoji_happy + " " + this.info.recommended_moisture + ": %" + config.moisture_min + " - %" + config.moisture_max)
 		} else {
+			const amount = Math.floor(Math.random() * (100 - 10 + 1)) + 10
+			userData.wallet += amount
+			userData.save()
+			embed.addField(this.info.field1 + `${amount} 💵`)
 			embed.addField(this.info.field + " " + this.info.fan_speed + ": %" + client.fan_speed, config.emoji_happy)
 		}
 	} else {

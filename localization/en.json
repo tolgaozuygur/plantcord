@@ -2,9 +2,16 @@
     "console_logs": {
         "command_loaded": "named command has been loaded successfully!",
         "helper_loaded": "named helper has been loaded successfully!",
-        "schedule_loaded": "named schedule has been loaded successfully!"
+        "schedule_loaded": "named schedule has been loaded successfully!",
+        "database_connected": "database has been connected successfully!"
     },
     "commands" : {
+        "wallet" : {
+            "title" : "'s Wallet",
+            "name" : "wallet",
+            "desc" : "Show your wallet",
+            "color" : "YELLOW"
+        },
         "counter" : {
             "title" : "Counter",
             "name" : "counter",
@@ -22,7 +29,8 @@
             "name" : "water",
             "desc" : "To give me a drop of water",
             "color" : "BLUE",
-            "field" : "Soil moisture ",
+            "field0" : "Soil moisture ",
+            "field1" : "Earned Money: ",
             "moisture_low" : "Can you give me some more water? My soil is too dry.",
             "moisture_high" : "Please don't water me anymore, you can kill me.",
             "recommended_moisture" : "Recommended moisture",

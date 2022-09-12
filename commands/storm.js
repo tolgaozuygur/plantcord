@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const config = require('../config.json');
+const { User } = require("../utils/schemas")
 const localization = require('../localization/' + config.localization_file);
 
 module.exports.info = {
@@ -18,8 +19,20 @@ module.exports.info = {
 }
 
 module.exports.execute = (client, message) => {
-	if (!config.storm_role.some(role => message.member.roles.cache.has(role))) return message.reply(localization.commands.storm.non_member)
-	client.wind_counter++;
+	user = message.author;
+	const userData = User.findOne({ id: user.id } || new User({ id: user.id }));
+
+	if (!config.storm_role.some(role => message.member.roles.cache.has(role))){
+		if(userData.wallet >= config.storm_command_cost){
+             storm();
+			 userData.wallet -= config.storm_command_cost;
+			 userData.save();
+		}
+		else{
+			return message.reply(localization.commands.storm.non_member)
+		}
+	} 
+	function storm() {client.wind_counter++;
 	const embed = new MessageEmbed()
 		.setTitle(this.info.title)
 		.setColor(this.info.color)
@@ -43,4 +56,6 @@ module.exports.execute = (client, message) => {
 	}
 
 	message.channel.send({ embeds: [embed] });
+    }
+    storm();
 }

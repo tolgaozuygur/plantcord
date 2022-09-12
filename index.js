@@ -1,4 +1,5 @@
 const { Client, Intents, Collection } = require('discord.js');
+const mongoose = require('mongoose');
 const csv = require('csvtojson')
 const fs = require("fs");
 const client = new Client({
@@ -71,9 +72,11 @@ client.on('messageCreate', async (message) => {
 
 client.login(client.config.bot_token).then(() => {
 
-	client.schedule.forEach(f => {
-		f.execute(client);
-	})
+    mongoose.connect(client.config.mongo_url).then(() => {
+		console.log(client.localization.console_logs.database_connected);
+	}).catch((err) => {
+		console.log(err);
+	});
 
 	getCounter();
 	setInterval(() => { decreaseFanSpeed(client) }, client.config.fan_decrease_time_interval);

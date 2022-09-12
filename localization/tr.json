@@ -2,9 +2,16 @@
     "console_logs": {
         "command_loaded": "adlı komut başarıyla yüklendi!",
         "helper_loaded": "adlı yardımcı başarıyla yüklendi!",
-        "schedule_loaded": "adlı zamanlı iş başarıyla yüklendi!"
+        "schedule_loaded": "adlı zamanlı iş başarıyla yüklendi!",
+        "database_connected": "Veritabanı başarıyla bağlandı!"
     },
     "commands" : {
+        "wallet" : {
+            "title" : "'nin Cüzdan",
+            "name" : "wallet",
+            "desc" : "Cüzdanınızı görüntüleyin.",
+            "color" : "YELLOW"
+        },
         "counter" : {
             "title" : "Sayaç",
             "name" : "counter",
@@ -22,7 +29,8 @@
             "name" : "water",
             "desc" : "Bana bir damla su vermek için.",
             "color" : "BLUE",
-            "field" : "Toprak Nemi ",
+            "field0" : "Toprak Nemi ",
+            "field1" : "Kazanılan Para: ",
             "moisture_low" : "Bana biraz daha su verir misin? Toprağım çok kuru.",
             "moisture_high" : "Lütfen bana daha çok su verme. Toprağım çok nemli, beni öldürebilirsin.",
             "recommended_moisture" : "Önerilen nem",

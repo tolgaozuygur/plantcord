@@ -5,6 +5,7 @@
   "moisture_max": 20,
   "prefix": "!",
   "bot_token": "",
+  "mongo_url":"",
   "localization_file": "en.json",
   "start_date": "YYYY-MM-DD",
   "specific_channel": "no",
@@ -34,6 +35,8 @@
   "rain_command_pump_time": 40,
   "fan_speed_min_value": 100,
   "fan_speed_max_value": 255,
+  "rain_command_cost": 500,
+  "storm_command_cost": 500,
   "fan_speed_send_arduino_time_interval" : 5000,
   "dev_mode": false
 }

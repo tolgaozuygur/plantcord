@@ -5,6 +5,7 @@
     "csvtojson": "^2.0.10",
     "discord.js": "^13.2.0",
     "dotenv": "^10.0.0",
+    "mongoose": "^6.6.0",
     "node-schedule": "^2.1.0",
     "node-webcam": "^0.8.0",
     "serialport": "^10.4.0"

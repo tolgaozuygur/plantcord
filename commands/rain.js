@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const config = require('../config.json');
+const { User } = require("../utils/schemas")
 const localization = require('../localization/' + config.localization_file);
 
 module.exports.info = {
@@ -15,8 +16,20 @@ module.exports.info = {
 }
 
 module.exports.execute = (client, message) => {
-	if (!config.rain_role.some(role => message.member.roles.cache.has(role))) return message.reply(localization.commands.rain.non_member)
-	client.water_counter++;
+	user = message.author;
+	const userData = User.findOne({ id: user.id } || new User({ id: user.id }));
+
+	if (!config.rain_role.some(role => message.member.roles.cache.has(role))){
+		if(userData.wallet >= config.rain_command_cost){
+			rain();
+			userData.wallet -= config.rain_command_cost;
+			userData.save();
+	   }
+	   else{
+		   return message.reply(localization.commands.storm.non_member)
+	   }
+	}
+	function rain() {client.water_counter++;
 	client.helpers.arduinoBridge.waterThePlant(config.rain_command_pump_time);
 	const embed = new MessageEmbed()
 		.setTitle(this.info.title)
@@ -36,4 +49,6 @@ module.exports.execute = (client, message) => {
 	}
 
 	message.channel.send({ embeds: [embed] });
+    }
+	rain();
 }
