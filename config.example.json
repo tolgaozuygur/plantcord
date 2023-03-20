@@ -5,6 +5,7 @@
   "moisture_max": 20,
   "prefix": "!",
   "bot_token": "",
+  "mongo_url":"",
   "localization_file": "en.json",
   "start_date": "YYYY-MM-DD",
   "specific_channel": "no",

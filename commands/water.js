@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const config = require('../config.json');
+const User = require("../utils/user");
 const localization = require('../localization/' + config.localization_file);
 
 module.exports.info = {
@@ -14,6 +15,22 @@ module.exports.info = {
 }
 
 module.exports.execute = (client, message) => {
+	user = message.author;
+	User.findOne({ id: user.id }).then((result) => {
+        if (!result) {
+            const newUser = new User({
+                id: user.id,
+                waterCount: 0,
+                windCount: 0
+            });
+			newUser.waterCount++;
+            newUser.save();
+        }else{
+			result.waterCount++;
+			result.save();
+		}
+		
+    });
 	client.water_counter++;
 	client.helpers.arduinoBridge.waterThePlant(config.water_command_pump_time);
 	const embed = new MessageEmbed()

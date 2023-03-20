@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const config = require('../config.json');
+const User = require("../utils/user");
 const localization = require('../localization/' + config.localization_file);
 
 module.exports.info = {
@@ -17,6 +18,22 @@ module.exports.info = {
 }
 
 module.exports.execute = (client, message) => {
+	user = message.author;
+	User.findOne({ id: user.id }).then((result) => {
+        if (!result) {
+            const newUser = new User({
+                id: user.id,
+                waterCount: 0,
+                windCount: 0
+            });
+			newUser.windCount++;
+            newUser.save();
+        }else{
+			result.windCount++;
+			result.save();
+		}
+		
+    });
 	client.wind_counter++;
 	const embed = new MessageEmbed()
 		.setTitle(this.info.title)
