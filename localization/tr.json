@@ -5,6 +5,14 @@
         "schedule_loaded": "adlı zamanlı iş başarıyla yüklendi!"
     },
     "commands" : {
+        "profile" : {
+            "title" : "'nin profili",
+            "name" : "profil",
+            "desc" : "profilinizi gösterir.",
+            "color" : "YELLOW",
+            "windCount": "Wind sayısı",
+            "waterCount": "Water sayısı"
+        },
         "counter" : {
             "title" : "Sayaç",
             "name" : "counter",

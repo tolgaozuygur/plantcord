@@ -5,6 +5,14 @@
         "schedule_loaded": "named schedule has been loaded successfully!"
     },
     "commands" : {
+        "profile" : {
+            "title" : "'s profile",
+            "name" : "profile",
+            "desc" : "shows your profile.",
+            "color" : "YELLOW",
+            "windCount": "Wind count",
+            "waterCount": "Water count"
+        },
         "counter" : {
             "title" : "Counter",
             "name" : "counter",
