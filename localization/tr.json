@@ -112,6 +112,13 @@
             "field2" : "Nem Ortalamaları ",
             "time_field" : " gündür devam ediyor."
         },
+        "timelapse" : {
+            "title" : "Son 30 Gün için Timelapse",
+            "all" : "Timelapse",
+            "name" : "timelapse",
+            "desc" : "Son 30 güne ait hızlandırılmış bif GIF oluştur.",
+            "color" : "BLUE"
+        },
         "not_found": "Böyle bir komut bulunamadı!"
     }
 }
