@@ -112,6 +112,13 @@
             "field2" : "Moisture average ",
             "time_field" : " days since the beginning of experiment"
         },
+        "timelapse" : {
+            "title" : "Timelapse for The Last 30 Days",
+            "all" : "Timelapse",
+            "name" : "timelapse",
+            "desc" : "Generate an timelapse GIF for the past 30 days.",
+            "color" : "BLUE"
+        },
         "not_found": "This command does not exist"
     }
 }

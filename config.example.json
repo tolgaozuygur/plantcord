@@ -16,6 +16,8 @@
   "photo_rotation": "270",
   "photo_width": "1280",
   "photo_height": "720",
+  "gif_scale": 0.25,
+  "gif_delay_ms": 10,
   "graph_path": "./photos/graph.png",
   "graph_export_interval": 3600,
   "channel_rename_interval": 360,
